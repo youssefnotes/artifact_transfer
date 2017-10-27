@@ -9,5 +9,6 @@ function main {
 	echo "############################################################"
 	rm -fdr artifacts
 	rm -fdr config/crypto-config
+	rm -fdr logs
 }
 main
