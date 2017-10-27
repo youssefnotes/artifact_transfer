@@ -20,16 +20,16 @@ services:
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
       # enabled TLS
-      # - ORDERER_GENERAL_TLS_ENABLED=true
-      # - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
-      # - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
-      # - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: orderer
     volumes:
     - ./artifacts/orderer/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
     - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/msp:/var/hyperledger/orderer/msp
-    # - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/:/var/hyperledger/orderer/tls
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/tls/:/var/hyperledger/orderer/tls
     # HOST_PORT:CONTAINER_PORT
     ports:
       - 7050:7050
