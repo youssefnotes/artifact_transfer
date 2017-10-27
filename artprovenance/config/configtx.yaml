@@ -1,0 +1,74 @@
+Profiles:
+
+    ArtProvenanceOrdererGenesis:
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *Orderer
+        Consortiums:
+            ArtProvenance:
+                Organizations:
+                    - *EGArt
+                    - *FRArt
+
+    MainChannel:
+        Consortium: ArtProvenance
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *EGArt
+                - *FRArt
+
+Organizations:
+    - &Orderer
+        Name: OrdererMSP
+        ID: OrdererMSP
+        MSPDir: crypto-config/ordererOrganizations/art.ifar.org/msp
+
+    - &EGArt
+        Name: EGArtMSP
+        ID: EGArtMSP
+        MSPDir: crypto-config/peerOrganizations/egyptianmuseum.org/msp
+        AnchorPeers: 
+            - Host: peer0.egyptianmuseum.org
+              Port: 7051
+    - &FRArt
+        Name: FRArtMSP
+        ID: FRArtMSP
+        MSPDir: crypto-config/peerOrganizations/louvre.fr/msp
+        AnchorPeers: 
+            - Host: peer0.louvre.fr
+              Port: 7051
+
+Orderer: &OrdererDefaults
+    # available types : "solo" | "kafka"
+    OrdererType: solo
+    Addresses:
+        - orderer.art.ifar.org:7050
+    # Time to wait before creating batch
+    BatchTimeout: 2s
+    BatchSize:
+    # The number of messages to permit in a batch
+        MaxMessageCount: 10
+    # The absolute maximum number of bytes allowed in a serialized message batch
+        AbsoluteMaxBytes: 98 MB
+    # The preferred maximum number of bytes allowed for
+    # the serialized messages in a batch. A message larger than the preferred
+    # max bytes will result in a batch larger than preferred max bytes.
+        PreferredMaxBytes: 512 KB
+    # A defined list of organizations which participate on the order side of the network
+    Organizations:
+
+################################################################################
+#
+#   SECTION: Application
+#
+#   - This section defines the values to encode into a config transaction or
+#   genesis block for application related parameters
+#
+################################################################################
+Application: &ApplicationDefaults
+
+    # Organizations is the list of orgs which are defined as participants on
+    # the application side of the network
+    Organizations:
