@@ -7,21 +7,17 @@ function main {
 		# ./clean.sh
 		#Setting bin for out executables
 		# export PATH=${PWD}/../bin:${PWD}:$PATH
-		#setting CFG needed for configtx
+		#setting CFG needed for configtxgen
 
-		cd config
-		echo "Defaulting FABRIC_CFG_PATH to ${PWD}"
-	    export FABRIC_CFG_PATH=${PWD}
+		echo "################################################"
+		echo "Generating reuired crypto material for fabric CA"
+		echo "################################################"
+		./crypto.sh
 
-		# echo "################################################"
-		# echo "Generating reuired crypto material for fabric CA"
-		# echo "################################################"
-		# ./crypto.sh
-
-		echo "########################################################"
-		echo "Generating reuired crypto material using cryptogen tool"
-		echo "########################################################"
-		cryptogen generate --config=crypto-config.yaml
+		# echo "########################################################"
+		# echo "Generating reuired crypto material using cryptogen tool"
+		# echo "########################################################"
+		# cryptogen generate --config=crypto-config.yaml
 		sleep 1
 		echo "########################################################"
 		echo "========================DONE============================"
@@ -29,12 +25,15 @@ function main {
 		echo "Creating folders:"
 		echo "../artifacts ../artifacts/orderer/ ../artifacts/channels/"
 		echo "########################################################"
-		mkdir -p -v ../artifacts
-		mkdir -p -v ../artifacts/orderer
-		mkdir -p -v ../artifacts/channels
-		mkdir -p -v ../logs
+		mkdir -p -v ./artifacts
+		mkdir -p -v ./artifacts/orderer
+		mkdir -p -v ./artifacts/channels
+		mkdir -p -v ./logs
 		echo "########################################################"
 		echo "========================DONE============================"
+		cd config
+		echo "Defaulting FABRIC_CFG_PATH to ${PWD}"
+	    export FABRIC_CFG_PATH=./
 		echo "#################################"
 		echo "####Generating Genesis Block#####"
 		echo "#################################"
@@ -55,15 +54,15 @@ function main {
 		# configtxgen -profile MainChannel -outputAnchorPeersUpdate ./channels/DEArtMSPanchors.tx -channelID mainchannel -asOrg DEArtMSP
 		cd ..
 		# Todo: save output of compose as log
-		docker-compose --project-name art -f docker-compose-provenance.yaml up -d
-		sleep 10
+		docker-compose --project-name art -f docker-compose-provenance.yaml up
+		# sleep 10
 		
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -c mainchannel -f MainChannel.tx -o orderer.art.ifar.org:7050'
+		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -c mainchannel -f MainChannel.tx -o orderer.art.ifar.org:7050'
 		
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx'
-		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx'
+		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
+		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx'
+		# docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
+		# docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx'
 
 }
 
