@@ -1,397 +1,397 @@
-2017/10/29 19:05:38 [INFO] Created default configuration file at /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server-config.yaml
-2017/10/29 19:05:38 [INFO] Starting server in home directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
-2017/10/29 19:05:38 [DEBUG] CA Home Directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
-2017/10/29 19:05:38 [DEBUG] Making server filenames absolute
-2017/10/29 19:05:38 [DEBUG] Initializing default CA in directory /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
-2017/10/29 19:05:38 [DEBUG] Init CA with home /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root and config {CA:{Name: Keyfile:ca-key.pem Certfile:ca-cert.pem Chainfile:ca-chain.pem} Signing:0xc4202b3ca0 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[UbuntuServer localhost] KeyRequest:<nil> CA:0xc4202a1680 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.IntermediateCA:1 hf.Registrar.Roles:client,user,peer,validator,auditor hf.Registrar.DelegateRoles:client,user,validator,auditor hf.Revoker:1]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) TLS:{false [ldap-server-cert.pem] {ldap-client-key.pem ldap-client-cert.pem}}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [db-server-cert.pem] {db-client-key.pem db-client-cert.pem}}  } CSP:0xc4202a1040 Client:<nil> Intermediate:{ParentServer:{URL: CAName:} TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{Name: Secret: Profile: Label: CSR:<nil> CAName:}}}
-2017/10/29 19:05:38 [DEBUG] CA Home Directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
-2017/10/29 19:05:38 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc4202a6c90 Pkcs11Opts:<nil>}
-2017/10/29 19:05:38 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4202b2430 DummyKeystore:<nil>}
-2017/10/29 19:05:38 [DEBUG] Initialize key material
-2017/10/29 19:05:38 [DEBUG] Making CA filenames absolute
-2017/10/29 19:05:38 [DEBUG] Getting CA cert; parent server URL is ''
-2017/10/29 19:05:38 [DEBUG] Root CA certificate request: {CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[UbuntuServer localhost] KeyRequest:0xc4202bb260 CA:0xc4202a1680 SerialNumber:}
-2017/10/29 19:05:38 [INFO] generating key: &{A:ecdsa S:256}
-2017/10/29 19:05:38 [DEBUG] generate key from request: algo=ecdsa, size=256
-2017/10/29 19:05:39 [INFO] encoded CSR
-2017/10/29 19:05:39 [DEBUG] validating configuration
-2017/10/29 19:05:39 [DEBUG] validate local profile
-2017/10/29 19:05:39 [DEBUG] profile is valid
-2017/10/29 19:05:39 [INFO] signed certificate with serial number 367633674251645564728106422527982731612727705410
-2017/10/29 19:05:39 [INFO] The CA key and certificate were generated for CA 
-2017/10/29 19:05:39 [INFO] The key was stored by BCCSP provider 'SW'
-2017/10/29 19:05:39 [INFO] The certificate is at: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem
-2017/10/29 19:05:39 [DEBUG] Using sqlite database, connect to database in home (/home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db) directory
-2017/10/29 19:05:39 [DEBUG] Database (/home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db) does not exist
-2017/10/29 19:05:39 [DEBUG] Creating SQLite Database...
-2017/10/29 19:05:39 [DEBUG] Database location: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db
-2017/10/29 19:05:39 [DEBUG] Creating tables...
-2017/10/29 19:05:39 [DEBUG] Created users table
-2017/10/29 19:05:39 [DEBUG] Created affiliation table
-2017/10/29 19:05:39 [DEBUG] Created certificates table
-2017/10/29 19:05:39 [DEBUG] Successfully opened sqlite3 DB
-2017/10/29 19:05:39 [DEBUG] Initializing identity registry
-2017/10/29 19:05:39 [DEBUG] Initialized DB identity registry
-2017/10/29 19:05:39 [DEBUG] Loading identity table
-2017/10/29 19:05:39 [DEBUG] Loading identity 'admin'
-2017/10/29 19:05:39 [DEBUG] DB: Getting identity admin
-2017/10/29 19:05:39 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
-2017/10/29 19:05:39 [DEBUG] DB: Add identity admin
-2017/10/29 19:05:39 [DEBUG] Successfully added identity admin to the database
-2017/10/29 19:05:39 [DEBUG] Registered identity: { Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.Registrar.Roles:client,user,peer,validator,auditor hf.Registrar.DelegateRoles:client,user,validator,auditor hf.Revoker:1 hf.IntermediateCA:1]  }
-2017/10/29 19:05:39 [DEBUG] Successfully loaded identity table
-2017/10/29 19:05:39 [DEBUG] Loading affiliations table
-2017/10/29 19:05:39 [DEBUG] Adding affiliation org2
-2017/10/29 19:05:39 [DEBUG] DB: Add affiliation org2
-2017/10/29 19:05:39 [DEBUG] Adding affiliation org2.department1
-2017/10/29 19:05:39 [DEBUG] DB: Add affiliation org2.department1
-2017/10/29 19:05:39 [DEBUG] Adding affiliation org1
-2017/10/29 19:05:39 [DEBUG] DB: Add affiliation org1
-2017/10/29 19:05:39 [DEBUG] Adding affiliation org1.department1
-2017/10/29 19:05:39 [DEBUG] DB: Add affiliation org1.department1
-2017/10/29 19:05:39 [DEBUG] Adding affiliation org1.department2
-2017/10/29 19:05:39 [DEBUG] DB: Add affiliation org1.department2
-2017/10/29 19:05:39 [DEBUG] Successfully loaded affiliations table
-2017/10/29 19:05:39 [DEBUG] Successfully loaded groups table
-2017/10/29 19:05:39 [INFO] Initialized sqlite3 database
-2017/10/29 19:05:39 [DEBUG] Initializing enrollment signer
-2017/10/29 19:05:39 [DEBUG] validating configuration
-2017/10/29 19:05:39 [DEBUG] validate local profile
-2017/10/29 19:05:39 [DEBUG] profile is valid
-2017/10/29 19:05:39 [DEBUG] validate local profile
-2017/10/29 19:05:39 [DEBUG] profile is valid
-2017/10/29 19:05:39 [DEBUG] CA initialization successful
-2017/10/29 19:05:39 [INFO] Home directory for default CA: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
-2017/10/29 19:05:39 [DEBUG] 1 CA instance(s) running on server
-2017/10/29 19:05:39 [INFO] Listening on http://0.0.0.0:7104
-2017/10/29 19:05:40 [DEBUG] Received request
+2017/10/30 01:32:15 [INFO] Created default configuration file at /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server-config.yaml
+2017/10/30 01:32:15 [INFO] Starting server in home directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
+2017/10/30 01:32:15 [DEBUG] CA Home Directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
+2017/10/30 01:32:15 [DEBUG] Making server filenames absolute
+2017/10/30 01:32:15 [DEBUG] Initializing default CA in directory /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
+2017/10/30 01:32:15 [DEBUG] Init CA with home /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root and config {CA:{Name: Keyfile:ca-key.pem Certfile:ca-cert.pem Chainfile:ca-chain.pem} Signing:0xc4202b2ef0 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[UbuntuServer localhost] KeyRequest:<nil> CA:0xc4202b8100 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.Registrar.Roles:client,user,peer,validator,auditor hf.Registrar.DelegateRoles:client,user,validator,auditor hf.Revoker:1 hf.IntermediateCA:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) TLS:{false [ldap-server-cert.pem] {ldap-client-key.pem ldap-client-cert.pem}}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [db-server-cert.pem] {db-client-key.pem db-client-cert.pem}}  } CSP:0xc4202b8660 Client:<nil> Intermediate:{ParentServer:{URL: CAName:} TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{Name: Secret: Profile: Label: CSR:<nil> CAName:}}}
+2017/10/30 01:32:15 [DEBUG] CA Home Directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
+2017/10/30 01:32:15 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc4202a9200 Pkcs11Opts:<nil>}
+2017/10/30 01:32:15 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4202baa10 DummyKeystore:<nil>}
+2017/10/30 01:32:15 [DEBUG] Initialize key material
+2017/10/30 01:32:15 [DEBUG] Making CA filenames absolute
+2017/10/30 01:32:15 [DEBUG] Getting CA cert; parent server URL is ''
+2017/10/30 01:32:15 [DEBUG] Root CA certificate request: {CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[UbuntuServer localhost] KeyRequest:0xc4202b9260 CA:0xc4202b8100 SerialNumber:}
+2017/10/30 01:32:15 [INFO] generating key: &{A:ecdsa S:256}
+2017/10/30 01:32:15 [DEBUG] generate key from request: algo=ecdsa, size=256
+2017/10/30 01:32:15 [INFO] encoded CSR
+2017/10/30 01:32:15 [DEBUG] validating configuration
+2017/10/30 01:32:15 [DEBUG] validate local profile
+2017/10/30 01:32:15 [DEBUG] profile is valid
+2017/10/30 01:32:15 [INFO] signed certificate with serial number 357109791884161029286409287094495238354268839261
+2017/10/30 01:32:15 [INFO] The CA key and certificate were generated for CA 
+2017/10/30 01:32:15 [INFO] The key was stored by BCCSP provider 'SW'
+2017/10/30 01:32:15 [INFO] The certificate is at: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem
+2017/10/30 01:32:15 [DEBUG] Using sqlite database, connect to database in home (/home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db) directory
+2017/10/30 01:32:15 [DEBUG] Database (/home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db) does not exist
+2017/10/30 01:32:15 [DEBUG] Creating SQLite Database...
+2017/10/30 01:32:15 [DEBUG] Database location: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db
+2017/10/30 01:32:15 [DEBUG] Creating tables...
+2017/10/30 01:32:15 [DEBUG] Created users table
+2017/10/30 01:32:15 [DEBUG] Created affiliation table
+2017/10/30 01:32:15 [DEBUG] Created certificates table
+2017/10/30 01:32:15 [DEBUG] Successfully opened sqlite3 DB
+2017/10/30 01:32:15 [DEBUG] Initializing identity registry
+2017/10/30 01:32:15 [DEBUG] Initialized DB identity registry
+2017/10/30 01:32:15 [DEBUG] Loading identity table
+2017/10/30 01:32:15 [DEBUG] Loading identity 'admin'
+2017/10/30 01:32:15 [DEBUG] DB: Getting identity admin
+2017/10/30 01:32:15 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
+2017/10/30 01:32:15 [DEBUG] DB: Add identity admin
+2017/10/30 01:32:15 [DEBUG] Successfully added identity admin to the database
+2017/10/30 01:32:15 [DEBUG] Registered identity: { Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.Registrar.Roles:client,user,peer,validator,auditor hf.Registrar.DelegateRoles:client,user,validator,auditor hf.Revoker:1 hf.IntermediateCA:1]  }
+2017/10/30 01:32:15 [DEBUG] Successfully loaded identity table
+2017/10/30 01:32:15 [DEBUG] Loading affiliations table
+2017/10/30 01:32:15 [DEBUG] Adding affiliation org2
+2017/10/30 01:32:15 [DEBUG] DB: Add affiliation org2
+2017/10/30 01:32:15 [DEBUG] Adding affiliation org2.department1
+2017/10/30 01:32:15 [DEBUG] DB: Add affiliation org2.department1
+2017/10/30 01:32:15 [DEBUG] Adding affiliation org1
+2017/10/30 01:32:15 [DEBUG] DB: Add affiliation org1
+2017/10/30 01:32:15 [DEBUG] Adding affiliation org1.department1
+2017/10/30 01:32:15 [DEBUG] DB: Add affiliation org1.department1
+2017/10/30 01:32:15 [DEBUG] Adding affiliation org1.department2
+2017/10/30 01:32:15 [DEBUG] DB: Add affiliation org1.department2
+2017/10/30 01:32:15 [DEBUG] Successfully loaded affiliations table
+2017/10/30 01:32:15 [DEBUG] Successfully loaded groups table
+2017/10/30 01:32:15 [INFO] Initialized sqlite3 database
+2017/10/30 01:32:15 [DEBUG] Initializing enrollment signer
+2017/10/30 01:32:15 [DEBUG] validating configuration
+2017/10/30 01:32:15 [DEBUG] validate local profile
+2017/10/30 01:32:15 [DEBUG] profile is valid
+2017/10/30 01:32:15 [DEBUG] validate local profile
+2017/10/30 01:32:15 [DEBUG] profile is valid
+2017/10/30 01:32:15 [DEBUG] CA initialization successful
+2017/10/30 01:32:15 [INFO] Home directory for default CA: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
+2017/10/30 01:32:15 [DEBUG] 1 CA instance(s) running on server
+2017/10/30 01:32:15 [INFO] Listening on http://0.0.0.0:7104
+2017/10/30 01:32:16 [DEBUG] Received request
 POST /enroll
 Authorization: Basic YWRtaW46YWRtaW5wdw==
-{"hosts":["root","root"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBPzCB5wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAER/1DdjkLjJ+4g5/2\nJzVc2cMLgY5JBqAsyy52hxL78qOJ496oOGVAhmajnTSPKoAdlQJ/PQ37ZTe4HRhb\n6m+7ZqAoMCYGCSqGSIb3DQEJDjEZMBcwFQYDVR0RBA4wDIIEcm9vdIIEcm9vdDAK\nBggqhkjOPQQDAgNHADBEAiBicvRb47wep18uETdfgERWF88MnGfBAzUBQocerVwF\nUgIgFN1QQiA0ZApe3jMRw2Tl/0CTEVqnvKhNbxqIvpiAVEM=\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
-2017/10/29 19:05:40 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:40 [DEBUG] DB: Getting identity admin
-2017/10/29 19:05:40 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 0
-2017/10/29 19:05:40 [DEBUG] Successfully incremented state for identity admin to 1
-2017/10/29 19:05:40 [DEBUG] DB: identity admin successfully logged in
-2017/10/29 19:05:40 [DEBUG] Identity/Pass was correct
-2017/10/29 19:05:40 [DEBUG] Received request for endpoint enroll
-2017/10/29 19:05:40 [DEBUG] Enrollment request: {SignRequest:{Hosts:[root root] Request:-----BEGIN CERTIFICATE REQUEST-----
+{"hosts":["root","root"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBPzCB5wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAET/mdyh7QRHrau4xy\nO3XlsswawhjcC4fidXCVFmkZj9MViw68wJmRr99vdGOVgreuuz7Y8b+GMcMcNUGP\nYDO/1aAoMCYGCSqGSIb3DQEJDjEZMBcwFQYDVR0RBA4wDIIEcm9vdIIEcm9vdDAK\nBggqhkjOPQQDAgNHADBEAiBgG52Ku0JhxoXrZqwfXi7vp5dqFvV9sznBiw/tSYHa\nrgIga9GMCWQiOOXWdfAmHg7kMUeHHXtdZH+TFwkj2evOYpE=\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
+2017/10/30 01:32:16 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:16 [DEBUG] DB: Getting identity admin
+2017/10/30 01:32:16 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 0
+2017/10/30 01:32:16 [DEBUG] Successfully incremented state for identity admin to 1
+2017/10/30 01:32:16 [DEBUG] DB: identity admin successfully logged in
+2017/10/30 01:32:16 [DEBUG] Identity/Pass was correct
+2017/10/30 01:32:16 [DEBUG] Received request for endpoint enroll
+2017/10/30 01:32:16 [DEBUG] Enrollment request: {SignRequest:{Hosts:[root root] Request:-----BEGIN CERTIFICATE REQUEST-----
 MIIBPzCB5wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV
-BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAER/1DdjkLjJ+4g5/2
-JzVc2cMLgY5JBqAsyy52hxL78qOJ496oOGVAhmajnTSPKoAdlQJ/PQ37ZTe4HRhb
-6m+7ZqAoMCYGCSqGSIb3DQEJDjEZMBcwFQYDVR0RBA4wDIIEcm9vdIIEcm9vdDAK
-BggqhkjOPQQDAgNHADBEAiBicvRb47wep18uETdfgERWF88MnGfBAzUBQocerVwF
-UgIgFN1QQiA0ZApe3jMRw2Tl/0CTEVqnvKhNbxqIvpiAVEM=
+BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAET/mdyh7QRHrau4xy
+O3XlsswawhjcC4fidXCVFmkZj9MViw68wJmRr99vdGOVgreuuz7Y8b+GMcMcNUGP
+YDO/1aAoMCYGCSqGSIb3DQEJDjEZMBcwFQYDVR0RBA4wDIIEcm9vdIIEcm9vdDAK
+BggqhkjOPQQDAgNHADBEAiBgG52Ku0JhxoXrZqwfXi7vp5dqFvV9sznBiw/tSYHa
+rgIga9GMCWQiOOXWdfAmHg7kMUeHHXtdZH+TFwkj2evOYpE=
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile:tls CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/10/29 19:05:40 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
-2017/10/29 19:05:40 [DEBUG] CSR authorization check passed
-2017/10/29 19:05:40 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/10/29 19:05:40 [INFO] signed certificate with serial number 674097205104370876285890603313681248875247677789
-2017/10/29 19:05:40 [DEBUG] DB: Insert Certificate
-2017/10/29 19:05:40 [DEBUG] Saved serial number as hex 7613906943613653ee2c97ce0c7e69f02ae9b15d
-2017/10/29 19:05:40 [DEBUG] saved certificate with serial number 674097205104370876285890603313681248875247677789
-2017/10/29 19:05:40 [INFO] [::1]:60208 - "POST /enroll" 200
-2017/10/29 19:05:40 [DEBUG] Received request
+2017/10/30 01:32:16 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
+2017/10/30 01:32:16 [DEBUG] CSR authorization check passed
+2017/10/30 01:32:16 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/10/30 01:32:16 [INFO] signed certificate with serial number 391599073431997910210406339877270350628444063604
+2017/10/30 01:32:16 [DEBUG] DB: Insert Certificate
+2017/10/30 01:32:16 [DEBUG] Saved serial number as hex 4497e8e684321519f9accd86ed4046d63aaa4774
+2017/10/30 01:32:16 [DEBUG] saved certificate with serial number 391599073431997910210406339877270350628444063604
+2017/10/30 01:32:16 [INFO] [::1]:60412 - "POST /enroll" 200
+2017/10/30 01:32:16 [DEBUG] Received request
 POST /enroll
 Authorization: Basic YWRtaW46YWRtaW5wdw==
-{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBQjCB6QIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEv6F5YKtGtSI/xYnx\nZ1uCNvfYPc5ncdp4vroc0E2IlRLrDTxURMC3AV2t6/blPzVED4czJPVhA6pnuIQN\n54IWWaAqMCgGCSqGSIb3DQEJDjEbMBkwFwYDVR0RBBAwDoIMVWJ1bnR1U2VydmVy\nMAoGCCqGSM49BAMCA0gAMEUCIQCn6DtnKuGypyjeIsQgTgVKbDHPcLWqxhVLKCn2\nVSrZCAIgUXJi+uf4OcvBzMR9H6PExNA32TEJaP/Gw2JbNeEikqM=\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
-2017/10/29 19:05:40 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:40 [DEBUG] DB: Getting identity admin
-2017/10/29 19:05:40 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 1
-2017/10/29 19:05:40 [DEBUG] Successfully incremented state for identity admin to 2
-2017/10/29 19:05:40 [DEBUG] DB: identity admin successfully logged in
-2017/10/29 19:05:40 [DEBUG] Identity/Pass was correct
-2017/10/29 19:05:40 [DEBUG] Received request for endpoint enroll
-2017/10/29 19:05:40 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
-MIIBQjCB6QIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
+{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBQTCB6QIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8GdGZTVuVAwo38wW\n67daz5RjqsLKawprTHqjCKq1fWlpQYosLbdGdQCKg/IJ8Dlw0FeMbcoFX35D751y\nOIL786AqMCgGCSqGSIb3DQEJDjEbMBkwFwYDVR0RBBAwDoIMVWJ1bnR1U2VydmVy\nMAoGCCqGSM49BAMCA0cAMEQCIBUlvQ3bVI6X17Fs8vVAyF9ROwDgoWgLvvfWxI99\nOQE0AiAiKlfKgyL1Ow2wkYzsthnQWoIFYco2FLln2Z2eeaxi5w==\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+2017/10/30 01:32:16 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:16 [DEBUG] DB: Getting identity admin
+2017/10/30 01:32:16 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 1
+2017/10/30 01:32:16 [DEBUG] Successfully incremented state for identity admin to 2
+2017/10/30 01:32:16 [DEBUG] DB: identity admin successfully logged in
+2017/10/30 01:32:16 [DEBUG] Identity/Pass was correct
+2017/10/30 01:32:16 [DEBUG] Received request for endpoint enroll
+2017/10/30 01:32:16 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
+MIIBQTCB6QIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV
-BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEv6F5YKtGtSI/xYnx
-Z1uCNvfYPc5ncdp4vroc0E2IlRLrDTxURMC3AV2t6/blPzVED4czJPVhA6pnuIQN
-54IWWaAqMCgGCSqGSIb3DQEJDjEbMBkwFwYDVR0RBBAwDoIMVWJ1bnR1U2VydmVy
-MAoGCCqGSM49BAMCA0gAMEUCIQCn6DtnKuGypyjeIsQgTgVKbDHPcLWqxhVLKCn2
-VSrZCAIgUXJi+uf4OcvBzMR9H6PExNA32TEJaP/Gw2JbNeEikqM=
+BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8GdGZTVuVAwo38wW
+67daz5RjqsLKawprTHqjCKq1fWlpQYosLbdGdQCKg/IJ8Dlw0FeMbcoFX35D751y
+OIL786AqMCgGCSqGSIb3DQEJDjEbMBkwFwYDVR0RBBAwDoIMVWJ1bnR1U2VydmVy
+MAoGCCqGSM49BAMCA0cAMEQCIBUlvQ3bVI6X17Fs8vVAyF9ROwDgoWgLvvfWxI99
+OQE0AiAiKlfKgyL1Ow2wkYzsthnQWoIFYco2FLln2Z2eeaxi5w==
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/10/29 19:05:40 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
-2017/10/29 19:05:40 [DEBUG] CSR authorization check passed
-2017/10/29 19:05:40 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/10/29 19:05:40 [INFO] signed certificate with serial number 3652664984863368721480618796022337690746372025
-2017/10/29 19:05:40 [DEBUG] DB: Insert Certificate
-2017/10/29 19:05:40 [DEBUG] Saved serial number as hex a3ca89a34c4fa6f107319ee3a294541b3a3fb9
-2017/10/29 19:05:40 [DEBUG] saved certificate with serial number 3652664984863368721480618796022337690746372025
-2017/10/29 19:05:40 [INFO] [::1]:60210 - "POST /enroll" 200
-2017/10/29 19:05:40 [DEBUG] Received request
+2017/10/30 01:32:16 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
+2017/10/30 01:32:16 [DEBUG] CSR authorization check passed
+2017/10/30 01:32:16 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/10/30 01:32:16 [INFO] signed certificate with serial number 720444539556158141791653941834569774184291034239
+2017/10/30 01:32:16 [DEBUG] DB: Insert Certificate
+2017/10/30 01:32:16 [DEBUG] Saved serial number as hex 7e31d9b7d293f0671763d8f947ad6afa7bc2e47f
+2017/10/30 01:32:16 [DEBUG] saved certificate with serial number 720444539556158141791653941834569774184291034239
+2017/10/30 01:32:16 [INFO] [::1]:60414 - "POST /enroll" 200
+2017/10/30 01:32:16 [DEBUG] Received request
 POST /register
-Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNRRENDQWVhZ0F3SUJBZ0lVQUtQS2lhTk1UNmJ4QnpHZTQ2S1VWQnM2UDdrd0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRBeU9URTFNREV3TUZvWERURTRNVEF5T1RFMU1ERXdNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJMK2hlV0NyUnJVaVA4V0o4V2RiZ2piMzJEM09aM0hhZUw2NkhOQk4KaUpVUzZ3MDhWRVRBdHdGZHJldjI1VDgxUkErSE15VDFZUU9xWjdpRURlZUNGbG1qZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUVXdqNVFsY1EzR3BuM25tbHVDQ3dlCmMvU0hGREFmQmdOVkhTTUVHREFXZ0JTWGl3S2hwR1BPcjhRQXhCc1JYQ1Y1Qis1UUdqQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEU0FBd1JRSWhBTW9kMFNlWUtPcEhrV0VQNVg0YwprcC9janErbjlQNHBCeks4SnR5YmNkeVdBaUFldDd2bE1TQ3JISit0d3VicW8yZEdic3E2MlY4VndHa3YyVkpBCnVQVzNXZz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K.MEUCIQDPddyDZ2oAQrluH+JQvHihPW4E4EfAZtKbO7Ix3AQUmQIgCvenaVYfpS0c5KVr0zVpoggwvSid5zrNjBiBMBaMmtM=
+Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNRRENDQWVhZ0F3SUJBZ0lVZmpIWnQ5S1Q4R2NYWTlqNVI2MXErbnZDNUg4d0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRBeU9USXhNamN3TUZvWERURTRNVEF5T1RJeE1qY3dNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJQQm5SbVUxYmxRTUtOL01GdXUzV3MrVVk2ckN5bXNLYTB4Nm93aXEKdFgxcGFVR0tMQzIzUm5VQWlvUHlDZkE1Y05CWGpHM0tCVjkrUSsrZGNqaUMrL09qZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJTZE43ODQ1bGN3NGpnNk9iMFdESStGCmZoU2IwekFmQmdOVkhTTUVHREFXZ0JURUltUXVnVmVYTWh2R0JlUkFvWGNlRml1WldEQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEU0FBd1JRSWhBUFlnOWtHcTNEbVZocjQrVG5OUgp6V1BTbHlGcjBucHVoeXFnMll2akQydmlBaUJ4Q3c0RlJSdUVFUmZVckVZTXdpTWlvV2ZRNlQvOVE2Uy9Zc1dQCkNSdmg1QT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K.MEQCIAdekaevSRkLqJOExkmQmjtK7iKaK65JXiq19r1mHifLAiAoxCyxt586vzRa4icb5Ft7A158tYW8SROc1y8gMCJU3g==
 {"id":"nodeAdmin","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
-2017/10/29 19:05:40 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:40 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2017/10/29 19:05:40 [DEBUG] DB: Get certificate by serial (a3ca89a34c4fa6f107319ee3a294541b3a3fb9) and aki (978b02a1a463ceafc400c41b115c257907ee501a)
-2017/10/29 19:05:40 [DEBUG] Successful authentication of 'admin'
-2017/10/29 19:05:40 [DEBUG] Register request received
-2017/10/29 19:05:40 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:nodeAdmin Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
-2017/10/29 19:05:40 [DEBUG] canRegister - Check to see if user admin can register
-2017/10/29 19:05:40 [DEBUG] DB: Getting identity admin
-2017/10/29 19:05:40 [DEBUG] Validate ID
-2017/10/29 19:05:40 [DEBUG] An affiliation is required for identity type user
-2017/10/29 19:05:40 [DEBUG] Validating affiliation: org1
-2017/10/29 19:05:40 [DEBUG] DB: Get affiliation org1
-2017/10/29 19:05:40 [DEBUG] Registering user id: nodeAdmin
-2017/10/29 19:05:40 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
-2017/10/29 19:05:40 [DEBUG] DB: Getting identity nodeAdmin
-2017/10/29 19:05:40 [DEBUG] DB: Add identity nodeAdmin
-2017/10/29 19:05:40 [DEBUG] Successfully added identity nodeAdmin to the database
-2017/10/29 19:05:40 [DEBUG] Registration completed - sending response 0xc4203c60e8
-2017/10/29 19:05:40 [INFO] [::1]:60212 - "POST /register" 200
-2017/10/29 19:05:40 [DEBUG] Received request
+2017/10/30 01:32:16 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:16 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2017/10/30 01:32:16 [DEBUG] DB: Get certificate by serial (7e31d9b7d293f0671763d8f947ad6afa7bc2e47f) and aki (c422642e815797321bc605e440a1771e162b9958)
+2017/10/30 01:32:16 [DEBUG] Successful authentication of 'admin'
+2017/10/30 01:32:16 [DEBUG] Register request received
+2017/10/30 01:32:16 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:nodeAdmin Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
+2017/10/30 01:32:16 [DEBUG] canRegister - Check to see if user admin can register
+2017/10/30 01:32:16 [DEBUG] DB: Getting identity admin
+2017/10/30 01:32:16 [DEBUG] Validate ID
+2017/10/30 01:32:16 [DEBUG] An affiliation is required for identity type user
+2017/10/30 01:32:16 [DEBUG] Validating affiliation: org1
+2017/10/30 01:32:16 [DEBUG] DB: Get affiliation org1
+2017/10/30 01:32:16 [DEBUG] Registering user id: nodeAdmin
+2017/10/30 01:32:16 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
+2017/10/30 01:32:16 [DEBUG] DB: Getting identity nodeAdmin
+2017/10/30 01:32:16 [DEBUG] DB: Add identity nodeAdmin
+2017/10/30 01:32:16 [DEBUG] Successfully added identity nodeAdmin to the database
+2017/10/30 01:32:16 [DEBUG] Registration completed - sending response 0xc420164058
+2017/10/30 01:32:16 [INFO] [::1]:60416 - "POST /register" 200
+2017/10/30 01:32:17 [DEBUG] Received request
 POST /enroll
 Authorization: Basic bm9kZUFkbWluOnNlY3JldA==
-{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBRjCB7QIBADBhMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxEjAQBgNV\nBAMTCW5vZGVBZG1pbjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBo0NnPhfSIq\nRG2I35rqur0ci94px3aLyVEx4Vlv+i7Z4+Sp+RjVRh05KdHXe0pllpKFCCimEt62\nQrUVlAHj6w+gKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVidW50dVNl\ncnZlcjAKBggqhkjOPQQDAgNIADBFAiEAuWuJ5fmmIaeI8yXrU7hY74YRhwwNbbjz\nmWMSfVXdI+8CIEc6J5T2U7mL24bpJraui/CCR3cIJnSACxaee4eHZ0eH\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
-2017/10/29 19:05:40 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:40 [DEBUG] DB: Getting identity nodeAdmin
-2017/10/29 19:05:40 [DEBUG] DB: Login user nodeAdmin with max enrollments of -1 and state of 0
-2017/10/29 19:05:41 [DEBUG] Successfully incremented state for identity nodeAdmin to 1
-2017/10/29 19:05:41 [DEBUG] DB: identity nodeAdmin successfully logged in
-2017/10/29 19:05:41 [DEBUG] Identity/Pass was correct
-2017/10/29 19:05:41 [DEBUG] Received request for endpoint enroll
-2017/10/29 19:05:41 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
+{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBRjCB7QIBADBhMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxEjAQBgNV\nBAMTCW5vZGVBZG1pbjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFiF1Wk9GJAx\noHDDx0CnIo2r9+MPRI0G1tQlRdaxGp19YLWCntsIs+X5bL00npcBYk0t3RqoXbri\nIWvK2Fsl7uWgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVidW50dVNl\ncnZlcjAKBggqhkjOPQQDAgNIADBFAiEAupy3CnnoBJhZvVhp6acZJ/inyvm3Mdex\nrk31uTRZDgsCIGjO67SSWDKaD3WpfNB+7Ncyt/8MUC5jxUQ4gTQ0G3fT\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+2017/10/30 01:32:17 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:17 [DEBUG] DB: Getting identity nodeAdmin
+2017/10/30 01:32:17 [DEBUG] DB: Login user nodeAdmin with max enrollments of -1 and state of 0
+2017/10/30 01:32:17 [DEBUG] Successfully incremented state for identity nodeAdmin to 1
+2017/10/30 01:32:17 [DEBUG] DB: identity nodeAdmin successfully logged in
+2017/10/30 01:32:17 [DEBUG] Identity/Pass was correct
+2017/10/30 01:32:17 [DEBUG] Received request for endpoint enroll
+2017/10/30 01:32:17 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
 MIIBRjCB7QIBADBhMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxEjAQBgNV
-BAMTCW5vZGVBZG1pbjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBo0NnPhfSIq
-RG2I35rqur0ci94px3aLyVEx4Vlv+i7Z4+Sp+RjVRh05KdHXe0pllpKFCCimEt62
-QrUVlAHj6w+gKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVidW50dVNl
-cnZlcjAKBggqhkjOPQQDAgNIADBFAiEAuWuJ5fmmIaeI8yXrU7hY74YRhwwNbbjz
-mWMSfVXdI+8CIEc6J5T2U7mL24bpJraui/CCR3cIJnSACxaee4eHZ0eH
+BAMTCW5vZGVBZG1pbjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFiF1Wk9GJAx
+oHDDx0CnIo2r9+MPRI0G1tQlRdaxGp19YLWCntsIs+X5bL00npcBYk0t3RqoXbri
+IWvK2Fsl7uWgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVidW50dVNl
+cnZlcjAKBggqhkjOPQQDAgNIADBFAiEAupy3CnnoBJhZvVhp6acZJ/inyvm3Mdex
+rk31uTRZDgsCIGjO67SSWDKaD3WpfNB+7Ncyt/8MUC5jxUQ4gTQ0G3fT
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/10/29 19:05:41 [DEBUG] csrAuthCheck: enrollment ID=nodeAdmin, CommonName=nodeAdmin, Subject=<nil>
-2017/10/29 19:05:41 [DEBUG] CSR authorization check passed
-2017/10/29 19:05:41 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/10/29 19:05:41 [INFO] signed certificate with serial number 34516375047580979985919859807875266375013646934
-2017/10/29 19:05:41 [DEBUG] DB: Insert Certificate
-2017/10/29 19:05:41 [DEBUG] Saved serial number as hex 60bc48db2bfa944c4aa28b071377fb884a44256
-2017/10/29 19:05:41 [DEBUG] saved certificate with serial number 34516375047580979985919859807875266375013646934
-2017/10/29 19:05:41 [INFO] [::1]:60214 - "POST /enroll" 200
-2017/10/29 19:05:41 [DEBUG] Received request
+2017/10/30 01:32:17 [DEBUG] csrAuthCheck: enrollment ID=nodeAdmin, CommonName=nodeAdmin, Subject=<nil>
+2017/10/30 01:32:17 [DEBUG] CSR authorization check passed
+2017/10/30 01:32:17 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/10/30 01:32:17 [INFO] signed certificate with serial number 432458283560532954511130556342434454155572731689
+2017/10/30 01:32:17 [DEBUG] DB: Insert Certificate
+2017/10/30 01:32:17 [DEBUG] Saved serial number as hex 4bc019a13ab1abacafe7050a9cb74bfb2b32df29
+2017/10/30 01:32:17 [DEBUG] saved certificate with serial number 432458283560532954511130556342434454155572731689
+2017/10/30 01:32:17 [INFO] [::1]:60418 - "POST /enroll" 200
+2017/10/30 01:32:17 [DEBUG] Received request
 POST /register
-Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNRRENDQWVhZ0F3SUJBZ0lVQUtQS2lhTk1UNmJ4QnpHZTQ2S1VWQnM2UDdrd0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRBeU9URTFNREV3TUZvWERURTRNVEF5T1RFMU1ERXdNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJMK2hlV0NyUnJVaVA4V0o4V2RiZ2piMzJEM09aM0hhZUw2NkhOQk4KaUpVUzZ3MDhWRVRBdHdGZHJldjI1VDgxUkErSE15VDFZUU9xWjdpRURlZUNGbG1qZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUVXdqNVFsY1EzR3BuM25tbHVDQ3dlCmMvU0hGREFmQmdOVkhTTUVHREFXZ0JTWGl3S2hwR1BPcjhRQXhCc1JYQ1Y1Qis1UUdqQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEU0FBd1JRSWhBTW9kMFNlWUtPcEhrV0VQNVg0YwprcC9janErbjlQNHBCeks4SnR5YmNkeVdBaUFldDd2bE1TQ3JISit0d3VicW8yZEdic3E2MlY4VndHa3YyVkpBCnVQVzNXZz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K.MEUCIQCwJeoPzijL2K8IaqdArk9TIy2y+td9mBWTNY51g2AjhAIgcKB1P1udCFp2r0jCl9DVoZoa/6sZvhLheqf209IKtZY=
+Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNRRENDQWVhZ0F3SUJBZ0lVZmpIWnQ5S1Q4R2NYWTlqNVI2MXErbnZDNUg4d0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRBeU9USXhNamN3TUZvWERURTRNVEF5T1RJeE1qY3dNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJQQm5SbVUxYmxRTUtOL01GdXUzV3MrVVk2ckN5bXNLYTB4Nm93aXEKdFgxcGFVR0tMQzIzUm5VQWlvUHlDZkE1Y05CWGpHM0tCVjkrUSsrZGNqaUMrL09qZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJTZE43ODQ1bGN3NGpnNk9iMFdESStGCmZoU2IwekFmQmdOVkhTTUVHREFXZ0JURUltUXVnVmVYTWh2R0JlUkFvWGNlRml1WldEQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEU0FBd1JRSWhBUFlnOWtHcTNEbVZocjQrVG5OUgp6V1BTbHlGcjBucHVoeXFnMll2akQydmlBaUJ4Q3c0RlJSdUVFUmZVckVZTXdpTWlvV2ZRNlQvOVE2Uy9Zc1dQCkNSdmg1QT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K.MEUCIQDW4jvdves/NyhSTJKWCeAOCdpS9r4DmsPW+DSuV4NXpAIgfvj2DZQBcLWuxx8H8PherWWcz5ubCcDrY1+TdxC8bhs=
 {"id":"User1@louvre.fr","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
-2017/10/29 19:05:41 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:41 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2017/10/29 19:05:41 [DEBUG] DB: Get certificate by serial (a3ca89a34c4fa6f107319ee3a294541b3a3fb9) and aki (978b02a1a463ceafc400c41b115c257907ee501a)
-2017/10/29 19:05:41 [DEBUG] Successful authentication of 'admin'
-2017/10/29 19:05:41 [DEBUG] Register request received
-2017/10/29 19:05:41 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:User1@louvre.fr Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
-2017/10/29 19:05:41 [DEBUG] canRegister - Check to see if user admin can register
-2017/10/29 19:05:41 [DEBUG] DB: Getting identity admin
-2017/10/29 19:05:41 [DEBUG] Validate ID
-2017/10/29 19:05:41 [DEBUG] An affiliation is required for identity type user
-2017/10/29 19:05:41 [DEBUG] Validating affiliation: org1
-2017/10/29 19:05:41 [DEBUG] DB: Get affiliation org1
-2017/10/29 19:05:41 [DEBUG] Registering user id: User1@louvre.fr
-2017/10/29 19:05:41 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
-2017/10/29 19:05:41 [DEBUG] DB: Getting identity User1@louvre.fr
-2017/10/29 19:05:41 [DEBUG] DB: Add identity User1@louvre.fr
-2017/10/29 19:05:41 [DEBUG] Successfully added identity User1@louvre.fr to the database
-2017/10/29 19:05:41 [DEBUG] Registration completed - sending response 0xc420166068
-2017/10/29 19:05:41 [INFO] [::1]:60216 - "POST /register" 200
-2017/10/29 19:05:41 [DEBUG] Received request
+2017/10/30 01:32:17 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:17 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2017/10/30 01:32:17 [DEBUG] DB: Get certificate by serial (7e31d9b7d293f0671763d8f947ad6afa7bc2e47f) and aki (c422642e815797321bc605e440a1771e162b9958)
+2017/10/30 01:32:17 [DEBUG] Successful authentication of 'admin'
+2017/10/30 01:32:17 [DEBUG] Register request received
+2017/10/30 01:32:17 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:User1@louvre.fr Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
+2017/10/30 01:32:17 [DEBUG] canRegister - Check to see if user admin can register
+2017/10/30 01:32:17 [DEBUG] DB: Getting identity admin
+2017/10/30 01:32:17 [DEBUG] Validate ID
+2017/10/30 01:32:17 [DEBUG] An affiliation is required for identity type user
+2017/10/30 01:32:17 [DEBUG] Validating affiliation: org1
+2017/10/30 01:32:17 [DEBUG] DB: Get affiliation org1
+2017/10/30 01:32:17 [DEBUG] Registering user id: User1@louvre.fr
+2017/10/30 01:32:17 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
+2017/10/30 01:32:17 [DEBUG] DB: Getting identity User1@louvre.fr
+2017/10/30 01:32:17 [DEBUG] DB: Add identity User1@louvre.fr
+2017/10/30 01:32:17 [DEBUG] Successfully added identity User1@louvre.fr to the database
+2017/10/30 01:32:17 [DEBUG] Registration completed - sending response 0xc4201f0068
+2017/10/30 01:32:17 [INFO] [::1]:60420 - "POST /register" 200
+2017/10/30 01:32:17 [DEBUG] Received request
 POST /enroll
 Authorization: Basic VXNlcjFAbG91dnJlLmZyOnNlY3JldA==
-{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBTDCB8wIBADBnMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxGDAWBgNV\nBAMMD1VzZXIxQGxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABERG\nLqIiLc9iHXypeX/bVvcAzMT//1LeA9/oevy/YyJRw14DUHmu0N2NLQpkDjl6rJHP\n95I8NwVlAlNTwE521R+gKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi\ndW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEAvvI9eZRRJknxiA7m7BURTPrg\nkT7m3BQBcFeASCuj/+wCIAGS9BTn8muMAQ+0Ao2EPV4cx7muGnd3LnYNMCIQoFkm\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
-2017/10/29 19:05:41 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:41 [DEBUG] DB: Getting identity User1@louvre.fr
-2017/10/29 19:05:41 [DEBUG] DB: Login user User1@louvre.fr with max enrollments of -1 and state of 0
-2017/10/29 19:05:41 [DEBUG] Successfully incremented state for identity User1@louvre.fr to 1
-2017/10/29 19:05:41 [DEBUG] DB: identity User1@louvre.fr successfully logged in
-2017/10/29 19:05:41 [DEBUG] Identity/Pass was correct
-2017/10/29 19:05:41 [DEBUG] Received request for endpoint enroll
-2017/10/29 19:05:41 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
+{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBTDCB8wIBADBnMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxGDAWBgNV\nBAMMD1VzZXIxQGxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABD77\n6a4UF+L8kDDyQiExN9dj/5/NvFy72AUzMUgGLReni62WaSmoatGJvsQBzGK+n3/j\npNNuGCzSZMx6t7OK3yugKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi\ndW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEA4jYtBmEEOMoSXsR1BparsDlz\nrSgp5w0q/6k6Dd/3x1ECIHkVGsJBl/MQ2P6LnXK6L2WMOGRiWbWOKuYGleiIEv1h\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+2017/10/30 01:32:17 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:17 [DEBUG] DB: Getting identity User1@louvre.fr
+2017/10/30 01:32:17 [DEBUG] DB: Login user User1@louvre.fr with max enrollments of -1 and state of 0
+2017/10/30 01:32:17 [DEBUG] Successfully incremented state for identity User1@louvre.fr to 1
+2017/10/30 01:32:17 [DEBUG] DB: identity User1@louvre.fr successfully logged in
+2017/10/30 01:32:17 [DEBUG] Identity/Pass was correct
+2017/10/30 01:32:17 [DEBUG] Received request for endpoint enroll
+2017/10/30 01:32:17 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
 MIIBTDCB8wIBADBnMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxGDAWBgNV
-BAMMD1VzZXIxQGxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABERG
-LqIiLc9iHXypeX/bVvcAzMT//1LeA9/oevy/YyJRw14DUHmu0N2NLQpkDjl6rJHP
-95I8NwVlAlNTwE521R+gKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi
-dW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEAvvI9eZRRJknxiA7m7BURTPrg
-kT7m3BQBcFeASCuj/+wCIAGS9BTn8muMAQ+0Ao2EPV4cx7muGnd3LnYNMCIQoFkm
+BAMMD1VzZXIxQGxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABD77
+6a4UF+L8kDDyQiExN9dj/5/NvFy72AUzMUgGLReni62WaSmoatGJvsQBzGK+n3/j
+pNNuGCzSZMx6t7OK3yugKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi
+dW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEA4jYtBmEEOMoSXsR1BparsDlz
+rSgp5w0q/6k6Dd/3x1ECIHkVGsJBl/MQ2P6LnXK6L2WMOGRiWbWOKuYGleiIEv1h
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/10/29 19:05:41 [DEBUG] csrAuthCheck: enrollment ID=User1@louvre.fr, CommonName=User1@louvre.fr, Subject=<nil>
-2017/10/29 19:05:41 [DEBUG] CSR authorization check passed
-2017/10/29 19:05:41 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/10/29 19:05:41 [INFO] signed certificate with serial number 3414742203379960120316224656870362058266402698
-2017/10/29 19:05:41 [DEBUG] DB: Insert Certificate
-2017/10/29 19:05:41 [DEBUG] Saved serial number as hex 991f516c893b3bd1f74237ee95d7fb75325f8a
-2017/10/29 19:05:41 [DEBUG] saved certificate with serial number 3414742203379960120316224656870362058266402698
-2017/10/29 19:05:41 [INFO] [::1]:60218 - "POST /enroll" 200
-2017/10/29 19:05:42 [DEBUG] Received request
+2017/10/30 01:32:17 [DEBUG] csrAuthCheck: enrollment ID=User1@louvre.fr, CommonName=User1@louvre.fr, Subject=<nil>
+2017/10/30 01:32:17 [DEBUG] CSR authorization check passed
+2017/10/30 01:32:17 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/10/30 01:32:17 [INFO] signed certificate with serial number 11478537933491540713234932395439700799193803849
+2017/10/30 01:32:17 [DEBUG] DB: Insert Certificate
+2017/10/30 01:32:17 [DEBUG] Saved serial number as hex 202b7273dc59d302516add73bce5e122f32ec49
+2017/10/30 01:32:17 [DEBUG] saved certificate with serial number 11478537933491540713234932395439700799193803849
+2017/10/30 01:32:17 [INFO] [::1]:60422 - "POST /enroll" 200
+2017/10/30 01:32:17 [DEBUG] Received request
 POST /enroll
 Authorization: Basic YWRtaW46YWRtaW5wdw==
-{"hosts":["peer0.louvre.fr","peer0"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBSzCB8wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmaX6BLjQV0tJRshz\nKYUyJWKBfPinBQZew63YsxcJTxxpKh42DoZMFrKUY4fWz578/0UPLuvjcbCNOSV6\nCJSdXaA0MDIGCSqGSIb3DQEJDjElMCMwIQYDVR0RBBowGIIPcGVlcjAubG91dnJl\nLmZyggVwZWVyMDAKBggqhkjOPQQDAgNHADBEAiB4ldcthThmkVWT7b+Ntw94A+If\nDVXXVGfmElpBTXySUgIgJ0yK4kFXImJKnhtMZjVQQuNU5OU9K79GGZz42fm/1/8=\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
-2017/10/29 19:05:42 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:42 [DEBUG] DB: Getting identity admin
-2017/10/29 19:05:42 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 2
-2017/10/29 19:05:42 [DEBUG] Successfully incremented state for identity admin to 3
-2017/10/29 19:05:42 [DEBUG] DB: identity admin successfully logged in
-2017/10/29 19:05:42 [DEBUG] Identity/Pass was correct
-2017/10/29 19:05:42 [DEBUG] Received request for endpoint enroll
-2017/10/29 19:05:42 [DEBUG] Enrollment request: {SignRequest:{Hosts:[peer0.louvre.fr peer0] Request:-----BEGIN CERTIFICATE REQUEST-----
-MIIBSzCB8wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
+{"hosts":["peer0.louvre.fr","peer0"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBTDCB8wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwrostYsHoWu0NygF\ne1Itdf9KnVTj/Gplz6lMQYDi+PWCG1Zfqwilbu1EEHEsckuDS+DnjTT5mG1ShASo\nsGAQbqA0MDIGCSqGSIb3DQEJDjElMCMwIQYDVR0RBBowGIIPcGVlcjAubG91dnJl\nLmZyggVwZWVyMDAKBggqhkjOPQQDAgNIADBFAiEAvSsJStQb9Yer/8lANgmDvmO1\nVfeYN5/sBkEbsb+nei0CICOPjUvVcLnKRqJgYNfsHZw4YeDemarZLXK+eHWXuJEs\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
+2017/10/30 01:32:17 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:17 [DEBUG] DB: Getting identity admin
+2017/10/30 01:32:17 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 2
+2017/10/30 01:32:18 [DEBUG] Successfully incremented state for identity admin to 3
+2017/10/30 01:32:18 [DEBUG] DB: identity admin successfully logged in
+2017/10/30 01:32:18 [DEBUG] Identity/Pass was correct
+2017/10/30 01:32:18 [DEBUG] Received request for endpoint enroll
+2017/10/30 01:32:18 [DEBUG] Enrollment request: {SignRequest:{Hosts:[peer0.louvre.fr peer0] Request:-----BEGIN CERTIFICATE REQUEST-----
+MIIBTDCB8wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV
-BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmaX6BLjQV0tJRshz
-KYUyJWKBfPinBQZew63YsxcJTxxpKh42DoZMFrKUY4fWz578/0UPLuvjcbCNOSV6
-CJSdXaA0MDIGCSqGSIb3DQEJDjElMCMwIQYDVR0RBBowGIIPcGVlcjAubG91dnJl
-LmZyggVwZWVyMDAKBggqhkjOPQQDAgNHADBEAiB4ldcthThmkVWT7b+Ntw94A+If
-DVXXVGfmElpBTXySUgIgJ0yK4kFXImJKnhtMZjVQQuNU5OU9K79GGZz42fm/1/8=
+BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwrostYsHoWu0NygF
+e1Itdf9KnVTj/Gplz6lMQYDi+PWCG1Zfqwilbu1EEHEsckuDS+DnjTT5mG1ShASo
+sGAQbqA0MDIGCSqGSIb3DQEJDjElMCMwIQYDVR0RBBowGIIPcGVlcjAubG91dnJl
+LmZyggVwZWVyMDAKBggqhkjOPQQDAgNIADBFAiEAvSsJStQb9Yer/8lANgmDvmO1
+VfeYN5/sBkEbsb+nei0CICOPjUvVcLnKRqJgYNfsHZw4YeDemarZLXK+eHWXuJEs
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile:tls CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/10/29 19:05:42 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
-2017/10/29 19:05:42 [DEBUG] CSR authorization check passed
-2017/10/29 19:05:42 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/10/29 19:05:42 [INFO] signed certificate with serial number 190694335525614128911954924367590896779320525385
-2017/10/29 19:05:42 [DEBUG] DB: Insert Certificate
-2017/10/29 19:05:42 [DEBUG] Saved serial number as hex 2167079d5c44b0fca6346b49bf33fded8a2e8249
-2017/10/29 19:05:42 [DEBUG] saved certificate with serial number 190694335525614128911954924367590896779320525385
-2017/10/29 19:05:42 [INFO] [::1]:60220 - "POST /enroll" 200
-2017/10/29 19:05:42 [DEBUG] Received request
+2017/10/30 01:32:18 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
+2017/10/30 01:32:18 [DEBUG] CSR authorization check passed
+2017/10/30 01:32:18 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/10/30 01:32:18 [INFO] signed certificate with serial number 277387058327148364200494436270005176797130335136
+2017/10/30 01:32:18 [DEBUG] DB: Insert Certificate
+2017/10/30 01:32:18 [DEBUG] Saved serial number as hex 30967744230e61336116902721f62a2ba3ff23a0
+2017/10/30 01:32:18 [DEBUG] saved certificate with serial number 277387058327148364200494436270005176797130335136
+2017/10/30 01:32:18 [INFO] [::1]:60424 - "POST /enroll" 200
+2017/10/30 01:32:18 [DEBUG] Received request
 POST /register
-Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNRRENDQWVhZ0F3SUJBZ0lVQUtQS2lhTk1UNmJ4QnpHZTQ2S1VWQnM2UDdrd0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRBeU9URTFNREV3TUZvWERURTRNVEF5T1RFMU1ERXdNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJMK2hlV0NyUnJVaVA4V0o4V2RiZ2piMzJEM09aM0hhZUw2NkhOQk4KaUpVUzZ3MDhWRVRBdHdGZHJldjI1VDgxUkErSE15VDFZUU9xWjdpRURlZUNGbG1qZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUVXdqNVFsY1EzR3BuM25tbHVDQ3dlCmMvU0hGREFmQmdOVkhTTUVHREFXZ0JTWGl3S2hwR1BPcjhRQXhCc1JYQ1Y1Qis1UUdqQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEU0FBd1JRSWhBTW9kMFNlWUtPcEhrV0VQNVg0YwprcC9janErbjlQNHBCeks4SnR5YmNkeVdBaUFldDd2bE1TQ3JISit0d3VicW8yZEdic3E2MlY4VndHa3YyVkpBCnVQVzNXZz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K.MEQCIFwbccdCEjnRolrK09tegOFhtXJyzUGe6+w8LIh6rB1iAiAZjT1WyMlJBTgYEs0QWHDbgRIGOH2Xd3dGfbZS3+O+0A==
+Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNRRENDQWVhZ0F3SUJBZ0lVZmpIWnQ5S1Q4R2NYWTlqNVI2MXErbnZDNUg4d0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRBeU9USXhNamN3TUZvWERURTRNVEF5T1RJeE1qY3dNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJQQm5SbVUxYmxRTUtOL01GdXUzV3MrVVk2ckN5bXNLYTB4Nm93aXEKdFgxcGFVR0tMQzIzUm5VQWlvUHlDZkE1Y05CWGpHM0tCVjkrUSsrZGNqaUMrL09qZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJTZE43ODQ1bGN3NGpnNk9iMFdESStGCmZoU2IwekFmQmdOVkhTTUVHREFXZ0JURUltUXVnVmVYTWh2R0JlUkFvWGNlRml1WldEQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEU0FBd1JRSWhBUFlnOWtHcTNEbVZocjQrVG5OUgp6V1BTbHlGcjBucHVoeXFnMll2akQydmlBaUJ4Q3c0RlJSdUVFUmZVckVZTXdpTWlvV2ZRNlQvOVE2Uy9Zc1dQCkNSdmg1QT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K.MEUCIQC5D3s578dMqdUFi0acCzXltTwmoR+N6rp38CL1jpd1gAIgH9ji2amp4PDqj7Tm42XOonPn3JBsbeydLS/cjdW4RIk=
 {"id":"peer0.louvre.fr","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
-2017/10/29 19:05:42 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:42 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2017/10/29 19:05:42 [DEBUG] DB: Get certificate by serial (a3ca89a34c4fa6f107319ee3a294541b3a3fb9) and aki (978b02a1a463ceafc400c41b115c257907ee501a)
-2017/10/29 19:05:42 [DEBUG] Successful authentication of 'admin'
-2017/10/29 19:05:42 [DEBUG] Register request received
-2017/10/29 19:05:42 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:peer0.louvre.fr Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
-2017/10/29 19:05:42 [DEBUG] canRegister - Check to see if user admin can register
-2017/10/29 19:05:42 [DEBUG] DB: Getting identity admin
-2017/10/29 19:05:42 [DEBUG] Validate ID
-2017/10/29 19:05:42 [DEBUG] An affiliation is required for identity type user
-2017/10/29 19:05:42 [DEBUG] Validating affiliation: org1
-2017/10/29 19:05:42 [DEBUG] DB: Get affiliation org1
-2017/10/29 19:05:42 [DEBUG] Registering user id: peer0.louvre.fr
-2017/10/29 19:05:42 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
-2017/10/29 19:05:42 [DEBUG] DB: Getting identity peer0.louvre.fr
-2017/10/29 19:05:42 [DEBUG] DB: Add identity peer0.louvre.fr
-2017/10/29 19:05:42 [DEBUG] Successfully added identity peer0.louvre.fr to the database
-2017/10/29 19:05:42 [DEBUG] Registration completed - sending response 0xc4203c60b0
-2017/10/29 19:05:42 [INFO] [::1]:60222 - "POST /register" 200
-2017/10/29 19:05:42 [DEBUG] Received request
+2017/10/30 01:32:18 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:18 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2017/10/30 01:32:18 [DEBUG] DB: Get certificate by serial (7e31d9b7d293f0671763d8f947ad6afa7bc2e47f) and aki (c422642e815797321bc605e440a1771e162b9958)
+2017/10/30 01:32:18 [DEBUG] Successful authentication of 'admin'
+2017/10/30 01:32:18 [DEBUG] Register request received
+2017/10/30 01:32:18 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:peer0.louvre.fr Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
+2017/10/30 01:32:18 [DEBUG] canRegister - Check to see if user admin can register
+2017/10/30 01:32:18 [DEBUG] DB: Getting identity admin
+2017/10/30 01:32:18 [DEBUG] Validate ID
+2017/10/30 01:32:18 [DEBUG] An affiliation is required for identity type user
+2017/10/30 01:32:18 [DEBUG] Validating affiliation: org1
+2017/10/30 01:32:18 [DEBUG] DB: Get affiliation org1
+2017/10/30 01:32:18 [DEBUG] Registering user id: peer0.louvre.fr
+2017/10/30 01:32:18 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
+2017/10/30 01:32:18 [DEBUG] DB: Getting identity peer0.louvre.fr
+2017/10/30 01:32:18 [DEBUG] DB: Add identity peer0.louvre.fr
+2017/10/30 01:32:18 [DEBUG] Successfully added identity peer0.louvre.fr to the database
+2017/10/30 01:32:18 [DEBUG] Registration completed - sending response 0xc42000e1b0
+2017/10/30 01:32:18 [INFO] [::1]:60426 - "POST /register" 200
+2017/10/30 01:32:18 [DEBUG] Received request
 POST /enroll
 Authorization: Basic cGVlcjAubG91dnJlLmZyOnNlY3JldA==
-{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBSzCB8wIBADBnMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxGDAWBgNV\nBAMTD3BlZXIwLmxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABPxt\n7J8WVfOfhNOlhLvoE/wzGAIIAcs5AheoDfepXm3drNw3gMb1TYvoAza19mx7V/kt\n2i9omgEwYMqtb4QypT2gKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi\ndW50dVNlcnZlcjAKBggqhkjOPQQDAgNHADBEAiADARDTPAlS/PLhrolN/ISOPhQM\nlZOF3IGbnckSnAfHTwIgf2/AkmUQIXSXYJEyv759ALOy50DOxPKzoneTlcYfgXA=\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
-2017/10/29 19:05:42 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:42 [DEBUG] DB: Getting identity peer0.louvre.fr
-2017/10/29 19:05:42 [DEBUG] DB: Login user peer0.louvre.fr with max enrollments of -1 and state of 0
-2017/10/29 19:05:42 [DEBUG] Successfully incremented state for identity peer0.louvre.fr to 1
-2017/10/29 19:05:42 [DEBUG] DB: identity peer0.louvre.fr successfully logged in
-2017/10/29 19:05:42 [DEBUG] Identity/Pass was correct
-2017/10/29 19:05:42 [DEBUG] Received request for endpoint enroll
-2017/10/29 19:05:42 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
-MIIBSzCB8wIBADBnMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
-bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxGDAWBgNV
-BAMTD3BlZXIwLmxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABPxt
-7J8WVfOfhNOlhLvoE/wzGAIIAcs5AheoDfepXm3drNw3gMb1TYvoAza19mx7V/kt
-2i9omgEwYMqtb4QypT2gKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi
-dW50dVNlcnZlcjAKBggqhkjOPQQDAgNHADBEAiADARDTPAlS/PLhrolN/ISOPhQM
-lZOF3IGbnckSnAfHTwIgf2/AkmUQIXSXYJEyv759ALOy50DOxPKzoneTlcYfgXA=
------END CERTIFICATE REQUEST-----
- Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/10/29 19:05:42 [DEBUG] csrAuthCheck: enrollment ID=peer0.louvre.fr, CommonName=peer0.louvre.fr, Subject=<nil>
-2017/10/29 19:05:42 [DEBUG] CSR authorization check passed
-2017/10/29 19:05:42 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/10/29 19:05:42 [INFO] signed certificate with serial number 51227969219950507504841193410512508862441071796
-2017/10/29 19:05:42 [DEBUG] DB: Insert Certificate
-2017/10/29 19:05:42 [DEBUG] Saved serial number as hex 8f9243f0e2d07f5ecfa73d9ec64a9c6a7d224b4
-2017/10/29 19:05:42 [DEBUG] saved certificate with serial number 51227969219950507504841193410512508862441071796
-2017/10/29 19:05:42 [INFO] [::1]:60224 - "POST /enroll" 200
-2017/10/29 19:05:42 [DEBUG] Received request
-POST /enroll
-Authorization: Basic YWRtaW46YWRtaW5wdw==
-{"hosts":["peer1.louvre.fr","peer1"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBSzCB8wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEdLIp33HfKW9mENRh\nAiQm1n8XVXkyJH6GoUWzMgGeWmyDDgvS6ugpDdiWnkADtyb5Or9I0Cl45YueoMwU\n4Jw8JqA0MDIGCSqGSIb3DQEJDjElMCMwIQYDVR0RBBowGIIPcGVlcjEubG91dnJl\nLmZyggVwZWVyMTAKBggqhkjOPQQDAgNHADBEAiBJwSTKYNGk0D8n/rdhzjHWVztT\nsQjKyHNdHbF+XIEFewIgZVwWqj4RMHothZ1fHdHfIIKJirSP6Rjz6clfVzGdWTU=\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
-2017/10/29 19:05:42 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:42 [DEBUG] DB: Getting identity admin
-2017/10/29 19:05:42 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 3
-2017/10/29 19:05:43 [DEBUG] Successfully incremented state for identity admin to 4
-2017/10/29 19:05:43 [DEBUG] DB: identity admin successfully logged in
-2017/10/29 19:05:43 [DEBUG] Identity/Pass was correct
-2017/10/29 19:05:43 [DEBUG] Received request for endpoint enroll
-2017/10/29 19:05:43 [DEBUG] Enrollment request: {SignRequest:{Hosts:[peer1.louvre.fr peer1] Request:-----BEGIN CERTIFICATE REQUEST-----
-MIIBSzCB8wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
-bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV
-BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEdLIp33HfKW9mENRh
-AiQm1n8XVXkyJH6GoUWzMgGeWmyDDgvS6ugpDdiWnkADtyb5Or9I0Cl45YueoMwU
-4Jw8JqA0MDIGCSqGSIb3DQEJDjElMCMwIQYDVR0RBBowGIIPcGVlcjEubG91dnJl
-LmZyggVwZWVyMTAKBggqhkjOPQQDAgNHADBEAiBJwSTKYNGk0D8n/rdhzjHWVztT
-sQjKyHNdHbF+XIEFewIgZVwWqj4RMHothZ1fHdHfIIKJirSP6Rjz6clfVzGdWTU=
------END CERTIFICATE REQUEST-----
- Subject:<nil> Profile:tls CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/10/29 19:05:43 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
-2017/10/29 19:05:43 [DEBUG] CSR authorization check passed
-2017/10/29 19:05:43 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/10/29 19:05:43 [INFO] signed certificate with serial number 613437097400210490896099056321153392480734851300
-2017/10/29 19:05:43 [DEBUG] DB: Insert Certificate
-2017/10/29 19:05:43 [DEBUG] Saved serial number as hex 6b73788672697a37115feb5f5a93d9575fceb0e4
-2017/10/29 19:05:43 [DEBUG] saved certificate with serial number 613437097400210490896099056321153392480734851300
-2017/10/29 19:05:43 [INFO] [::1]:60226 - "POST /enroll" 200
-2017/10/29 19:05:43 [DEBUG] Received request
-POST /register
-Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNRRENDQWVhZ0F3SUJBZ0lVQUtQS2lhTk1UNmJ4QnpHZTQ2S1VWQnM2UDdrd0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRBeU9URTFNREV3TUZvWERURTRNVEF5T1RFMU1ERXdNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJMK2hlV0NyUnJVaVA4V0o4V2RiZ2piMzJEM09aM0hhZUw2NkhOQk4KaUpVUzZ3MDhWRVRBdHdGZHJldjI1VDgxUkErSE15VDFZUU9xWjdpRURlZUNGbG1qZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUVXdqNVFsY1EzR3BuM25tbHVDQ3dlCmMvU0hGREFmQmdOVkhTTUVHREFXZ0JTWGl3S2hwR1BPcjhRQXhCc1JYQ1Y1Qis1UUdqQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEU0FBd1JRSWhBTW9kMFNlWUtPcEhrV0VQNVg0YwprcC9janErbjlQNHBCeks4SnR5YmNkeVdBaUFldDd2bE1TQ3JISit0d3VicW8yZEdic3E2MlY4VndHa3YyVkpBCnVQVzNXZz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K.MEQCIDviYZQ+8FThSry1hyNyI9GjTuL65C/BCubxjv7khMUvAiA2VTrvylCneogrNJ1AsBdCN58+5RaAUzKJNfBxOsgH7Q==
-{"id":"peer1.louvre.fr","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
-2017/10/29 19:05:43 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:43 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2017/10/29 19:05:43 [DEBUG] DB: Get certificate by serial (a3ca89a34c4fa6f107319ee3a294541b3a3fb9) and aki (978b02a1a463ceafc400c41b115c257907ee501a)
-2017/10/29 19:05:43 [DEBUG] Successful authentication of 'admin'
-2017/10/29 19:05:43 [DEBUG] Register request received
-2017/10/29 19:05:43 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:peer1.louvre.fr Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
-2017/10/29 19:05:43 [DEBUG] canRegister - Check to see if user admin can register
-2017/10/29 19:05:43 [DEBUG] DB: Getting identity admin
-2017/10/29 19:05:43 [DEBUG] Validate ID
-2017/10/29 19:05:43 [DEBUG] An affiliation is required for identity type user
-2017/10/29 19:05:43 [DEBUG] Validating affiliation: org1
-2017/10/29 19:05:43 [DEBUG] DB: Get affiliation org1
-2017/10/29 19:05:43 [DEBUG] Registering user id: peer1.louvre.fr
-2017/10/29 19:05:43 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
-2017/10/29 19:05:43 [DEBUG] DB: Getting identity peer1.louvre.fr
-2017/10/29 19:05:43 [DEBUG] DB: Add identity peer1.louvre.fr
-2017/10/29 19:05:43 [DEBUG] Successfully added identity peer1.louvre.fr to the database
-2017/10/29 19:05:43 [DEBUG] Registration completed - sending response 0xc42000e160
-2017/10/29 19:05:43 [INFO] [::1]:60228 - "POST /register" 200
-2017/10/29 19:05:43 [DEBUG] Received request
-POST /enroll
-Authorization: Basic cGVlcjEubG91dnJlLmZyOnNlY3JldA==
-{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBTDCB8wIBADBnMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxGDAWBgNV\nBAMTD3BlZXIxLmxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABL0S\nTJPa15TfH6JRtlYGdH/7O12RTtWCT15x1VCYaqDujNPZiEE9kMo9MSh3YemN4IkR\ngjXlEIlbAkouX5Cs/qigKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi\ndW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEAwHrAqr0EPP9UkgiRmx8PzD7D\nUbbASHlxf310Pk7y1u4CIHW2A3PEqBVXsIgQIHacwGd8CxMpfth0pHVxXg/Vr77v\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
-2017/10/29 19:05:43 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:43 [DEBUG] DB: Getting identity peer1.louvre.fr
-2017/10/29 19:05:43 [DEBUG] DB: Login user peer1.louvre.fr with max enrollments of -1 and state of 0
-2017/10/29 19:05:43 [DEBUG] Successfully incremented state for identity peer1.louvre.fr to 1
-2017/10/29 19:05:43 [DEBUG] DB: identity peer1.louvre.fr successfully logged in
-2017/10/29 19:05:43 [DEBUG] Identity/Pass was correct
-2017/10/29 19:05:43 [DEBUG] Received request for endpoint enroll
-2017/10/29 19:05:43 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
+{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBTDCB8wIBADBnMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxGDAWBgNV\nBAMTD3BlZXIwLmxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABD4Z\nsJEWJwSWjtBxtQk5xWdTfayCGD2q2Dib5YjPP0qBhSVJr7RnirmwviwoNiP/K/F/\nf9RXFJb8atZ7gKtvPYigKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi\ndW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEAoPRpF39i9/jeP5R9XKRdMlr1\n7d1NbTBBd7pV26/FrcgCIE5Tfc7k+CpBM20RE2v2LlIk+HcIaJtGHNdTDkwFdOIp\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+2017/10/30 01:32:18 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:18 [DEBUG] DB: Getting identity peer0.louvre.fr
+2017/10/30 01:32:18 [DEBUG] DB: Login user peer0.louvre.fr with max enrollments of -1 and state of 0
+2017/10/30 01:32:18 [DEBUG] Successfully incremented state for identity peer0.louvre.fr to 1
+2017/10/30 01:32:18 [DEBUG] DB: identity peer0.louvre.fr successfully logged in
+2017/10/30 01:32:18 [DEBUG] Identity/Pass was correct
+2017/10/30 01:32:18 [DEBUG] Received request for endpoint enroll
+2017/10/30 01:32:18 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
 MIIBTDCB8wIBADBnMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxGDAWBgNV
-BAMTD3BlZXIxLmxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABL0S
-TJPa15TfH6JRtlYGdH/7O12RTtWCT15x1VCYaqDujNPZiEE9kMo9MSh3YemN4IkR
-gjXlEIlbAkouX5Cs/qigKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi
-dW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEAwHrAqr0EPP9UkgiRmx8PzD7D
-UbbASHlxf310Pk7y1u4CIHW2A3PEqBVXsIgQIHacwGd8CxMpfth0pHVxXg/Vr77v
+BAMTD3BlZXIwLmxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABD4Z
+sJEWJwSWjtBxtQk5xWdTfayCGD2q2Dib5YjPP0qBhSVJr7RnirmwviwoNiP/K/F/
+f9RXFJb8atZ7gKtvPYigKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi
+dW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEAoPRpF39i9/jeP5R9XKRdMlr1
+7d1NbTBBd7pV26/FrcgCIE5Tfc7k+CpBM20RE2v2LlIk+HcIaJtGHNdTDkwFdOIp
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/10/29 19:05:43 [DEBUG] csrAuthCheck: enrollment ID=peer1.louvre.fr, CommonName=peer1.louvre.fr, Subject=<nil>
-2017/10/29 19:05:43 [DEBUG] CSR authorization check passed
-2017/10/29 19:05:43 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/10/29 19:05:43 [INFO] signed certificate with serial number 80203679654702304732045197435640351710221015542
-2017/10/29 19:05:43 [DEBUG] DB: Insert Certificate
-2017/10/29 19:05:43 [DEBUG] Saved serial number as hex e0c7516df873fba85c2f6faa4199ceb481599f6
-2017/10/29 19:05:43 [DEBUG] saved certificate with serial number 80203679654702304732045197435640351710221015542
-2017/10/29 19:05:43 [INFO] [::1]:60230 - "POST /enroll" 200
-2017/10/29 19:05:43 [DEBUG] Received request
+2017/10/30 01:32:18 [DEBUG] csrAuthCheck: enrollment ID=peer0.louvre.fr, CommonName=peer0.louvre.fr, Subject=<nil>
+2017/10/30 01:32:18 [DEBUG] CSR authorization check passed
+2017/10/30 01:32:18 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/10/30 01:32:18 [INFO] signed certificate with serial number 285565544421525920861483472855986329076124163484
+2017/10/30 01:32:18 [DEBUG] DB: Insert Certificate
+2017/10/30 01:32:18 [DEBUG] Saved serial number as hex 320533aea47a03bf29e9eb5ebb5a1bbf37011d9c
+2017/10/30 01:32:18 [DEBUG] saved certificate with serial number 285565544421525920861483472855986329076124163484
+2017/10/30 01:32:18 [INFO] [::1]:60428 - "POST /enroll" 200
+2017/10/30 01:32:18 [DEBUG] Received request
+POST /enroll
+Authorization: Basic YWRtaW46YWRtaW5wdw==
+{"hosts":["peer1.louvre.fr","peer1"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBTDCB8wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEtpswXeCrasbaHs82\nXJoxQnPJ4M7eQUuLRABVOCC/IfxuYBtAuOigzDogWKWkGmmzepoVRpU2iRH29lup\naSlakqA0MDIGCSqGSIb3DQEJDjElMCMwIQYDVR0RBBowGIIPcGVlcjEubG91dnJl\nLmZyggVwZWVyMTAKBggqhkjOPQQDAgNIADBFAiEA7SGQHXo3LNvug/44xOfcWXkF\nq8XCkbIfubrM/iy4/TUCIG96+FRJDLZk4GAAlkmlEFZSmHoFU8U4nFpUI630cb/R\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
+2017/10/30 01:32:18 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:18 [DEBUG] DB: Getting identity admin
+2017/10/30 01:32:18 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 3
+2017/10/30 01:32:19 [DEBUG] Successfully incremented state for identity admin to 4
+2017/10/30 01:32:19 [DEBUG] DB: identity admin successfully logged in
+2017/10/30 01:32:19 [DEBUG] Identity/Pass was correct
+2017/10/30 01:32:19 [DEBUG] Received request for endpoint enroll
+2017/10/30 01:32:19 [DEBUG] Enrollment request: {SignRequest:{Hosts:[peer1.louvre.fr peer1] Request:-----BEGIN CERTIFICATE REQUEST-----
+MIIBTDCB8wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
+bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV
+BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEtpswXeCrasbaHs82
+XJoxQnPJ4M7eQUuLRABVOCC/IfxuYBtAuOigzDogWKWkGmmzepoVRpU2iRH29lup
+aSlakqA0MDIGCSqGSIb3DQEJDjElMCMwIQYDVR0RBBowGIIPcGVlcjEubG91dnJl
+LmZyggVwZWVyMTAKBggqhkjOPQQDAgNIADBFAiEA7SGQHXo3LNvug/44xOfcWXkF
+q8XCkbIfubrM/iy4/TUCIG96+FRJDLZk4GAAlkmlEFZSmHoFU8U4nFpUI630cb/R
+-----END CERTIFICATE REQUEST-----
+ Subject:<nil> Profile:tls CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
+2017/10/30 01:32:19 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
+2017/10/30 01:32:19 [DEBUG] CSR authorization check passed
+2017/10/30 01:32:19 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/10/30 01:32:19 [INFO] signed certificate with serial number 612652876170981077012190819082171768430672743992
+2017/10/30 01:32:19 [DEBUG] DB: Insert Certificate
+2017/10/30 01:32:19 [DEBUG] Saved serial number as hex 6b504e1b6291c4967279ddb3c4a60aacbbc80e38
+2017/10/30 01:32:19 [DEBUG] saved certificate with serial number 612652876170981077012190819082171768430672743992
+2017/10/30 01:32:19 [INFO] [::1]:60430 - "POST /enroll" 200
+2017/10/30 01:32:19 [DEBUG] Received request
+POST /register
+Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNRRENDQWVhZ0F3SUJBZ0lVZmpIWnQ5S1Q4R2NYWTlqNVI2MXErbnZDNUg4d0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRBeU9USXhNamN3TUZvWERURTRNVEF5T1RJeE1qY3dNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJQQm5SbVUxYmxRTUtOL01GdXUzV3MrVVk2ckN5bXNLYTB4Nm93aXEKdFgxcGFVR0tMQzIzUm5VQWlvUHlDZkE1Y05CWGpHM0tCVjkrUSsrZGNqaUMrL09qZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJTZE43ODQ1bGN3NGpnNk9iMFdESStGCmZoU2IwekFmQmdOVkhTTUVHREFXZ0JURUltUXVnVmVYTWh2R0JlUkFvWGNlRml1WldEQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEU0FBd1JRSWhBUFlnOWtHcTNEbVZocjQrVG5OUgp6V1BTbHlGcjBucHVoeXFnMll2akQydmlBaUJ4Q3c0RlJSdUVFUmZVckVZTXdpTWlvV2ZRNlQvOVE2Uy9Zc1dQCkNSdmg1QT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K.MEUCIQD+oSQr05pFiugrRoOXLTB+NiEjOxpJGumEfjW6WBwpEAIgbsJQjg3If+SaBZfhVv573x7VSHTnj9nQZXT1Ra4y0Qs=
+{"id":"peer1.louvre.fr","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
+2017/10/30 01:32:19 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:19 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2017/10/30 01:32:19 [DEBUG] DB: Get certificate by serial (7e31d9b7d293f0671763d8f947ad6afa7bc2e47f) and aki (c422642e815797321bc605e440a1771e162b9958)
+2017/10/30 01:32:19 [DEBUG] Successful authentication of 'admin'
+2017/10/30 01:32:19 [DEBUG] Register request received
+2017/10/30 01:32:19 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:peer1.louvre.fr Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
+2017/10/30 01:32:19 [DEBUG] canRegister - Check to see if user admin can register
+2017/10/30 01:32:19 [DEBUG] DB: Getting identity admin
+2017/10/30 01:32:19 [DEBUG] Validate ID
+2017/10/30 01:32:19 [DEBUG] An affiliation is required for identity type user
+2017/10/30 01:32:19 [DEBUG] Validating affiliation: org1
+2017/10/30 01:32:19 [DEBUG] DB: Get affiliation org1
+2017/10/30 01:32:19 [DEBUG] Registering user id: peer1.louvre.fr
+2017/10/30 01:32:19 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
+2017/10/30 01:32:19 [DEBUG] DB: Getting identity peer1.louvre.fr
+2017/10/30 01:32:19 [DEBUG] DB: Add identity peer1.louvre.fr
+2017/10/30 01:32:19 [DEBUG] Successfully added identity peer1.louvre.fr to the database
+2017/10/30 01:32:19 [DEBUG] Registration completed - sending response 0xc4201641e0
+2017/10/30 01:32:19 [INFO] [::1]:60432 - "POST /register" 200
+2017/10/30 01:32:19 [DEBUG] Received request
+POST /enroll
+Authorization: Basic cGVlcjEubG91dnJlLmZyOnNlY3JldA==
+{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBTDCB8wIBADBnMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxGDAWBgNV\nBAMTD3BlZXIxLmxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABD4z\ng2qwJJldf+qoyRxoL6RrGDiZ8hQkhua4MNj3v27sSou1/lQExRNCcq7lE7eLP0iC\n8bV6YdXp9WvVzmpojcWgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi\ndW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEA7GfYcoDR3M4JglFAV9VM94DG\nJ/qFg/5J7nzs7eQODH0CIEwf9S4bF4FVDjTD02fonrdBmC5+3R51mVzCoXZHxuuH\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+2017/10/30 01:32:19 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:19 [DEBUG] DB: Getting identity peer1.louvre.fr
+2017/10/30 01:32:19 [DEBUG] DB: Login user peer1.louvre.fr with max enrollments of -1 and state of 0
+2017/10/30 01:32:19 [DEBUG] Successfully incremented state for identity peer1.louvre.fr to 1
+2017/10/30 01:32:19 [DEBUG] DB: identity peer1.louvre.fr successfully logged in
+2017/10/30 01:32:19 [DEBUG] Identity/Pass was correct
+2017/10/30 01:32:19 [DEBUG] Received request for endpoint enroll
+2017/10/30 01:32:19 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
+MIIBTDCB8wIBADBnMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
+bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxGDAWBgNV
+BAMTD3BlZXIxLmxvdXZyZS5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABD4z
+g2qwJJldf+qoyRxoL6RrGDiZ8hQkhua4MNj3v27sSou1/lQExRNCcq7lE7eLP0iC
+8bV6YdXp9WvVzmpojcWgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVi
+dW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEA7GfYcoDR3M4JglFAV9VM94DG
+J/qFg/5J7nzs7eQODH0CIEwf9S4bF4FVDjTD02fonrdBmC5+3R51mVzCoXZHxuuH
+-----END CERTIFICATE REQUEST-----
+ Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
+2017/10/30 01:32:19 [DEBUG] csrAuthCheck: enrollment ID=peer1.louvre.fr, CommonName=peer1.louvre.fr, Subject=<nil>
+2017/10/30 01:32:19 [DEBUG] CSR authorization check passed
+2017/10/30 01:32:19 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/10/30 01:32:19 [INFO] signed certificate with serial number 318170895595692224187088749420743665822668179750
+2017/10/30 01:32:19 [DEBUG] DB: Insert Certificate
+2017/10/30 01:32:19 [DEBUG] Saved serial number as hex 37bb46c1ec08dae2385cac636b2dd8a7f1ec4926
+2017/10/30 01:32:19 [DEBUG] saved certificate with serial number 318170895595692224187088749420743665822668179750
+2017/10/30 01:32:19 [INFO] [::1]:60434 - "POST /enroll" 200
+2017/10/30 01:32:19 [DEBUG] Received request
 POST /cainfo
 Authorization: Basic YWRtaW46YWRtaW5wdw==
 {}
-2017/10/29 19:05:43 [DEBUG] Directing traffic to default CA
-2017/10/29 19:05:43 [DEBUG] Received request for server info
-2017/10/29 19:05:43 [INFO] [::1]:60232 - "POST /cainfo" 200
+2017/10/30 01:32:19 [DEBUG] Directing traffic to default CA
+2017/10/30 01:32:19 [DEBUG] Received request for server info
+2017/10/30 01:32:19 [INFO] [::1]:60436 - "POST /cainfo" 200

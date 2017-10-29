@@ -155,9 +155,9 @@ services:
       - CORE_PEER_ID=cli0.egyptianmuseum.org
       - CORE_PEER_ADDRESS=peer0.egyptianmuseum.org:7051
       - CORE_PEER_LOCALMSPID=EGArtMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/users/Admin@egyptianmuseum.org/msp
     volumes:
-      - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/:/etc/hyperledger/crypto/peer
+      - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/:/etc/hyperledger/crypto/peer
     depends_on:
       - orderer.art.ifar.org
       - peer0.egyptianmuseum.org
