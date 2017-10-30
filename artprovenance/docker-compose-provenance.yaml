@@ -23,13 +23,15 @@ services:
       - ORDERER_GENERAL_TLS_ENABLED=true
       - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer/tls/server.key
       - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer/tls/server.crt
-      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer/tls/ca.crt, /var/hyperledger/crypto/peer0.egyptianmuseum/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer/tls/ca.crt, /var/hyperledger/crypto/peer0.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/peer0.louvre/tls/ca.crt, /var/hyperledger/crypto/peer0.bauhaus/tls/ca.crt]
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     volumes:
     - ./artifacts/orderer/:/var/hyperledger/orderer
     - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
     - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/var/hyperledger/crypto/peer0.egyptianmuseum
+    - ./config/crypto-config/peerOrganizations/louvre.fr/ca/root/:/var/hyperledger/crypto/peer0.louvre
+    - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/peer0.bauhaus
     # HOST_PORT:CONTAINER_PORT
     ports:
       - 7050:7050
@@ -49,8 +51,7 @@ services:
       # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.egyptianmuseum.org:7051
       # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.egyptianmuseum.org:7051
     volumes:
-      - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/:/etc/hyperledger/crypto/peer
-      # - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/tls/:/etc/hyperledger/crypto/peer/tls
+      - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/:/var/hyperledger/crypto/peer
     ports:
          - 7051:7051
          - 7053:7053
@@ -82,27 +83,26 @@ services:
   #   networks:
   #     - provenance 
 
-  # peer0.louvre.fr:
-  #   container_name: peer0.louvre.fr
-  #   extends:
-  #     file: ./config/peer.yaml
-  #     service: peer
-  #   environment:
-  #     - CORE_PEER_ID=peer0.louvre.fr
-  #     - CORE_PEER_ADDRESS=peer0.louvre.fr:7051
-  #     - CORE_PEER_LOCALMSPID=FRArtMSP
-  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.louvre.fr:7051
-  #     - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.louvre.fr:7051
-  #   volumes:
-  #     - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer0.louvre.fr/msp:/etc/hyperledger/msp
-  #     - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer0.louvre.fr/tls:/etc/hyperledger/fabric/tls
-  #   ports:
-  #        - 9051:7051
-  #        - 9053:7053
-  #   depends_on:
-  #     - orderer.art.ifar.org
-  #   networks:
-  #     - provenance
+  peer0.louvre.fr:
+    container_name: peer0.louvre.fr
+    extends:
+      file: ./config/peer.yaml
+      service: peer
+    environment:
+      - CORE_PEER_ID=peer0.louvre.fr
+      - CORE_PEER_LOCALMSPID=FRArtMSP
+      - CORE_PEER_ADDRESS=peer0.louvre.fr:7051
+      # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.louvre.fr:7051
+      # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.louvre.fr:7051
+    volumes:
+      - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer0.louvre.fr/:/var/hyperledger/crypto/peer
+    ports:
+         - 9051:7051
+         - 9053:7053
+    depends_on:
+      - orderer.art.ifar.org
+    networks:
+      - provenance
 
   # peer1.louvre.fr:
   #   container_name: peer1.louvre.fr
@@ -126,25 +126,26 @@ services:
   #   networks:
   #     - provenance
 
-  # # peer0.bauhaus.de:
-  # #   container_name: peer0.bauhaus.de
-  # #   extends:
-  # #     file: ./peer.yaml
-  # #     service: peer
-  # #   environment:
-  # #     - CORE_PEER_ID=peer0.bauhaus.de
-  # #     - CORE_PEER_ADDRESS=peer0.bauhaus.de:7051
-  # #     - CORE_PEER_LOCALMSPID=DEArtMSP
-  # #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.bauhaus.de:7051
-  # #   volumes:
-  # #     - ./crypto-config/peerOrganizations/bauhaus.de/peers/peer0.bauhaus.de/msp:/etc/hyperledger/msp/peer
-  # #   ports:
-  # #        - 10051:7051
-  # #        - 10053:7053
-  # #   depends_on:
-  # #     - orderer.art.ifar.org
-  # #   networks:
-  # #     - provenance
+  peer0.bauhaus.de:
+    container_name: peer0.bauhaus.de
+    extends:
+      file: ./config/peer.yaml
+      service: peer
+    environment:
+      - CORE_PEER_ID=peer0.bauhaus.de
+      - CORE_PEER_ADDRESS=peer0.bauhaus.de:7051
+      - CORE_PEER_LOCALMSPID=DEArtMSP
+      # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.bauhaus.de:7051
+      # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.bauhaus.de:7051
+    volumes:
+      - ./config/crypto-config/peerOrganizations/bauhaus.de/peers/peer0.bauhaus.de/:/var/hyperledger/crypto/peer
+    ports:
+         - 10051:7051
+         - 10053:7053
+    depends_on:
+      - orderer.art.ifar.org
+    networks:
+      - provenance
 
   cli0.egyptianmuseum.org:
     extends:
@@ -155,9 +156,11 @@ services:
       - CORE_PEER_ID=cli0.egyptianmuseum.org
       - CORE_PEER_ADDRESS=peer0.egyptianmuseum.org:7051
       - CORE_PEER_LOCALMSPID=EGArtMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/users/Admin@egyptianmuseum.org/msp
+      - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@egyptianmuseum.org/msp
     volumes:
-      - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/:/etc/hyperledger/crypto/peer
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+      - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/:/var/hyperledger/crypto/peer
+      - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
       - orderer.art.ifar.org
       - peer0.egyptianmuseum.org
@@ -182,23 +185,25 @@ services:
   #   networks:
   #     - provenance
 
-  # cli0.louvre.fr:
-  #   extends:
-  #     file: ./config/cli.yaml
-  #     service: cli
-  #   container_name: cli0.louvre.fr
-  #   environment:
-  #     - CORE_PEER_ID=cli0.louvre.fr
-  #     - CORE_PEER_ADDRESS=peer0.louvre.fr:7051
-  #     - CORE_PEER_LOCALMSPID=FRArtMSP
-  #     - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@louvre.fr/msp
-  #   volumes:
-  #     - ./config/crypto-config/peerOrganizations/louvre.fr:/etc/hyperledger/msp
-  #   depends_on:
-  #     - orderer.art.ifar.org
-  #     - peer0.louvre.fr
-  #   networks:
-  #     - provenance
+  cli0.louvre.fr:
+    extends:
+      file: ./config/cli.yaml
+      service: cli
+    container_name: cli0.louvre.fr
+    environment:
+      - CORE_PEER_ID=cli0.louvre.fr
+      - CORE_PEER_ADDRESS=peer0.louvre.fr:7051
+      - CORE_PEER_LOCALMSPID=FRArtMSP
+      - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@louvre.fr/msp
+    volumes:
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+      - ./config/crypto-config/peerOrganizations/louvre.fr/:/var/hyperledger/crypto/peer
+      - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer0.louvre.fr/tls/:/var/hyperledger/crypto/peer/tls
+    depends_on:
+      - orderer.art.ifar.org
+      - peer0.louvre.fr
+    networks:
+      - provenance
 
   # cli1.louvre.fr:
   #   extends:
@@ -218,23 +223,25 @@ services:
   #   networks:
   #     - provenance
 
-  # cli.bauhaus.de:
-  #   extends:
-  #     file: ./cli.yaml
-  #     service: cli
-  #   container_name: cli.bauhaus.de
-  #   environment:
-  #     - CORE_PEER_ID=cli.bauhaus.de
-  #     - CORE_PEER_ADDRESS=peer0.bauhaus.de:7051
-  #     - CORE_PEER_LOCALMSPID=DEArtMSP
-  #     - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@bauhaus.de/msp
-  #   volumes:
-  #     - ./crypto-config/peerOrganizations/bauhaus.de:/etc/hyperledger/msp
-  #   depends_on:
-  #     - orderer.art.ifar.org
-  #     - peer0.bauhaus.de
-  #   networks:
-  #     - provenance
+  cli0.bauhaus.de:
+    extends:
+      file: ./config/cli.yaml
+      service: cli
+    container_name: cli0.bauhaus.de
+    environment:
+      - CORE_PEER_ID=cli0.bauhaus.de
+      - CORE_PEER_ADDRESS=peer0.bauhaus.de:7051
+      - CORE_PEER_LOCALMSPID=DEArtMSP
+      - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@bauhaus.de/msp
+    volumes:
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+      - ./config/crypto-config/peerOrganizations/bauhaus.de/:/var/hyperledger/crypto/peer
+      - ./config/crypto-config/peerOrganizations/bauhaus.de/peers/peer0.bauhaus.de/tls/:/var/hyperledger/crypto/peer/tls
+    depends_on:
+      - orderer.art.ifar.org
+      - peer0.bauhaus.de
+    networks:
+      - provenance
 
   # ca.louvre:
   #   image: hyperledger/fabric-ca

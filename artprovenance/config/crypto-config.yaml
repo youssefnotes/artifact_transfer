@@ -64,3 +64,10 @@ PeerOrgs:
       Count: 2
     Users:
       Count: 1
+
+  - Name: DEArt
+    Domain: bauhaus.de
+    Template:
+      Count: 2
+    Users:
+      Count: 1

@@ -50,11 +50,11 @@ function main {
 		configtxgen -profile MainChannel -outputAnchorPeersUpdate ../artifacts/channels/EGArtMSPanchors.tx -channelID mainchannel -asOrg EGArtMSP
 		echo "updating anchrpeer for FRArt"
 		configtxgen -profile MainChannel -outputAnchorPeersUpdate ../artifacts/channels/FRArtMSPanchors.tx -channelID mainchannel -asOrg FRArtMSP
-		# echo "updating anchrpeer for DEArt"
-		# configtxgen -profile MainChannel -outputAnchorPeersUpdate ./channels/DEArtMSPanchors.tx -channelID mainchannel -asOrg DEArtMSP
+		echo "updating anchrpeer for DEArt"
+		configtxgen -profile MainChannel -outputAnchorPeersUpdate ../artifacts/channels/DEArtMSPanchors.tx -channelID mainchannel -asOrg DEArtMSP
 		cd ..
 		# Todo: save output of compose as log
-		docker-compose --project-name art -f docker-compose-provenance.yaml up
+		docker-compose --project-name art -f docker-compose-provenance.yaml up | grep error
 		# sleep 10
 		
 		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -c mainchannel -f MainChannel.tx -o orderer.art.ifar.org:7050'
