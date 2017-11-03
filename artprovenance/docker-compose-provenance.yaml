@@ -133,8 +133,9 @@ services:
       service: peer
     environment:
       - CORE_PEER_ID=peer0.bauhaus.de
-      - CORE_PEER_ADDRESS=peer0.bauhaus.de:7051
       - CORE_PEER_LOCALMSPID=DEArtMSP
+      - CORE_PEER_ADDRESS=peer0.bauhaus.de:7051
+
       # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.bauhaus.de:7051
       # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.bauhaus.de:7051
     volumes:

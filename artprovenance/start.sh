@@ -4,7 +4,7 @@ function main {
 
 	
 		# Todo: save output of compose as log
-		docker-compose --project-name art -f docker-compose-provenance.yaml up | grep error
+		docker-compose --project-name art -f docker-compose-provenance.yaml start
 		# sleep 10
 		
 		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -c mainchannel -f MainChannel.tx -o orderer.art.ifar.org:7050'
