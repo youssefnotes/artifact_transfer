@@ -21,13 +21,25 @@ function withoutTLS {
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -o orderer.art.ifar.org:7050 -c mainchannel -f MainChannel.tx'
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx'
+		docker exec cli1.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
+		docker exec cli1.egyptianmuseum.org bash -c 'peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
+		docker exec cli1.egyptianmuseum.org bash -c 'peer chaincode instantiate -n artmanager -v 0 -c '{"Args":[""]}' -C mainchannel'
+
 		echo "########louvre peer"
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx'
+		docker exec cli1.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
+		docker exec cli1.louvre.fr bash -c 'peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
+
 		echo "########bauhaus peer"
 		docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx'
-}
+		docker exec cli0.bauhaus.de bash -c 'peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
+
+
+
+}		
+
 
 function main {
 
@@ -83,7 +95,7 @@ function main {
 		configtxgen -profile MainChannel -outputAnchorPeersUpdate ../artifacts/channels/DEArtMSPanchors.tx -channelID mainchannel -asOrg DEArtMSP
 		cd ..
 		# Todo: save output of compose as log
-		docker-compose --project-name art -f docker-compose-provenance.yaml up
+		docker-compose --project-name art -f docker-compose-provenance.yaml up -d
 		# execute setup steps with TLS
 		# withTLS
 		withoutTLS
