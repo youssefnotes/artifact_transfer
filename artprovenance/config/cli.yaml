@@ -8,12 +8,12 @@ services:
       - GOPATH=/opt/gopath
       - CORE_LOGGING_LEVEL=DEBUG
 
-      - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_CERT_FILE=/var/hyperledger/crypto/peer/tls/server.crt
-      - CORE_PEER_TLS_KEY_FILE=/var/hyperledger/crypto/peer/tls/server.key
-      - CORE_PEER_TLS_ROOTCERT_FILE=/var/hyperledger/crypto/peer/tls/ca.crt
+      # - CORE_PEER_TLS_ENABLED=true
+      # - CORE_PEER_TLS_CERT_FILE=/var/hyperledger/crypto/peer/tls/server.crt
+      # - CORE_PEER_TLS_KEY_FILE=/var/hyperledger/crypto/peer/tls/server.key
+      # - CORE_PEER_TLS_ROOTCERT_FILE=/var/hyperledger/crypto/peer/tls/ca.crt
 
-      - ORDERER_CA=/var/hyperledger/crypto/orderer/msp/tlscacerts/tlsca.art.ifar.org-cert.pem
+      # - ORDERER_CA=/var/hyperledger/crypto/orderer/msp/tlscacerts/tlsca.art.ifar.org-cert.pem
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     volumes:
       - ../artifacts/orderer/:/opt/gopath/src/github.com/hyperledger/fabric/peer/orderer
