@@ -57,12 +57,12 @@ function main {
 		docker-compose --project-name art -f docker-compose-provenance.yaml up | grep error
 		# sleep 10
 		
-		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -c mainchannel -f MainChannel.tx -o orderer.art.ifar.org:7050'
+		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -o orderer.art.ifar.org:7050 -c mainchannel -f MainChannel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
 		
-		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
-		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx'
-		# docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
-		# docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx'
+		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
+		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
+		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
+		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
 
 }
 
