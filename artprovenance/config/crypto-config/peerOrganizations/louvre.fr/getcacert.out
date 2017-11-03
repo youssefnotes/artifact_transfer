@@ -1,3 +1,0 @@
-2017/11/03 20:51:14 [INFO] User provided config file: config/crypto-config/peerOrganizations/louvre.fr/fabric-ca-client-config.yaml
-2017/11/03 20:51:14 [INFO] Configuration file location: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/fabric-ca-client-config.yaml
-2017/11/03 20:51:14 [INFO] Stored CA root certificate at /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/msp/cacerts/localhost-7104.pem

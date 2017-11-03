@@ -20,10 +20,10 @@ services:
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/crypto/orderer/msp
       # to enable TLS
-      # - ORDERER_GENERAL_TLS_ENABLED=true
-      # - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer/tls/server.key
-      # - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer/tls/server.crt
-      # - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer/tls/ca.crt, /var/hyperledger/crypto/peer0.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/peer0.louvre/tls/ca.crt, /var/hyperledger/crypto/peer0.bauhaus/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer/tls/ca.crt, /var/hyperledger/crypto/peer0.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/peer0.louvre/tls/ca.crt, /var/hyperledger/crypto/peer0.bauhaus/tls/ca.crt]
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     volumes:
@@ -31,9 +31,9 @@ services:
     - ./artifacts/orderer/:/var/hyperledger/orderer
     #mapping for orderer crypto material
     - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
-    # - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/var/hyperledger/crypto/peer0.egyptianmuseum
-    # - ./config/crypto-config/peerOrganizations/louvre.fr/ca/root/:/var/hyperledger/crypto/peer0.louvre
-    # - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/peer0.bauhaus
+    - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/var/hyperledger/crypto/peer0.egyptianmuseum
+    - ./config/crypto-config/peerOrganizations/louvre.fr/ca/root/:/var/hyperledger/crypto/peer0.louvre
+    - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/peer0.bauhaus
     # HOST_PORT:CONTAINER_PORT
     ports:
       - 7050:7050
@@ -161,9 +161,9 @@ services:
       - CORE_PEER_ADDRESS=peer0.egyptianmuseum.org:7051
       - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@egyptianmuseum.org/msp
     volumes:
-      # - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
       - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/:/var/hyperledger/crypto/peer
-      # - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/tls/:/var/hyperledger/crypto/peer/tls
+      - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
       - orderer.art.ifar.org
       - peer0.egyptianmuseum.org
@@ -181,7 +181,9 @@ services:
       - CORE_PEER_ADDRESS=peer1.egyptianmuseum.org:7051
       - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@egyptianmuseum.org/msp
     volumes:
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
       - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/:/var/hyperledger/crypto/peer
+      - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer1.egyptianmuseum.org/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
       - orderer.art.ifar.org
       - peer1.egyptianmuseum.org
@@ -199,9 +201,9 @@ services:
       - CORE_PEER_ADDRESS=peer0.louvre.fr:7051
       - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@louvre.fr/msp
     volumes:
-      # - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
       - ./config/crypto-config/peerOrganizations/louvre.fr/:/var/hyperledger/crypto/peer
-      # - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer0.louvre.fr/tls/:/var/hyperledger/crypto/peer/tls
+      - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer0.louvre.fr/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
       - orderer.art.ifar.org
       - peer0.louvre.fr
@@ -219,7 +221,9 @@ services:
       - CORE_PEER_ADDRESS=peer1.louvre.fr:7051
       - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@louvre.fr/msp
     volumes:
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
       - ./config/crypto-config/peerOrganizations/louvre.fr/:/var/hyperledger/crypto/peer
+      - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer1.louvre.fr/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
       - orderer.art.ifar.org
       - peer1.louvre.fr
@@ -237,9 +241,9 @@ services:
       - CORE_PEER_LOCALMSPID=DEArtMSP
       - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@bauhaus.de/msp
     volumes:
-      # - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
       - ./config/crypto-config/peerOrganizations/bauhaus.de/:/var/hyperledger/crypto/peer
-      # - ./config/crypto-config/peerOrganizations/bauhaus.de/peers/peer0.bauhaus.de/tls/:/var/hyperledger/crypto/peer/tls
+      - ./config/crypto-config/peerOrganizations/bauhaus.de/peers/peer0.bauhaus.de/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
       - orderer.art.ifar.org
       - peer0.bauhaus.de

@@ -15,14 +15,12 @@ services:
       - CORE_PEER_ADDRESSAUTODETECT=true
       - CORE_PEER_GOSSIP_USELEADERELECTION=true
       - CORE_PEER_GOSSIP_ORGLEADER=false
-      # - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
-
       - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/msp
-
-      # - CORE_PEER_TLS_ENABLED=true
-      # - CORE_PEER_TLS_CERT_FILE=/var/hyperledger/crypto/peer/tls/server.crt
-      # - CORE_PEER_TLS_KEY_FILE=/var/hyperledger/crypto/peer/tls/server.key
-      # - CORE_PEER_TLS_ROOTCERT_FILE=/var/hyperledger/crypto/peer/tls/ca.crt
+      - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/var/hyperledger/crypto/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/var/hyperledger/crypto/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/var/hyperledger/crypto/peer/tls/ca.crt
 
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
