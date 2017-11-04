@@ -54,12 +54,12 @@ function main {
 		# export PATH=${PWD}/../bin:${PWD}:$PATH
 		#setting CFG needed for configtxgen
 
-		# echo "################################################"
-		# echo "Generating reuired crypto material for fabric CA"
-		# echo "################################################"
-		# ./crypto.sh
+		echo "################################################"
+		echo "Generating reuired crypto material for fabric CA"
+		echo "################################################"
+		./crypto.sh
 		# cd config
-		# sleep 1
+		sleep 1
 		echo "########################################################"
 		echo "========================DONE============================"
 		echo "########################################################"
@@ -73,10 +73,10 @@ function main {
 		echo "########################################################"
 		echo "========================DONE============================"
 		cd config
-		echo "########################################################"
-		echo "Generating reuired crypto material using cryptogen tool"
-		echo "########################################################"
-		cryptogen generate --config=crypto-config.yaml
+		# echo "########################################################"
+		# echo "Generating reuired crypto material using cryptogen tool"
+		# echo "########################################################"
+		# cryptogen generate --config=crypto-config.yaml
 		echo "Defaulting FABRIC_CFG_PATH to ${PWD}"
 	    export FABRIC_CFG_PATH=./
 		echo "#################################"

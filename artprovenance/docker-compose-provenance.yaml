@@ -50,6 +50,7 @@ services:
       - CORE_PEER_ID=peer0.egyptianmuseum.org
       - CORE_PEER_LOCALMSPID=EGArtMSP
       - CORE_PEER_ADDRESS=peer0.egyptianmuseum.org:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer0.egyptianmuseum.org:7052
       # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.egyptianmuseum.org:7051
       # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.egyptianmuseum.org:7051
     volumes:
@@ -72,6 +73,7 @@ services:
       - CORE_PEER_ID=peer1.egyptianmuseum.org
       - CORE_PEER_LOCALMSPID=EGArtMSP
       - CORE_PEER_ADDRESS=peer1.egyptianmuseum.org:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer1.egyptianmuseum.org:7052
       # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.egyptianmuseum.org:7051
       # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.egyptianmuseum.org:7051
     volumes:
@@ -94,6 +96,7 @@ services:
       - CORE_PEER_ID=peer0.louvre.fr
       - CORE_PEER_LOCALMSPID=FRArtMSP
       - CORE_PEER_ADDRESS=peer0.louvre.fr:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer0.louvre.fr:7052
       # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.louvre.fr:7051
       # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.louvre.fr:7051
     volumes:
@@ -114,8 +117,9 @@ services:
       service: peer
     environment:
       - CORE_PEER_ID=peer1.louvre.fr
-      - CORE_PEER_ADDRESS=peer1.louvre.fr:7051
       - CORE_PEER_LOCALMSPID=FRArtMSP
+      - CORE_PEER_ADDRESS=peer1.louvre.fr:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer1.louvre.fr:7052
       # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.louvre.fr:7051
       # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.louvre.fr:7051
     volumes:
@@ -137,6 +141,7 @@ services:
       - CORE_PEER_ID=peer0.bauhaus.de
       - CORE_PEER_LOCALMSPID=DEArtMSP
       - CORE_PEER_ADDRESS=peer0.bauhaus.de:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer0.bauhaus.de:7052
       # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.bauhaus.de:7051
       # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.bauhaus.de:7051
     volumes:
