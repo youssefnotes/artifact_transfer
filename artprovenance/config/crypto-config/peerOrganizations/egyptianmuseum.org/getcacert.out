@@ -1,3 +1,3 @@
-2017/11/10 14:42:32 [INFO] User provided config file: config/crypto-config/peerOrganizations/egyptianmuseum.org/fabric-ca-client-config.yaml
-2017/11/10 14:42:32 [INFO] Configuration file location: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/fabric-ca-client-config.yaml
-2017/11/10 14:42:32 [INFO] Stored CA root certificate at /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/msp/cacerts/localhost-7102.pem
+2017/11/10 17:29:37 [INFO] User provided config file: config/crypto-config/peerOrganizations/egyptianmuseum.org/fabric-ca-client-config.yaml
+2017/11/10 17:29:37 [INFO] Configuration file location: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/fabric-ca-client-config.yaml
+2017/11/10 17:29:37 [INFO] Stored CA root certificate at /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/msp/cacerts/localhost-7102.pem

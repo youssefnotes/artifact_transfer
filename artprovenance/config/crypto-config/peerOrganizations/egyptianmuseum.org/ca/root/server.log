@@ -1,402 +1,402 @@
-2017/11/10 14:42:27 [INFO] Created default configuration file at /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/fabric-ca-server-config.yaml
-2017/11/10 14:42:27 [INFO] Starting server in home directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root
-2017/11/10 14:42:27 [DEBUG] CA Home Directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root
-2017/11/10 14:42:27 [DEBUG] Making server filenames absolute
-2017/11/10 14:42:27 [DEBUG] Initializing default CA in directory /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root
-2017/11/10 14:42:27 [DEBUG] Init CA with home /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root and config {CA:{Name: Keyfile:ca-key.pem Certfile:ca-cert.pem Chainfile:ca-chain.pem} Signing:0xc4202c7850 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[UbuntuServer localhost] KeyRequest:<nil> CA:0xc4202b5800 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.Registrar.DelegateRoles:client,user,validator,auditor hf.Revoker:1 hf.IntermediateCA:1 hf.Registrar.Roles:client,user,peer,validator,auditor]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) TLS:{false [ldap-server-cert.pem] {ldap-client-key.pem ldap-client-cert.pem}}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [db-server-cert.pem] {db-client-key.pem db-client-cert.pem}}  } CSP:0xc4202b5300 Client:<nil> Intermediate:{ParentServer:{URL: CAName:} TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{Name: Secret: Profile: Label: CSR:<nil> CAName:}}}
-2017/11/10 14:42:27 [DEBUG] CA Home Directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root
-2017/11/10 14:42:27 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc4202b8d50 Pkcs11Opts:<nil>}
-2017/11/10 14:42:27 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4202c6910 DummyKeystore:<nil>}
-2017/11/10 14:42:27 [DEBUG] Initialize key material
-2017/11/10 14:42:27 [DEBUG] Making CA filenames absolute
-2017/11/10 14:42:27 [DEBUG] Getting CA cert; parent server URL is ''
-2017/11/10 14:42:27 [DEBUG] Root CA certificate request: {CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[UbuntuServer localhost] KeyRequest:0xc4202cd260 CA:0xc4202b5800 SerialNumber:}
-2017/11/10 14:42:27 [INFO] generating key: &{A:ecdsa S:256}
-2017/11/10 14:42:27 [DEBUG] generate key from request: algo=ecdsa, size=256
-2017/11/10 14:42:27 [INFO] encoded CSR
-2017/11/10 14:42:27 [DEBUG] validating configuration
-2017/11/10 14:42:27 [DEBUG] validate local profile
-2017/11/10 14:42:27 [DEBUG] profile is valid
-2017/11/10 14:42:27 [INFO] signed certificate with serial number 518440105742472606515482333476983573278811107118
-2017/11/10 14:42:27 [INFO] The CA key and certificate were generated for CA 
-2017/11/10 14:42:27 [INFO] The key was stored by BCCSP provider 'SW'
-2017/11/10 14:42:27 [INFO] The certificate is at: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/ca-cert.pem
-2017/11/10 14:42:27 [DEBUG] Using sqlite database, connect to database in home (/home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/fabric-ca-server.db) directory
-2017/11/10 14:42:27 [DEBUG] Database (/home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/fabric-ca-server.db) does not exist
-2017/11/10 14:42:27 [DEBUG] Creating SQLite Database...
-2017/11/10 14:42:27 [DEBUG] Database location: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/fabric-ca-server.db
-2017/11/10 14:42:27 [DEBUG] Creating tables...
-2017/11/10 14:42:27 [DEBUG] Created users table
-2017/11/10 14:42:28 [DEBUG] Created affiliation table
-2017/11/10 14:42:28 [DEBUG] Created certificates table
-2017/11/10 14:42:28 [DEBUG] Successfully opened sqlite3 DB
-2017/11/10 14:42:28 [DEBUG] Initializing identity registry
-2017/11/10 14:42:28 [DEBUG] Initialized DB identity registry
-2017/11/10 14:42:28 [DEBUG] Loading identity table
-2017/11/10 14:42:28 [DEBUG] Loading identity 'admin'
-2017/11/10 14:42:28 [DEBUG] DB: Getting identity admin
-2017/11/10 14:42:28 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
-2017/11/10 14:42:28 [DEBUG] DB: Add identity admin
-2017/11/10 14:42:28 [DEBUG] Successfully added identity admin to the database
-2017/11/10 14:42:28 [DEBUG] Registered identity: { Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.IntermediateCA:1 hf.Registrar.Roles:client,user,peer,validator,auditor hf.Registrar.DelegateRoles:client,user,validator,auditor hf.Revoker:1]  }
-2017/11/10 14:42:28 [DEBUG] Successfully loaded identity table
-2017/11/10 14:42:28 [DEBUG] Loading affiliations table
-2017/11/10 14:42:28 [DEBUG] Adding affiliation org1
-2017/11/10 14:42:28 [DEBUG] DB: Add affiliation org1
-2017/11/10 14:42:28 [DEBUG] Adding affiliation org1.department1
-2017/11/10 14:42:28 [DEBUG] DB: Add affiliation org1.department1
-2017/11/10 14:42:28 [DEBUG] Adding affiliation org1.department2
-2017/11/10 14:42:28 [DEBUG] DB: Add affiliation org1.department2
-2017/11/10 14:42:28 [DEBUG] Adding affiliation org2
-2017/11/10 14:42:28 [DEBUG] DB: Add affiliation org2
-2017/11/10 14:42:28 [DEBUG] Adding affiliation org2.department1
-2017/11/10 14:42:28 [DEBUG] DB: Add affiliation org2.department1
-2017/11/10 14:42:28 [DEBUG] Successfully loaded affiliations table
-2017/11/10 14:42:28 [DEBUG] Successfully loaded groups table
-2017/11/10 14:42:28 [INFO] Initialized sqlite3 database
-2017/11/10 14:42:28 [DEBUG] Initializing enrollment signer
-2017/11/10 14:42:28 [DEBUG] validating configuration
-2017/11/10 14:42:28 [DEBUG] validate local profile
-2017/11/10 14:42:28 [DEBUG] profile is valid
-2017/11/10 14:42:28 [DEBUG] validate local profile
-2017/11/10 14:42:28 [DEBUG] profile is valid
-2017/11/10 14:42:28 [DEBUG] CA initialization successful
-2017/11/10 14:42:28 [INFO] Home directory for default CA: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root
-2017/11/10 14:42:28 [DEBUG] 1 CA instance(s) running on server
-2017/11/10 14:42:28 [INFO] Listening on http://0.0.0.0:7102
-2017/11/10 14:42:28 [DEBUG] Received request
+2017/11/10 17:29:32 [INFO] Created default configuration file at /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/fabric-ca-server-config.yaml
+2017/11/10 17:29:32 [INFO] Starting server in home directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root
+2017/11/10 17:29:32 [DEBUG] CA Home Directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root
+2017/11/10 17:29:32 [DEBUG] Making server filenames absolute
+2017/11/10 17:29:32 [DEBUG] Initializing default CA in directory /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root
+2017/11/10 17:29:32 [DEBUG] Init CA with home /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root and config {CA:{Name: Keyfile:ca-key.pem Certfile:ca-cert.pem Chainfile:ca-chain.pem} Signing:0xc4202c7db0 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[UbuntuServer localhost] KeyRequest:<nil> CA:0xc4202b5040 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.Registrar.Roles:client,user,peer,validator,auditor hf.Registrar.DelegateRoles:client,user,validator,auditor hf.Revoker:1 hf.IntermediateCA:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) TLS:{false [ldap-server-cert.pem] {ldap-client-key.pem ldap-client-cert.pem}}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [db-server-cert.pem] {db-client-key.pem db-client-cert.pem}}  } CSP:0xc4202b5400 Client:<nil> Intermediate:{ParentServer:{URL: CAName:} TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{Name: Secret: Profile: Label: CSR:<nil> CAName:}}}
+2017/11/10 17:29:32 [DEBUG] CA Home Directory: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root
+2017/11/10 17:29:32 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc4202b8de0 Pkcs11Opts:<nil>}
+2017/11/10 17:29:32 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4202c6c20 DummyKeystore:<nil>}
+2017/11/10 17:29:32 [DEBUG] Initialize key material
+2017/11/10 17:29:32 [DEBUG] Making CA filenames absolute
+2017/11/10 17:29:32 [DEBUG] Getting CA cert; parent server URL is ''
+2017/11/10 17:29:32 [DEBUG] Root CA certificate request: {CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[UbuntuServer localhost] KeyRequest:0xc4202cf220 CA:0xc4202b5040 SerialNumber:}
+2017/11/10 17:29:32 [INFO] generating key: &{A:ecdsa S:256}
+2017/11/10 17:29:32 [DEBUG] generate key from request: algo=ecdsa, size=256
+2017/11/10 17:29:32 [INFO] encoded CSR
+2017/11/10 17:29:32 [DEBUG] validating configuration
+2017/11/10 17:29:32 [DEBUG] validate local profile
+2017/11/10 17:29:32 [DEBUG] profile is valid
+2017/11/10 17:29:32 [INFO] signed certificate with serial number 513683559994579290862420881797952425258712364986
+2017/11/10 17:29:32 [INFO] The CA key and certificate were generated for CA 
+2017/11/10 17:29:32 [INFO] The key was stored by BCCSP provider 'SW'
+2017/11/10 17:29:32 [INFO] The certificate is at: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/ca-cert.pem
+2017/11/10 17:29:32 [DEBUG] Using sqlite database, connect to database in home (/home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/fabric-ca-server.db) directory
+2017/11/10 17:29:32 [DEBUG] Database (/home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/fabric-ca-server.db) does not exist
+2017/11/10 17:29:32 [DEBUG] Creating SQLite Database...
+2017/11/10 17:29:32 [DEBUG] Database location: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/fabric-ca-server.db
+2017/11/10 17:29:32 [DEBUG] Creating tables...
+2017/11/10 17:29:32 [DEBUG] Created users table
+2017/11/10 17:29:32 [DEBUG] Created affiliation table
+2017/11/10 17:29:32 [DEBUG] Created certificates table
+2017/11/10 17:29:32 [DEBUG] Successfully opened sqlite3 DB
+2017/11/10 17:29:32 [DEBUG] Initializing identity registry
+2017/11/10 17:29:32 [DEBUG] Initialized DB identity registry
+2017/11/10 17:29:32 [DEBUG] Loading identity table
+2017/11/10 17:29:32 [DEBUG] Loading identity 'admin'
+2017/11/10 17:29:32 [DEBUG] DB: Getting identity admin
+2017/11/10 17:29:32 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
+2017/11/10 17:29:32 [DEBUG] DB: Add identity admin
+2017/11/10 17:29:33 [DEBUG] Successfully added identity admin to the database
+2017/11/10 17:29:33 [DEBUG] Registered identity: { Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.Registrar.Roles:client,user,peer,validator,auditor hf.Registrar.DelegateRoles:client,user,validator,auditor hf.Revoker:1 hf.IntermediateCA:1]  }
+2017/11/10 17:29:33 [DEBUG] Successfully loaded identity table
+2017/11/10 17:29:33 [DEBUG] Loading affiliations table
+2017/11/10 17:29:33 [DEBUG] Adding affiliation org2
+2017/11/10 17:29:33 [DEBUG] DB: Add affiliation org2
+2017/11/10 17:29:33 [DEBUG] Adding affiliation org2.department1
+2017/11/10 17:29:33 [DEBUG] DB: Add affiliation org2.department1
+2017/11/10 17:29:33 [DEBUG] Adding affiliation org1
+2017/11/10 17:29:33 [DEBUG] DB: Add affiliation org1
+2017/11/10 17:29:33 [DEBUG] Adding affiliation org1.department1
+2017/11/10 17:29:33 [DEBUG] DB: Add affiliation org1.department1
+2017/11/10 17:29:33 [DEBUG] Adding affiliation org1.department2
+2017/11/10 17:29:33 [DEBUG] DB: Add affiliation org1.department2
+2017/11/10 17:29:33 [DEBUG] Successfully loaded affiliations table
+2017/11/10 17:29:33 [DEBUG] Successfully loaded groups table
+2017/11/10 17:29:33 [INFO] Initialized sqlite3 database
+2017/11/10 17:29:33 [DEBUG] Initializing enrollment signer
+2017/11/10 17:29:33 [DEBUG] validating configuration
+2017/11/10 17:29:33 [DEBUG] validate local profile
+2017/11/10 17:29:33 [DEBUG] profile is valid
+2017/11/10 17:29:33 [DEBUG] validate local profile
+2017/11/10 17:29:33 [DEBUG] profile is valid
+2017/11/10 17:29:33 [DEBUG] CA initialization successful
+2017/11/10 17:29:33 [INFO] Home directory for default CA: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root
+2017/11/10 17:29:33 [DEBUG] 1 CA instance(s) running on server
+2017/11/10 17:29:33 [INFO] Listening on http://0.0.0.0:7102
+2017/11/10 17:29:33 [DEBUG] Received request
 POST /enroll
 Authorization: Basic YWRtaW46YWRtaW5wdw==
-{"hosts":["root","root"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBQDCB5wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4GO0l+bL4m4vy2S9\nXz3CEZEH6AhbwRdUx7WzahUxWdlWpjMl4nEI3fQRSCuvpPjztMUSqr8vpgpyj8Ji\ncwKRaqAoMCYGCSqGSIb3DQEJDjEZMBcwFQYDVR0RBA4wDIIEcm9vdIIEcm9vdDAK\nBggqhkjOPQQDAgNIADBFAiEA9h+P+vP927U3soK9pCygnO/IsQ2iDG1SviTm1dlT\nSQoCIDQz0YVFrkiWsWvfDQLqgpyyKhYDOeXs+naxw7WUJbB1\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
-2017/11/10 14:42:28 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:28 [DEBUG] DB: Getting identity admin
-2017/11/10 14:42:28 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 0
-2017/11/10 14:42:29 [DEBUG] Successfully incremented state for identity admin to 1
-2017/11/10 14:42:29 [DEBUG] DB: identity admin successfully logged in
-2017/11/10 14:42:29 [DEBUG] Identity/Pass was correct
-2017/11/10 14:42:29 [DEBUG] Received request for endpoint enroll
-2017/11/10 14:42:29 [DEBUG] Enrollment request: {SignRequest:{Hosts:[root root] Request:-----BEGIN CERTIFICATE REQUEST-----
+{"hosts":["root","root"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBQDCB5wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/rZST132x9SVGNea\nYL+TvTSLLGLM2C1Y6ITt0VX6dzmyVyqYS7i7cZBbSqo51Zl20sxN52/GRhROeGlY\nORn2nqAoMCYGCSqGSIb3DQEJDjEZMBcwFQYDVR0RBA4wDIIEcm9vdIIEcm9vdDAK\nBggqhkjOPQQDAgNIADBFAiEAh+iUtVHIFv5F0zXMX/3yWhQ1sUrYeZr1UYLnl2Wi\n4roCIGQr/k6udwmfAslfVCT2KmNy46d+srm5bL3P14N5t3sJ\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
+2017/11/10 17:29:33 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:33 [DEBUG] DB: Getting identity admin
+2017/11/10 17:29:33 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 0
+2017/11/10 17:29:33 [DEBUG] Successfully incremented state for identity admin to 1
+2017/11/10 17:29:33 [DEBUG] DB: identity admin successfully logged in
+2017/11/10 17:29:33 [DEBUG] Identity/Pass was correct
+2017/11/10 17:29:33 [DEBUG] Received request for endpoint enroll
+2017/11/10 17:29:33 [DEBUG] Enrollment request: {SignRequest:{Hosts:[root root] Request:-----BEGIN CERTIFICATE REQUEST-----
 MIIBQDCB5wIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV
-BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4GO0l+bL4m4vy2S9
-Xz3CEZEH6AhbwRdUx7WzahUxWdlWpjMl4nEI3fQRSCuvpPjztMUSqr8vpgpyj8Ji
-cwKRaqAoMCYGCSqGSIb3DQEJDjEZMBcwFQYDVR0RBA4wDIIEcm9vdIIEcm9vdDAK
-BggqhkjOPQQDAgNIADBFAiEA9h+P+vP927U3soK9pCygnO/IsQ2iDG1SviTm1dlT
-SQoCIDQz0YVFrkiWsWvfDQLqgpyyKhYDOeXs+naxw7WUJbB1
+BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/rZST132x9SVGNea
+YL+TvTSLLGLM2C1Y6ITt0VX6dzmyVyqYS7i7cZBbSqo51Zl20sxN52/GRhROeGlY
+ORn2nqAoMCYGCSqGSIb3DQEJDjEZMBcwFQYDVR0RBA4wDIIEcm9vdIIEcm9vdDAK
+BggqhkjOPQQDAgNIADBFAiEAh+iUtVHIFv5F0zXMX/3yWhQ1sUrYeZr1UYLnl2Wi
+4roCIGQr/k6udwmfAslfVCT2KmNy46d+srm5bL3P14N5t3sJ
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile:tls CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/11/10 14:42:29 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
-2017/11/10 14:42:29 [DEBUG] CSR authorization check passed
-2017/11/10 14:42:29 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/11/10 14:42:29 [INFO] signed certificate with serial number 208643208853744191491250783386141635602105727477
-2017/11/10 14:42:29 [DEBUG] DB: Insert Certificate
-2017/11/10 14:42:29 [DEBUG] Saved serial number as hex 248be2935cce993d05e9e0b728664bf0a93779f5
-2017/11/10 14:42:29 [DEBUG] saved certificate with serial number 208643208853744191491250783386141635602105727477
-2017/11/10 14:42:29 [INFO] [::1]:54362 - "POST /enroll" 200
-2017/11/10 14:42:29 [DEBUG] Received request
+2017/11/10 17:29:33 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
+2017/11/10 17:29:33 [DEBUG] CSR authorization check passed
+2017/11/10 17:29:33 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/11/10 17:29:33 [INFO] signed certificate with serial number 265800211607746324502367548839037394193673369932
+2017/11/10 17:29:33 [DEBUG] DB: Insert Certificate
+2017/11/10 17:29:33 [DEBUG] Saved serial number as hex 2e8ee4c9fb0e3d7341fb5976c00bd65214cc394c
+2017/11/10 17:29:33 [DEBUG] saved certificate with serial number 265800211607746324502367548839037394193673369932
+2017/11/10 17:29:33 [INFO] [::1]:54600 - "POST /enroll" 200
+2017/11/10 17:29:34 [DEBUG] Received request
 POST /enroll
 Authorization: Basic YWRtaW46YWRtaW5wdw==
-{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBQjCB6QIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEJ6bhhSNbupt9xMCS\nIc8/zMONOBt3Q5qa0/D6XSfHUBra8kDQghq2/ep7IkACfrdDKTMCgh2DovFX/pfE\nGI8EXKAqMCgGCSqGSIb3DQEJDjEbMBkwFwYDVR0RBBAwDoIMVWJ1bnR1U2VydmVy\nMAoGCCqGSM49BAMCA0gAMEUCIQDplD1Un0tOCVf5q7OMM3VxYm/116lUlOrF0jr6\nbictMQIgbq3ohr5g11pEtODzlptMHqh7qPHxEHGzEjtRT/kUnCc=\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
-2017/11/10 14:42:29 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:29 [DEBUG] DB: Getting identity admin
-2017/11/10 14:42:29 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 1
-2017/11/10 14:42:29 [DEBUG] Successfully incremented state for identity admin to 2
-2017/11/10 14:42:29 [DEBUG] DB: identity admin successfully logged in
-2017/11/10 14:42:29 [DEBUG] Identity/Pass was correct
-2017/11/10 14:42:29 [DEBUG] Received request for endpoint enroll
-2017/11/10 14:42:29 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
+{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBQjCB6QIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEWyNyZkcfrMBaGgvb\nRcyLuJXwcci6slBp6CZe3efRcRZ+XHS/bir9pBSfCI86FkPVypJoXD7lutAThAr6\nBR9zJKAqMCgGCSqGSIb3DQEJDjEbMBkwFwYDVR0RBBAwDoIMVWJ1bnR1U2VydmVy\nMAoGCCqGSM49BAMCA0gAMEUCIQCu5AeGKLQNEZG2IHYOTZMrMQmY4iUlRa3LQkQw\nRjP7sgIgUuc6gMeA+YTIx5gNMj831Sd8ie6qD16HUGzKhAmERdk=\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+2017/11/10 17:29:34 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:34 [DEBUG] DB: Getting identity admin
+2017/11/10 17:29:34 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 1
+2017/11/10 17:29:34 [DEBUG] Successfully incremented state for identity admin to 2
+2017/11/10 17:29:34 [DEBUG] DB: identity admin successfully logged in
+2017/11/10 17:29:34 [DEBUG] Identity/Pass was correct
+2017/11/10 17:29:34 [DEBUG] Received request for endpoint enroll
+2017/11/10 17:29:34 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
 MIIBQjCB6QIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV
-BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEJ6bhhSNbupt9xMCS
-Ic8/zMONOBt3Q5qa0/D6XSfHUBra8kDQghq2/ep7IkACfrdDKTMCgh2DovFX/pfE
-GI8EXKAqMCgGCSqGSIb3DQEJDjEbMBkwFwYDVR0RBBAwDoIMVWJ1bnR1U2VydmVy
-MAoGCCqGSM49BAMCA0gAMEUCIQDplD1Un0tOCVf5q7OMM3VxYm/116lUlOrF0jr6
-bictMQIgbq3ohr5g11pEtODzlptMHqh7qPHxEHGzEjtRT/kUnCc=
+BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEWyNyZkcfrMBaGgvb
+RcyLuJXwcci6slBp6CZe3efRcRZ+XHS/bir9pBSfCI86FkPVypJoXD7lutAThAr6
+BR9zJKAqMCgGCSqGSIb3DQEJDjEbMBkwFwYDVR0RBBAwDoIMVWJ1bnR1U2VydmVy
+MAoGCCqGSM49BAMCA0gAMEUCIQCu5AeGKLQNEZG2IHYOTZMrMQmY4iUlRa3LQkQw
+RjP7sgIgUuc6gMeA+YTIx5gNMj831Sd8ie6qD16HUGzKhAmERdk=
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/11/10 14:42:29 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
-2017/11/10 14:42:29 [DEBUG] CSR authorization check passed
-2017/11/10 14:42:29 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/11/10 14:42:29 [INFO] signed certificate with serial number 161076421586867038989247386065046213538824123381
-2017/11/10 14:42:29 [DEBUG] DB: Insert Certificate
-2017/11/10 14:42:29 [DEBUG] Saved serial number as hex 1c36eaa310a8fab3c64160277c3c0a454a10f3f5
-2017/11/10 14:42:29 [DEBUG] saved certificate with serial number 161076421586867038989247386065046213538824123381
-2017/11/10 14:42:29 [INFO] [::1]:54364 - "POST /enroll" 200
-2017/11/10 14:42:29 [DEBUG] Received request
+2017/11/10 17:29:34 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
+2017/11/10 17:29:34 [DEBUG] CSR authorization check passed
+2017/11/10 17:29:34 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/11/10 17:29:34 [INFO] signed certificate with serial number 124836943309187821737885585046997583554121124092
+2017/11/10 17:29:34 [DEBUG] DB: Insert Certificate
+2017/11/10 17:29:34 [DEBUG] Saved serial number as hex 15dde1d415ada96180e91a6b6261df998dc148fc
+2017/11/10 17:29:34 [DEBUG] saved certificate with serial number 124836943309187821737885585046997583554121124092
+2017/11/10 17:29:34 [INFO] [::1]:54602 - "POST /enroll" 200
+2017/11/10 17:29:34 [DEBUG] Received request
 POST /register
-Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNQekNDQWVhZ0F3SUJBZ0lVSERicW94Q28rclBHUVdBbmZEd0tSVW9ROC9Vd0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRFeE1ERXdNemN3TUZvWERURTRNVEV4TURFd016Y3dNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJDZW00WVVqVzdxYmZjVEFraUhQUDh6RGpUZ2JkME9hbXRQdytsMG4KeDFBYTJ2SkEwSUlhdHYzcWV5SkFBbjYzUXlrekFvSWRnNkx4Vi82WHhCaVBCRnlqZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUVkFXVm1WdFkzTDF2d0ZpWU0yNjBVCm5ZYWVMREFmQmdOVkhTTUVHREFXZ0JSOVYrbTJBQllxNFJvblBuVE9YcitGanhvcEZqQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdabWhJZ2pGZlh5TnRuRThhQnl5VwpkRlJ3NWJZS0xoNDBaZ0h2VldrVDFYMENJQUlhbndsbU0rWDlmMlMxOFRuRGVHVjVMSGhQNDYzTTRoeU9haUhqCkgxbzIKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=.MEQCIAWOF/BJnhaNnVcqgkN/0iIl70SqWNfBEPX+885ME9DnAiBu7Qna7AckgEaxaC1bzb7YST8AoDivbTDxoSD6bilRsg==
+Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNQekNDQWVhZ0F3SUJBZ0lVRmQzaDFCV3RxV0dBNlJwclltSGZtWTNCU1B3d0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRFeE1ERXpNalV3TUZvWERURTRNVEV4TURFek1qVXdNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJGc2pjbVpISDZ6QVdob0wyMFhNaTdpVjhISEl1ckpRYWVnbVh0M24KMFhFV2ZseDB2MjRxL2FRVW53aVBPaFpEMWNxU2FGdys1YnJRRTRRSytnVWZjeVNqZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUS3JMWkJVYkR0VWdZWXYvd1VnRFV0Cmtrb1FEekFmQmdOVkhTTUVHREFXZ0JSTHZGMlpLTGpmcEd1amhWbDQvNHlvQTFlTHVEQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdST3R0cGJvZUxVTnkyN3VRWWxnQQpFRzBYckFhVkI1Vzl5UkQzT1N2amdUTUNJQllQSUwxTmdkN05CTGhFN043VlVYbERtMTlkb1MrZ3ZJdUFmcGFvCk4zbnEKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=.MEQCIH7ue8wJsAFtwND7rfgtxghYIrY2YkUOGAt50chsp+g9AiA/cCxrLkEOXg9UL8ExUlC2OpjhCnNm/BOlQYFvajGkQA==
 {"id":"nodeAdmin","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
-2017/11/10 14:42:29 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:29 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2017/11/10 14:42:29 [DEBUG] DB: Get certificate by serial (1c36eaa310a8fab3c64160277c3c0a454a10f3f5) and aki (7d57e9b600162ae11a273e74ce5ebf858f1a2916)
-2017/11/10 14:42:29 [DEBUG] Successful authentication of 'admin'
-2017/11/10 14:42:29 [DEBUG] Register request received
-2017/11/10 14:42:29 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:nodeAdmin Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
-2017/11/10 14:42:29 [DEBUG] canRegister - Check to see if user admin can register
-2017/11/10 14:42:29 [DEBUG] DB: Getting identity admin
-2017/11/10 14:42:29 [DEBUG] Validate ID
-2017/11/10 14:42:29 [DEBUG] An affiliation is required for identity type user
-2017/11/10 14:42:29 [DEBUG] Validating affiliation: org1
-2017/11/10 14:42:29 [DEBUG] DB: Get affiliation org1
-2017/11/10 14:42:29 [DEBUG] Registering user id: nodeAdmin
-2017/11/10 14:42:29 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
-2017/11/10 14:42:29 [DEBUG] DB: Getting identity nodeAdmin
-2017/11/10 14:42:29 [DEBUG] DB: Add identity nodeAdmin
-2017/11/10 14:42:29 [DEBUG] Successfully added identity nodeAdmin to the database
-2017/11/10 14:42:29 [DEBUG] Registration completed - sending response 0xc42000e218
-2017/11/10 14:42:29 [INFO] [::1]:54366 - "POST /register" 200
-2017/11/10 14:42:29 [DEBUG] Received request
+2017/11/10 17:29:34 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:34 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2017/11/10 17:29:34 [DEBUG] DB: Get certificate by serial (15dde1d415ada96180e91a6b6261df998dc148fc) and aki (4bbc5d9928b8dfa46ba3855978ff8ca803578bb8)
+2017/11/10 17:29:34 [DEBUG] Successful authentication of 'admin'
+2017/11/10 17:29:34 [DEBUG] Register request received
+2017/11/10 17:29:34 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:nodeAdmin Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
+2017/11/10 17:29:34 [DEBUG] canRegister - Check to see if user admin can register
+2017/11/10 17:29:34 [DEBUG] DB: Getting identity admin
+2017/11/10 17:29:34 [DEBUG] Validate ID
+2017/11/10 17:29:34 [DEBUG] An affiliation is required for identity type user
+2017/11/10 17:29:34 [DEBUG] Validating affiliation: org1
+2017/11/10 17:29:34 [DEBUG] DB: Get affiliation org1
+2017/11/10 17:29:34 [DEBUG] Registering user id: nodeAdmin
+2017/11/10 17:29:34 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
+2017/11/10 17:29:34 [DEBUG] DB: Getting identity nodeAdmin
+2017/11/10 17:29:34 [DEBUG] DB: Add identity nodeAdmin
+2017/11/10 17:29:34 [DEBUG] Successfully added identity nodeAdmin to the database
+2017/11/10 17:29:34 [DEBUG] Registration completed - sending response 0xc420172018
+2017/11/10 17:29:34 [INFO] [::1]:54604 - "POST /register" 200
+2017/11/10 17:29:34 [DEBUG] Received request
 POST /enroll
 Authorization: Basic bm9kZUFkbWluOnNlY3JldA==
-{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBRjCB7QIBADBhMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxEjAQBgNV\nBAMTCW5vZGVBZG1pbjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMck6qJd8DUZ\n0KynPFU94AmJTT5RDZMh4VKFoTBfJ1ZVY5VfNVZv/xg7N0c18X4uyhh1elEtkL3P\noOOhAacKSWmgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVidW50dVNl\ncnZlcjAKBggqhkjOPQQDAgNIADBFAiEAp2YGRRVmIYfbNkmQydPtGrP9DgHUElze\nLSdKDp6S6zcCIG1YxW5JT3PnQwm5wCV1F6bRC97T3eiReHDgStD+TZO9\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
-2017/11/10 14:42:29 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:29 [DEBUG] DB: Getting identity nodeAdmin
-2017/11/10 14:42:29 [DEBUG] DB: Login user nodeAdmin with max enrollments of -1 and state of 0
-2017/11/10 14:42:30 [DEBUG] Successfully incremented state for identity nodeAdmin to 1
-2017/11/10 14:42:30 [DEBUG] DB: identity nodeAdmin successfully logged in
-2017/11/10 14:42:30 [DEBUG] Identity/Pass was correct
-2017/11/10 14:42:30 [DEBUG] Received request for endpoint enroll
-2017/11/10 14:42:30 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
+{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBRjCB7QIBADBhMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxEjAQBgNV\nBAMTCW5vZGVBZG1pbjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABF7MQtYZBKMi\nJHAod50zrFxN9rluxvGNYdu3EYEdqUgryTcVGyPIE1WIOqYd1qHaj4fONAGIcPBP\nyyTRZBz4nxGgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVidW50dVNl\ncnZlcjAKBggqhkjOPQQDAgNIADBFAiEAzZLfQ9kCCcgyFRosK8bo0X8/eeLkDg+d\nCERxwG0MjiICIB6HVHTMqfGVPSpPLFe43uUEbMwmbrv4IDwityJprPr/\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+2017/11/10 17:29:34 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:34 [DEBUG] DB: Getting identity nodeAdmin
+2017/11/10 17:29:34 [DEBUG] DB: Login user nodeAdmin with max enrollments of -1 and state of 0
+2017/11/10 17:29:34 [DEBUG] Successfully incremented state for identity nodeAdmin to 1
+2017/11/10 17:29:34 [DEBUG] DB: identity nodeAdmin successfully logged in
+2017/11/10 17:29:34 [DEBUG] Identity/Pass was correct
+2017/11/10 17:29:34 [DEBUG] Received request for endpoint enroll
+2017/11/10 17:29:34 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
 MIIBRjCB7QIBADBhMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxEjAQBgNV
-BAMTCW5vZGVBZG1pbjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMck6qJd8DUZ
-0KynPFU94AmJTT5RDZMh4VKFoTBfJ1ZVY5VfNVZv/xg7N0c18X4uyhh1elEtkL3P
-oOOhAacKSWmgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVidW50dVNl
-cnZlcjAKBggqhkjOPQQDAgNIADBFAiEAp2YGRRVmIYfbNkmQydPtGrP9DgHUElze
-LSdKDp6S6zcCIG1YxW5JT3PnQwm5wCV1F6bRC97T3eiReHDgStD+TZO9
+BAMTCW5vZGVBZG1pbjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABF7MQtYZBKMi
+JHAod50zrFxN9rluxvGNYdu3EYEdqUgryTcVGyPIE1WIOqYd1qHaj4fONAGIcPBP
+yyTRZBz4nxGgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1UdEQQQMA6CDFVidW50dVNl
+cnZlcjAKBggqhkjOPQQDAgNIADBFAiEAzZLfQ9kCCcgyFRosK8bo0X8/eeLkDg+d
+CERxwG0MjiICIB6HVHTMqfGVPSpPLFe43uUEbMwmbrv4IDwityJprPr/
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/11/10 14:42:30 [DEBUG] csrAuthCheck: enrollment ID=nodeAdmin, CommonName=nodeAdmin, Subject=<nil>
-2017/11/10 14:42:30 [DEBUG] CSR authorization check passed
-2017/11/10 14:42:30 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/11/10 14:42:30 [INFO] signed certificate with serial number 190878167759672110083574917764115032130752165056
-2017/11/10 14:42:30 [DEBUG] DB: Insert Certificate
-2017/11/10 14:42:30 [DEBUG] Saved serial number as hex 216f45e7bdf4473bbe9d06308d0a6670c2cd34c0
-2017/11/10 14:42:30 [DEBUG] saved certificate with serial number 190878167759672110083574917764115032130752165056
-2017/11/10 14:42:30 [INFO] [::1]:54368 - "POST /enroll" 200
-2017/11/10 14:42:30 [DEBUG] Received request
+2017/11/10 17:29:34 [DEBUG] csrAuthCheck: enrollment ID=nodeAdmin, CommonName=nodeAdmin, Subject=<nil>
+2017/11/10 17:29:34 [DEBUG] CSR authorization check passed
+2017/11/10 17:29:34 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/11/10 17:29:34 [INFO] signed certificate with serial number 178263890649471711444318862416902944397818556464
+2017/11/10 17:29:34 [DEBUG] DB: Insert Certificate
+2017/11/10 17:29:34 [DEBUG] Saved serial number as hex 1f39a11b08feef45fbff7967cdb99db713277030
+2017/11/10 17:29:34 [DEBUG] saved certificate with serial number 178263890649471711444318862416902944397818556464
+2017/11/10 17:29:34 [INFO] [::1]:54606 - "POST /enroll" 200
+2017/11/10 17:29:34 [DEBUG] Received request
 POST /register
-Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNQekNDQWVhZ0F3SUJBZ0lVSERicW94Q28rclBHUVdBbmZEd0tSVW9ROC9Vd0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRFeE1ERXdNemN3TUZvWERURTRNVEV4TURFd016Y3dNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJDZW00WVVqVzdxYmZjVEFraUhQUDh6RGpUZ2JkME9hbXRQdytsMG4KeDFBYTJ2SkEwSUlhdHYzcWV5SkFBbjYzUXlrekFvSWRnNkx4Vi82WHhCaVBCRnlqZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUVkFXVm1WdFkzTDF2d0ZpWU0yNjBVCm5ZYWVMREFmQmdOVkhTTUVHREFXZ0JSOVYrbTJBQllxNFJvblBuVE9YcitGanhvcEZqQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdabWhJZ2pGZlh5TnRuRThhQnl5VwpkRlJ3NWJZS0xoNDBaZ0h2VldrVDFYMENJQUlhbndsbU0rWDlmMlMxOFRuRGVHVjVMSGhQNDYzTTRoeU9haUhqCkgxbzIKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=.MEUCIQDBFK7r+5Kw5AKvoLnbQ1bcu9V6UFIM+fMnyuNs0FwjZAIgXTmdj/HCDNKtqrztXIA0mSrU0PAdpWfFz9ZMkIshzJs=
+Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNQekNDQWVhZ0F3SUJBZ0lVRmQzaDFCV3RxV0dBNlJwclltSGZtWTNCU1B3d0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRFeE1ERXpNalV3TUZvWERURTRNVEV4TURFek1qVXdNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJGc2pjbVpISDZ6QVdob0wyMFhNaTdpVjhISEl1ckpRYWVnbVh0M24KMFhFV2ZseDB2MjRxL2FRVW53aVBPaFpEMWNxU2FGdys1YnJRRTRRSytnVWZjeVNqZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUS3JMWkJVYkR0VWdZWXYvd1VnRFV0Cmtrb1FEekFmQmdOVkhTTUVHREFXZ0JSTHZGMlpLTGpmcEd1amhWbDQvNHlvQTFlTHVEQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdST3R0cGJvZUxVTnkyN3VRWWxnQQpFRzBYckFhVkI1Vzl5UkQzT1N2amdUTUNJQllQSUwxTmdkN05CTGhFN043VlVYbERtMTlkb1MrZ3ZJdUFmcGFvCk4zbnEKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=.MEUCIQDGm1foz3CmpXHom6xK0VsE1h0l8oQBcSTj7Hy1xCUECwIgAc+Mghevmt+oc57MYQw/KSzRUAr4FZtapXJ+nM8H8z0=
 {"id":"User1@egyptianmuseum.org","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
-2017/11/10 14:42:30 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:30 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2017/11/10 14:42:30 [DEBUG] DB: Get certificate by serial (1c36eaa310a8fab3c64160277c3c0a454a10f3f5) and aki (7d57e9b600162ae11a273e74ce5ebf858f1a2916)
-2017/11/10 14:42:30 [DEBUG] Successful authentication of 'admin'
-2017/11/10 14:42:30 [DEBUG] Register request received
-2017/11/10 14:42:30 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:User1@egyptianmuseum.org Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
-2017/11/10 14:42:30 [DEBUG] canRegister - Check to see if user admin can register
-2017/11/10 14:42:30 [DEBUG] DB: Getting identity admin
-2017/11/10 14:42:30 [DEBUG] Validate ID
-2017/11/10 14:42:30 [DEBUG] An affiliation is required for identity type user
-2017/11/10 14:42:30 [DEBUG] Validating affiliation: org1
-2017/11/10 14:42:30 [DEBUG] DB: Get affiliation org1
-2017/11/10 14:42:30 [DEBUG] Registering user id: User1@egyptianmuseum.org
-2017/11/10 14:42:30 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
-2017/11/10 14:42:30 [DEBUG] DB: Getting identity User1@egyptianmuseum.org
-2017/11/10 14:42:30 [DEBUG] DB: Add identity User1@egyptianmuseum.org
-2017/11/10 14:42:30 [DEBUG] Successfully added identity User1@egyptianmuseum.org to the database
-2017/11/10 14:42:30 [DEBUG] Registration completed - sending response 0xc420174060
-2017/11/10 14:42:30 [INFO] [::1]:54370 - "POST /register" 200
-2017/11/10 14:42:30 [DEBUG] Received request
+2017/11/10 17:29:34 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:34 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2017/11/10 17:29:34 [DEBUG] DB: Get certificate by serial (15dde1d415ada96180e91a6b6261df998dc148fc) and aki (4bbc5d9928b8dfa46ba3855978ff8ca803578bb8)
+2017/11/10 17:29:34 [DEBUG] Successful authentication of 'admin'
+2017/11/10 17:29:34 [DEBUG] Register request received
+2017/11/10 17:29:34 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:User1@egyptianmuseum.org Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
+2017/11/10 17:29:34 [DEBUG] canRegister - Check to see if user admin can register
+2017/11/10 17:29:34 [DEBUG] DB: Getting identity admin
+2017/11/10 17:29:34 [DEBUG] Validate ID
+2017/11/10 17:29:34 [DEBUG] An affiliation is required for identity type user
+2017/11/10 17:29:34 [DEBUG] Validating affiliation: org1
+2017/11/10 17:29:34 [DEBUG] DB: Get affiliation org1
+2017/11/10 17:29:34 [DEBUG] Registering user id: User1@egyptianmuseum.org
+2017/11/10 17:29:34 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
+2017/11/10 17:29:34 [DEBUG] DB: Getting identity User1@egyptianmuseum.org
+2017/11/10 17:29:34 [DEBUG] DB: Add identity User1@egyptianmuseum.org
+2017/11/10 17:29:35 [DEBUG] Successfully added identity User1@egyptianmuseum.org to the database
+2017/11/10 17:29:35 [DEBUG] Registration completed - sending response 0xc42000e0d0
+2017/11/10 17:29:35 [INFO] [::1]:54608 - "POST /register" 200
+2017/11/10 17:29:35 [DEBUG] Received request
 POST /enroll
 Authorization: Basic VXNlcjFAZWd5cHRpYW5tdXNldW0ub3JnOnNlY3JldA==
-{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBVTCB/AIBADBwMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxITAfBgNV\nBAMMGFVzZXIxQGVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49\nAwEHA0IABOoYNuswbPwOhJqUvo8SfnaYI4UaJ8ZpT34Vamt448G1x9nxuZaz4bTv\n4JxQ68bQ9WvF33Wzx8tC3d6F1kUB/aegKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud\nEQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEA4EurIg9yOXYR\nx6eGJGdf6IGQCFJYWh4m98UZ+bcw1NICICIx3EZ1j6w2EEuLTM3Nsmg28pcuKy0Q\nNShYBeLwsDyx\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
-2017/11/10 14:42:30 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:30 [DEBUG] DB: Getting identity User1@egyptianmuseum.org
-2017/11/10 14:42:30 [DEBUG] DB: Login user User1@egyptianmuseum.org with max enrollments of -1 and state of 0
-2017/11/10 14:42:30 [DEBUG] Successfully incremented state for identity User1@egyptianmuseum.org to 1
-2017/11/10 14:42:30 [DEBUG] DB: identity User1@egyptianmuseum.org successfully logged in
-2017/11/10 14:42:30 [DEBUG] Identity/Pass was correct
-2017/11/10 14:42:30 [DEBUG] Received request for endpoint enroll
-2017/11/10 14:42:30 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
+{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBVTCB/AIBADBwMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxITAfBgNV\nBAMMGFVzZXIxQGVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49\nAwEHA0IABGYQq5oXuz/exU9/U7q7Tp26x4WRBoya/rLRePgqONM8pmDPpEanyQn6\nvyglxeLNTatULlp9FkSTauUX1Fh4g+ygKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud\nEQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEA9bKM4pLzy1CQ\nQ4x1yMrtytKr84iewxEUK6RkZ+YiAHACIAJvKFd6J5egMvyQGADVDLBoqsgRX++i\nqa3RLuriqtlB\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+2017/11/10 17:29:35 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:35 [DEBUG] DB: Getting identity User1@egyptianmuseum.org
+2017/11/10 17:29:35 [DEBUG] DB: Login user User1@egyptianmuseum.org with max enrollments of -1 and state of 0
+2017/11/10 17:29:35 [DEBUG] Successfully incremented state for identity User1@egyptianmuseum.org to 1
+2017/11/10 17:29:35 [DEBUG] DB: identity User1@egyptianmuseum.org successfully logged in
+2017/11/10 17:29:35 [DEBUG] Identity/Pass was correct
+2017/11/10 17:29:35 [DEBUG] Received request for endpoint enroll
+2017/11/10 17:29:35 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
 MIIBVTCB/AIBADBwMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxITAfBgNV
 BAMMGFVzZXIxQGVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49
-AwEHA0IABOoYNuswbPwOhJqUvo8SfnaYI4UaJ8ZpT34Vamt448G1x9nxuZaz4bTv
-4JxQ68bQ9WvF33Wzx8tC3d6F1kUB/aegKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud
-EQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEA4EurIg9yOXYR
-x6eGJGdf6IGQCFJYWh4m98UZ+bcw1NICICIx3EZ1j6w2EEuLTM3Nsmg28pcuKy0Q
-NShYBeLwsDyx
+AwEHA0IABGYQq5oXuz/exU9/U7q7Tp26x4WRBoya/rLRePgqONM8pmDPpEanyQn6
+vyglxeLNTatULlp9FkSTauUX1Fh4g+ygKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud
+EQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEA9bKM4pLzy1CQ
+Q4x1yMrtytKr84iewxEUK6RkZ+YiAHACIAJvKFd6J5egMvyQGADVDLBoqsgRX++i
+qa3RLuriqtlB
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/11/10 14:42:30 [DEBUG] csrAuthCheck: enrollment ID=User1@egyptianmuseum.org, CommonName=User1@egyptianmuseum.org, Subject=<nil>
-2017/11/10 14:42:30 [DEBUG] CSR authorization check passed
-2017/11/10 14:42:30 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/11/10 14:42:30 [INFO] signed certificate with serial number 471519314621767440812903194881215485001286303180
-2017/11/10 14:42:30 [DEBUG] DB: Insert Certificate
-2017/11/10 14:42:30 [DEBUG] Saved serial number as hex 5297a8469a8cd0311fc74f1d486ad674177c3dcc
-2017/11/10 14:42:30 [DEBUG] saved certificate with serial number 471519314621767440812903194881215485001286303180
-2017/11/10 14:42:30 [INFO] [::1]:54372 - "POST /enroll" 200
-2017/11/10 14:42:30 [DEBUG] Received request
+2017/11/10 17:29:35 [DEBUG] csrAuthCheck: enrollment ID=User1@egyptianmuseum.org, CommonName=User1@egyptianmuseum.org, Subject=<nil>
+2017/11/10 17:29:35 [DEBUG] CSR authorization check passed
+2017/11/10 17:29:35 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/11/10 17:29:35 [INFO] signed certificate with serial number 464523862911537017172732314562346720397615849811
+2017/11/10 17:29:35 [DEBUG] DB: Insert Certificate
+2017/11/10 17:29:35 [DEBUG] Saved serial number as hex 515df86dafc80bbe82378ab7427f05525e0e6153
+2017/11/10 17:29:35 [DEBUG] saved certificate with serial number 464523862911537017172732314562346720397615849811
+2017/11/10 17:29:35 [INFO] [::1]:54610 - "POST /enroll" 200
+2017/11/10 17:29:35 [DEBUG] Received request
 POST /enroll
 Authorization: Basic YWRtaW46YWRtaW5wdw==
-{"hosts":["peer0.egyptianmuseum.org","peer0"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBVTCB/AIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEo06aBTmufZKgxSPb\nHuu8g7ohKm84/VrFD86X+YpNnsVGrbqkicMVBFlC3ikh9vq9jBnIvETulKoAGUoi\n6CDtM6A9MDsGCSqGSIb3DQEJDjEuMCwwKgYDVR0RBCMwIYIYcGVlcjAuZWd5cHRp\nYW5tdXNldW0ub3JnggVwZWVyMDAKBggqhkjOPQQDAgNIADBFAiEAlgbY/TXH77TU\nIxbgZ+WLtOkwxpTkJ1fdTgPLWy/6KecCIB/F1fnr9hxPp/xDwx+ikEAhDxnU/HjC\nugJJiSI3/Xlv\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
-2017/11/10 14:42:30 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:30 [DEBUG] DB: Getting identity admin
-2017/11/10 14:42:30 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 2
-2017/11/10 14:42:31 [DEBUG] Successfully incremented state for identity admin to 3
-2017/11/10 14:42:31 [DEBUG] DB: identity admin successfully logged in
-2017/11/10 14:42:31 [DEBUG] Identity/Pass was correct
-2017/11/10 14:42:31 [DEBUG] Received request for endpoint enroll
-2017/11/10 14:42:31 [DEBUG] Enrollment request: {SignRequest:{Hosts:[peer0.egyptianmuseum.org peer0] Request:-----BEGIN CERTIFICATE REQUEST-----
-MIIBVTCB/AIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
-bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV
-BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEo06aBTmufZKgxSPb
-Huu8g7ohKm84/VrFD86X+YpNnsVGrbqkicMVBFlC3ikh9vq9jBnIvETulKoAGUoi
-6CDtM6A9MDsGCSqGSIb3DQEJDjEuMCwwKgYDVR0RBCMwIYIYcGVlcjAuZWd5cHRp
-YW5tdXNldW0ub3JnggVwZWVyMDAKBggqhkjOPQQDAgNIADBFAiEAlgbY/TXH77TU
-IxbgZ+WLtOkwxpTkJ1fdTgPLWy/6KecCIB/F1fnr9hxPp/xDwx+ikEAhDxnU/HjC
-ugJJiSI3/Xlv
------END CERTIFICATE REQUEST-----
- Subject:<nil> Profile:tls CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/11/10 14:42:31 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
-2017/11/10 14:42:31 [DEBUG] CSR authorization check passed
-2017/11/10 14:42:31 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/11/10 14:42:31 [INFO] signed certificate with serial number 507671744490712936846053094820191159650749765719
-2017/11/10 14:42:31 [DEBUG] DB: Insert Certificate
-2017/11/10 14:42:31 [DEBUG] Saved serial number as hex 58ecc9d14d64fa44312668e18392c82f7663d857
-2017/11/10 14:42:31 [DEBUG] saved certificate with serial number 507671744490712936846053094820191159650749765719
-2017/11/10 14:42:31 [INFO] [::1]:54374 - "POST /enroll" 200
-2017/11/10 14:42:31 [DEBUG] Received request
-POST /register
-Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNQekNDQWVhZ0F3SUJBZ0lVSERicW94Q28rclBHUVdBbmZEd0tSVW9ROC9Vd0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRFeE1ERXdNemN3TUZvWERURTRNVEV4TURFd016Y3dNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJDZW00WVVqVzdxYmZjVEFraUhQUDh6RGpUZ2JkME9hbXRQdytsMG4KeDFBYTJ2SkEwSUlhdHYzcWV5SkFBbjYzUXlrekFvSWRnNkx4Vi82WHhCaVBCRnlqZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUVkFXVm1WdFkzTDF2d0ZpWU0yNjBVCm5ZYWVMREFmQmdOVkhTTUVHREFXZ0JSOVYrbTJBQllxNFJvblBuVE9YcitGanhvcEZqQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdabWhJZ2pGZlh5TnRuRThhQnl5VwpkRlJ3NWJZS0xoNDBaZ0h2VldrVDFYMENJQUlhbndsbU0rWDlmMlMxOFRuRGVHVjVMSGhQNDYzTTRoeU9haUhqCkgxbzIKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=.MEUCIQCbyV/dH/1V/tKK31qtQWGcEMOvpqYkEJIuv6O2G1KI6AIgIgcD1YKdjd10AdAqu8UYVfAcGtnWRD1ai7m1b2pTpho=
-{"id":"peer0.egyptianmuseum.org","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
-2017/11/10 14:42:31 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:31 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2017/11/10 14:42:31 [DEBUG] DB: Get certificate by serial (1c36eaa310a8fab3c64160277c3c0a454a10f3f5) and aki (7d57e9b600162ae11a273e74ce5ebf858f1a2916)
-2017/11/10 14:42:31 [DEBUG] Successful authentication of 'admin'
-2017/11/10 14:42:31 [DEBUG] Register request received
-2017/11/10 14:42:31 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:peer0.egyptianmuseum.org Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
-2017/11/10 14:42:31 [DEBUG] canRegister - Check to see if user admin can register
-2017/11/10 14:42:31 [DEBUG] DB: Getting identity admin
-2017/11/10 14:42:31 [DEBUG] Validate ID
-2017/11/10 14:42:31 [DEBUG] An affiliation is required for identity type user
-2017/11/10 14:42:31 [DEBUG] Validating affiliation: org1
-2017/11/10 14:42:31 [DEBUG] DB: Get affiliation org1
-2017/11/10 14:42:31 [DEBUG] Registering user id: peer0.egyptianmuseum.org
-2017/11/10 14:42:31 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
-2017/11/10 14:42:31 [DEBUG] DB: Getting identity peer0.egyptianmuseum.org
-2017/11/10 14:42:31 [DEBUG] DB: Add identity peer0.egyptianmuseum.org
-2017/11/10 14:42:31 [DEBUG] Successfully added identity peer0.egyptianmuseum.org to the database
-2017/11/10 14:42:31 [DEBUG] Registration completed - sending response 0xc420174120
-2017/11/10 14:42:31 [INFO] [::1]:54376 - "POST /register" 200
-2017/11/10 14:42:31 [DEBUG] Received request
-POST /enroll
-Authorization: Basic cGVlcjAuZWd5cHRpYW5tdXNldW0ub3JnOnNlY3JldA==
-{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBVTCB/AIBADBwMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxITAfBgNV\nBAMTGHBlZXIwLmVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49\nAwEHA0IABMyxUyZw0d70toXP66UqjcsPOY+MGorSb+76cghSOm4P0NB4z9VkxwIb\n+yRBFGBWU42DH70aO2VQV8zVpWK0HsOgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud\nEQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEAmyy15WZpvolQ\njvqBWd2MxnrQrbWCNoZ2cR9V04LGo50CIFQ/B/aWM65q5GaE4MS9N7PnuYz0fziO\nT0/8XdM7dmW3\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
-2017/11/10 14:42:31 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:31 [DEBUG] DB: Getting identity peer0.egyptianmuseum.org
-2017/11/10 14:42:31 [DEBUG] DB: Login user peer0.egyptianmuseum.org with max enrollments of -1 and state of 0
-2017/11/10 14:42:31 [DEBUG] Successfully incremented state for identity peer0.egyptianmuseum.org to 1
-2017/11/10 14:42:31 [DEBUG] DB: identity peer0.egyptianmuseum.org successfully logged in
-2017/11/10 14:42:31 [DEBUG] Identity/Pass was correct
-2017/11/10 14:42:31 [DEBUG] Received request for endpoint enroll
-2017/11/10 14:42:31 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
-MIIBVTCB/AIBADBwMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
-bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxITAfBgNV
-BAMTGHBlZXIwLmVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49
-AwEHA0IABMyxUyZw0d70toXP66UqjcsPOY+MGorSb+76cghSOm4P0NB4z9VkxwIb
-+yRBFGBWU42DH70aO2VQV8zVpWK0HsOgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud
-EQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEAmyy15WZpvolQ
-jvqBWd2MxnrQrbWCNoZ2cR9V04LGo50CIFQ/B/aWM65q5GaE4MS9N7PnuYz0fziO
-T0/8XdM7dmW3
------END CERTIFICATE REQUEST-----
- Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/11/10 14:42:31 [DEBUG] csrAuthCheck: enrollment ID=peer0.egyptianmuseum.org, CommonName=peer0.egyptianmuseum.org, Subject=<nil>
-2017/11/10 14:42:31 [DEBUG] CSR authorization check passed
-2017/11/10 14:42:31 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/11/10 14:42:31 [INFO] signed certificate with serial number 158252475008732721813190516507269058104120242130
-2017/11/10 14:42:31 [DEBUG] DB: Insert Certificate
-2017/11/10 14:42:31 [DEBUG] Saved serial number as hex 1bb84951f0e71ab0b939d9a7945d5ead5392efd2
-2017/11/10 14:42:31 [DEBUG] saved certificate with serial number 158252475008732721813190516507269058104120242130
-2017/11/10 14:42:31 [INFO] [::1]:54378 - "POST /enroll" 200
-2017/11/10 14:42:31 [DEBUG] Received request
-POST /enroll
-Authorization: Basic YWRtaW46YWRtaW5wdw==
-{"hosts":["peer1.egyptianmuseum.org","peer1"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBVDCB/AIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAExOEzKWe4sgCxl659\n2eRYtDYbSvyHTPkVwddxvZgFR6WQZthBvM3dmn8dlsPYSBKBhohsOe+IvZvhiuTs\nzgFIcqA9MDsGCSqGSIb3DQEJDjEuMCwwKgYDVR0RBCMwIYIYcGVlcjEuZWd5cHRp\nYW5tdXNldW0ub3JnggVwZWVyMTAKBggqhkjOPQQDAgNHADBEAiAdXpX24Kid6E7D\nbqUcjpwCamchNbDtkev4N2g3yOCGJgIgTxCFkoaYr6HM2qXd5LgTlGyJm1sJWJ1K\n2pmFI3ciaDs=\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
-2017/11/10 14:42:31 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:31 [DEBUG] DB: Getting identity admin
-2017/11/10 14:42:31 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 3
-2017/11/10 14:42:31 [DEBUG] Successfully incremented state for identity admin to 4
-2017/11/10 14:42:31 [DEBUG] DB: identity admin successfully logged in
-2017/11/10 14:42:31 [DEBUG] Identity/Pass was correct
-2017/11/10 14:42:31 [DEBUG] Received request for endpoint enroll
-2017/11/10 14:42:31 [DEBUG] Enrollment request: {SignRequest:{Hosts:[peer1.egyptianmuseum.org peer1] Request:-----BEGIN CERTIFICATE REQUEST-----
+{"hosts":["peer0.egyptianmuseum.org","peer0"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBVDCB/AIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE3rNbG1u0J1dXlzXr\nX8UOIWMoPOGkIVUVT/PpNoDjQ91Zgm9wdY4AoMOhD4NSFWG7PFUQ920j5teWtONj\n2IKUqKA9MDsGCSqGSIb3DQEJDjEuMCwwKgYDVR0RBCMwIYIYcGVlcjAuZWd5cHRp\nYW5tdXNldW0ub3JnggVwZWVyMDAKBggqhkjOPQQDAgNHADBEAiBBByRZV6Pp0uug\nK/W0htr+JGrmsQUuVlu88lsMlOEJKwIgNa0gQRVMPMtqEJP3+iC/Zam5GJSErkBv\nE8teGWhLDco=\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
+2017/11/10 17:29:35 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:35 [DEBUG] DB: Getting identity admin
+2017/11/10 17:29:35 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 2
+2017/11/10 17:29:35 [DEBUG] Successfully incremented state for identity admin to 3
+2017/11/10 17:29:35 [DEBUG] DB: identity admin successfully logged in
+2017/11/10 17:29:35 [DEBUG] Identity/Pass was correct
+2017/11/10 17:29:35 [DEBUG] Received request for endpoint enroll
+2017/11/10 17:29:35 [DEBUG] Enrollment request: {SignRequest:{Hosts:[peer0.egyptianmuseum.org peer0] Request:-----BEGIN CERTIFICATE REQUEST-----
 MIIBVDCB/AIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV
-BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAExOEzKWe4sgCxl659
-2eRYtDYbSvyHTPkVwddxvZgFR6WQZthBvM3dmn8dlsPYSBKBhohsOe+IvZvhiuTs
-zgFIcqA9MDsGCSqGSIb3DQEJDjEuMCwwKgYDVR0RBCMwIYIYcGVlcjEuZWd5cHRp
-YW5tdXNldW0ub3JnggVwZWVyMTAKBggqhkjOPQQDAgNHADBEAiAdXpX24Kid6E7D
-bqUcjpwCamchNbDtkev4N2g3yOCGJgIgTxCFkoaYr6HM2qXd5LgTlGyJm1sJWJ1K
-2pmFI3ciaDs=
+BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE3rNbG1u0J1dXlzXr
+X8UOIWMoPOGkIVUVT/PpNoDjQ91Zgm9wdY4AoMOhD4NSFWG7PFUQ920j5teWtONj
+2IKUqKA9MDsGCSqGSIb3DQEJDjEuMCwwKgYDVR0RBCMwIYIYcGVlcjAuZWd5cHRp
+YW5tdXNldW0ub3JnggVwZWVyMDAKBggqhkjOPQQDAgNHADBEAiBBByRZV6Pp0uug
+K/W0htr+JGrmsQUuVlu88lsMlOEJKwIgNa0gQRVMPMtqEJP3+iC/Zam5GJSErkBv
+E8teGWhLDco=
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile:tls CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/11/10 14:42:31 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
-2017/11/10 14:42:31 [DEBUG] CSR authorization check passed
-2017/11/10 14:42:31 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/11/10 14:42:31 [INFO] signed certificate with serial number 80282955742329395979407972077563859327881256957
-2017/11/10 14:42:31 [DEBUG] DB: Insert Certificate
-2017/11/10 14:42:31 [DEBUG] Saved serial number as hex e1003225b26bcb1ce1da90ffa452945cd3b1ffd
-2017/11/10 14:42:32 [DEBUG] saved certificate with serial number 80282955742329395979407972077563859327881256957
-2017/11/10 14:42:32 [INFO] [::1]:54380 - "POST /enroll" 200
-2017/11/10 14:42:32 [DEBUG] Received request
+2017/11/10 17:29:35 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
+2017/11/10 17:29:35 [DEBUG] CSR authorization check passed
+2017/11/10 17:29:35 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/11/10 17:29:35 [INFO] signed certificate with serial number 677008526253389005854576822256136842429883037995
+2017/11/10 17:29:35 [DEBUG] DB: Insert Certificate
+2017/11/10 17:29:35 [DEBUG] Saved serial number as hex 76961cbd2c676632452b35b1ae75e1e4b121392b
+2017/11/10 17:29:35 [DEBUG] saved certificate with serial number 677008526253389005854576822256136842429883037995
+2017/11/10 17:29:35 [INFO] [::1]:54612 - "POST /enroll" 200
+2017/11/10 17:29:35 [DEBUG] Received request
 POST /register
-Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNQekNDQWVhZ0F3SUJBZ0lVSERicW94Q28rclBHUVdBbmZEd0tSVW9ROC9Vd0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRFeE1ERXdNemN3TUZvWERURTRNVEV4TURFd016Y3dNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJDZW00WVVqVzdxYmZjVEFraUhQUDh6RGpUZ2JkME9hbXRQdytsMG4KeDFBYTJ2SkEwSUlhdHYzcWV5SkFBbjYzUXlrekFvSWRnNkx4Vi82WHhCaVBCRnlqZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUVkFXVm1WdFkzTDF2d0ZpWU0yNjBVCm5ZYWVMREFmQmdOVkhTTUVHREFXZ0JSOVYrbTJBQllxNFJvblBuVE9YcitGanhvcEZqQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdabWhJZ2pGZlh5TnRuRThhQnl5VwpkRlJ3NWJZS0xoNDBaZ0h2VldrVDFYMENJQUlhbndsbU0rWDlmMlMxOFRuRGVHVjVMSGhQNDYzTTRoeU9haUhqCkgxbzIKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=.MEQCIG/OCATSRKFw/5RtNkpccZZp8HlncY+c3O70dfOR3J7JAiBqP2ZBvGHneSIdMTS44OSdGiSaL1I5nIQR9aZhrJ9F8A==
-{"id":"peer1.egyptianmuseum.org","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
-2017/11/10 14:42:32 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:32 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2017/11/10 14:42:32 [DEBUG] DB: Get certificate by serial (1c36eaa310a8fab3c64160277c3c0a454a10f3f5) and aki (7d57e9b600162ae11a273e74ce5ebf858f1a2916)
-2017/11/10 14:42:32 [DEBUG] Successful authentication of 'admin'
-2017/11/10 14:42:32 [DEBUG] Register request received
-2017/11/10 14:42:32 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:peer1.egyptianmuseum.org Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
-2017/11/10 14:42:32 [DEBUG] canRegister - Check to see if user admin can register
-2017/11/10 14:42:32 [DEBUG] DB: Getting identity admin
-2017/11/10 14:42:32 [DEBUG] Validate ID
-2017/11/10 14:42:32 [DEBUG] An affiliation is required for identity type user
-2017/11/10 14:42:32 [DEBUG] Validating affiliation: org1
-2017/11/10 14:42:32 [DEBUG] DB: Get affiliation org1
-2017/11/10 14:42:32 [DEBUG] Registering user id: peer1.egyptianmuseum.org
-2017/11/10 14:42:32 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
-2017/11/10 14:42:32 [DEBUG] DB: Getting identity peer1.egyptianmuseum.org
-2017/11/10 14:42:32 [DEBUG] DB: Add identity peer1.egyptianmuseum.org
-2017/11/10 14:42:32 [DEBUG] Successfully added identity peer1.egyptianmuseum.org to the database
-2017/11/10 14:42:32 [DEBUG] Registration completed - sending response 0xc420174270
-2017/11/10 14:42:32 [INFO] [::1]:54382 - "POST /register" 200
-2017/11/10 14:42:32 [DEBUG] Received request
+Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNQekNDQWVhZ0F3SUJBZ0lVRmQzaDFCV3RxV0dBNlJwclltSGZtWTNCU1B3d0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRFeE1ERXpNalV3TUZvWERURTRNVEV4TURFek1qVXdNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJGc2pjbVpISDZ6QVdob0wyMFhNaTdpVjhISEl1ckpRYWVnbVh0M24KMFhFV2ZseDB2MjRxL2FRVW53aVBPaFpEMWNxU2FGdys1YnJRRTRRSytnVWZjeVNqZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUS3JMWkJVYkR0VWdZWXYvd1VnRFV0Cmtrb1FEekFmQmdOVkhTTUVHREFXZ0JSTHZGMlpLTGpmcEd1amhWbDQvNHlvQTFlTHVEQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdST3R0cGJvZUxVTnkyN3VRWWxnQQpFRzBYckFhVkI1Vzl5UkQzT1N2amdUTUNJQllQSUwxTmdkN05CTGhFN043VlVYbERtMTlkb1MrZ3ZJdUFmcGFvCk4zbnEKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=.MEQCIAcdl+81/uIZQHervlcPZurH2WmP6lGxBp6zqlZu05OkAiBFa/6pw1dpezmFvUqFMTO+lNEZk3pCQ0J5AFNBAlYU/Q==
+{"id":"peer0.egyptianmuseum.org","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
+2017/11/10 17:29:35 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:35 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2017/11/10 17:29:35 [DEBUG] DB: Get certificate by serial (15dde1d415ada96180e91a6b6261df998dc148fc) and aki (4bbc5d9928b8dfa46ba3855978ff8ca803578bb8)
+2017/11/10 17:29:35 [DEBUG] Successful authentication of 'admin'
+2017/11/10 17:29:35 [DEBUG] Register request received
+2017/11/10 17:29:35 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:peer0.egyptianmuseum.org Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
+2017/11/10 17:29:35 [DEBUG] canRegister - Check to see if user admin can register
+2017/11/10 17:29:35 [DEBUG] DB: Getting identity admin
+2017/11/10 17:29:35 [DEBUG] Validate ID
+2017/11/10 17:29:35 [DEBUG] An affiliation is required for identity type user
+2017/11/10 17:29:35 [DEBUG] Validating affiliation: org1
+2017/11/10 17:29:35 [DEBUG] DB: Get affiliation org1
+2017/11/10 17:29:35 [DEBUG] Registering user id: peer0.egyptianmuseum.org
+2017/11/10 17:29:35 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
+2017/11/10 17:29:35 [DEBUG] DB: Getting identity peer0.egyptianmuseum.org
+2017/11/10 17:29:35 [DEBUG] DB: Add identity peer0.egyptianmuseum.org
+2017/11/10 17:29:36 [DEBUG] Successfully added identity peer0.egyptianmuseum.org to the database
+2017/11/10 17:29:36 [DEBUG] Registration completed - sending response 0xc42000e160
+2017/11/10 17:29:36 [INFO] [::1]:54614 - "POST /register" 200
+2017/11/10 17:29:36 [DEBUG] Received request
 POST /enroll
-Authorization: Basic cGVlcjEuZWd5cHRpYW5tdXNldW0ub3JnOnNlY3JldA==
-{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBVDCB/AIBADBwMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxITAfBgNV\nBAMTGHBlZXIxLmVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49\nAwEHA0IABNZ0aXv7lwbQcui6bm/7eiJFNbg3qxORvPXz+HtH0AB/3GQUMTxmHLtv\ncikj6ADwFGZR645gHERMQLoe51OK4gmgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud\nEQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNHADBEAiBQUe1NV9ppLxLi\n8SDVsNRQWnYKI54zbTZBtsphndMl6wIgGkzVYOJTSeQL/Xkwsq8aRpPOL7uFvw5X\nlBPC9p58LZs=\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
-2017/11/10 14:42:32 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:32 [DEBUG] DB: Getting identity peer1.egyptianmuseum.org
-2017/11/10 14:42:32 [DEBUG] DB: Login user peer1.egyptianmuseum.org with max enrollments of -1 and state of 0
-2017/11/10 14:42:32 [DEBUG] Successfully incremented state for identity peer1.egyptianmuseum.org to 1
-2017/11/10 14:42:32 [DEBUG] DB: identity peer1.egyptianmuseum.org successfully logged in
-2017/11/10 14:42:32 [DEBUG] Identity/Pass was correct
-2017/11/10 14:42:32 [DEBUG] Received request for endpoint enroll
-2017/11/10 14:42:32 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
+Authorization: Basic cGVlcjAuZWd5cHRpYW5tdXNldW0ub3JnOnNlY3JldA==
+{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBVDCB/AIBADBwMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxITAfBgNV\nBAMTGHBlZXIwLmVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49\nAwEHA0IABNd+NFE05fbKMwMM2ojP52ykFSt/nc5OCZY4Uovt7qVzgx4gztEiUQ4K\nhklgytLJ0X7jRbIU2ckNCj/dHo7KQ9egKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud\nEQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNHADBEAiAi+t8AdXwtnZjC\nnFpaz93agBkF/QJ6MGBtYKu3IhozPQIgG4ypPBPJaf9UQlpsi+diEeN5BhRWe/Bw\nmBXOt0JefxY=\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+2017/11/10 17:29:36 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:36 [DEBUG] DB: Getting identity peer0.egyptianmuseum.org
+2017/11/10 17:29:36 [DEBUG] DB: Login user peer0.egyptianmuseum.org with max enrollments of -1 and state of 0
+2017/11/10 17:29:36 [DEBUG] Successfully incremented state for identity peer0.egyptianmuseum.org to 1
+2017/11/10 17:29:36 [DEBUG] DB: identity peer0.egyptianmuseum.org successfully logged in
+2017/11/10 17:29:36 [DEBUG] Identity/Pass was correct
+2017/11/10 17:29:36 [DEBUG] Received request for endpoint enroll
+2017/11/10 17:29:36 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
 MIIBVDCB/AIBADBwMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
 bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxITAfBgNV
-BAMTGHBlZXIxLmVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49
-AwEHA0IABNZ0aXv7lwbQcui6bm/7eiJFNbg3qxORvPXz+HtH0AB/3GQUMTxmHLtv
-cikj6ADwFGZR645gHERMQLoe51OK4gmgKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud
-EQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNHADBEAiBQUe1NV9ppLxLi
-8SDVsNRQWnYKI54zbTZBtsphndMl6wIgGkzVYOJTSeQL/Xkwsq8aRpPOL7uFvw5X
-lBPC9p58LZs=
+BAMTGHBlZXIwLmVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49
+AwEHA0IABNd+NFE05fbKMwMM2ojP52ykFSt/nc5OCZY4Uovt7qVzgx4gztEiUQ4K
+hklgytLJ0X7jRbIU2ckNCj/dHo7KQ9egKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud
+EQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNHADBEAiAi+t8AdXwtnZjC
+nFpaz93agBkF/QJ6MGBtYKu3IhozPQIgG4ypPBPJaf9UQlpsi+diEeN5BhRWe/Bw
+mBXOt0JefxY=
 -----END CERTIFICATE REQUEST-----
  Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
-2017/11/10 14:42:32 [DEBUG] csrAuthCheck: enrollment ID=peer1.egyptianmuseum.org, CommonName=peer1.egyptianmuseum.org, Subject=<nil>
-2017/11/10 14:42:32 [DEBUG] CSR authorization check passed
-2017/11/10 14:42:32 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2017/11/10 14:42:32 [INFO] signed certificate with serial number 595888814913163094916186715090159225934474838520
-2017/11/10 14:42:32 [DEBUG] DB: Insert Certificate
-2017/11/10 14:42:32 [DEBUG] Saved serial number as hex 6860941f1f1c68646dc334f62c0a66f90b6f01f8
-2017/11/10 14:42:32 [DEBUG] saved certificate with serial number 595888814913163094916186715090159225934474838520
-2017/11/10 14:42:32 [INFO] [::1]:54384 - "POST /enroll" 200
-2017/11/10 14:42:32 [DEBUG] Received request
+2017/11/10 17:29:36 [DEBUG] csrAuthCheck: enrollment ID=peer0.egyptianmuseum.org, CommonName=peer0.egyptianmuseum.org, Subject=<nil>
+2017/11/10 17:29:36 [DEBUG] CSR authorization check passed
+2017/11/10 17:29:36 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/11/10 17:29:36 [INFO] signed certificate with serial number 11670388842272984725973756149670141378551408822
+2017/11/10 17:29:36 [DEBUG] DB: Insert Certificate
+2017/11/10 17:29:36 [DEBUG] Saved serial number as hex 20b517e63d59f6b22491573f91b783e548ce8b6
+2017/11/10 17:29:36 [DEBUG] saved certificate with serial number 11670388842272984725973756149670141378551408822
+2017/11/10 17:29:36 [INFO] [::1]:54616 - "POST /enroll" 200
+2017/11/10 17:29:36 [DEBUG] Received request
+POST /enroll
+Authorization: Basic YWRtaW46YWRtaW5wdw==
+{"hosts":["peer1.egyptianmuseum.org","peer1"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBVTCB/AIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE3gBzjlO3q1hdJtMt\nftsnNfN/HTfMfK3H+gRFaRS3KHESVDRnYWTYqJ6S/BRYqHtDnkWsMsPtMCMho/Nk\n3P/NHqA9MDsGCSqGSIb3DQEJDjEuMCwwKgYDVR0RBCMwIYIYcGVlcjEuZWd5cHRp\nYW5tdXNldW0ub3JnggVwZWVyMTAKBggqhkjOPQQDAgNIADBFAiEA26YiWnAeB2rS\nfM7AvmkhC0dQ2srosOf1xWCtf0RNdNYCICNC9xDSpRxxM8+nWA9ILJLYIWksM684\nJH8RhqudIPF8\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","CAName":""}
+2017/11/10 17:29:36 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:36 [DEBUG] DB: Getting identity admin
+2017/11/10 17:29:36 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 3
+2017/11/10 17:29:36 [DEBUG] Successfully incremented state for identity admin to 4
+2017/11/10 17:29:36 [DEBUG] DB: identity admin successfully logged in
+2017/11/10 17:29:36 [DEBUG] Identity/Pass was correct
+2017/11/10 17:29:36 [DEBUG] Received request for endpoint enroll
+2017/11/10 17:29:36 [DEBUG] Enrollment request: {SignRequest:{Hosts:[peer1.egyptianmuseum.org peer1] Request:-----BEGIN CERTIFICATE REQUEST-----
+MIIBVTCB/AIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
+bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV
+BAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE3gBzjlO3q1hdJtMt
+ftsnNfN/HTfMfK3H+gRFaRS3KHESVDRnYWTYqJ6S/BRYqHtDnkWsMsPtMCMho/Nk
+3P/NHqA9MDsGCSqGSIb3DQEJDjEuMCwwKgYDVR0RBCMwIYIYcGVlcjEuZWd5cHRp
+YW5tdXNldW0ub3JnggVwZWVyMTAKBggqhkjOPQQDAgNIADBFAiEA26YiWnAeB2rS
+fM7AvmkhC0dQ2srosOf1xWCtf0RNdNYCICNC9xDSpRxxM8+nWA9ILJLYIWksM684
+JH8RhqudIPF8
+-----END CERTIFICATE REQUEST-----
+ Subject:<nil> Profile:tls CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
+2017/11/10 17:29:36 [DEBUG] csrAuthCheck: enrollment ID=admin, CommonName=admin, Subject=<nil>
+2017/11/10 17:29:36 [DEBUG] CSR authorization check passed
+2017/11/10 17:29:36 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/11/10 17:29:36 [INFO] signed certificate with serial number 628971930693646410782753001712102590985955386579
+2017/11/10 17:29:36 [DEBUG] DB: Insert Certificate
+2017/11/10 17:29:36 [DEBUG] Saved serial number as hex 6e2c13aa63f2adf50e491d988fd1b01e78c724d3
+2017/11/10 17:29:36 [DEBUG] saved certificate with serial number 628971930693646410782753001712102590985955386579
+2017/11/10 17:29:36 [INFO] [::1]:54618 - "POST /enroll" 200
+2017/11/10 17:29:36 [DEBUG] Received request
+POST /register
+Authorization: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNQekNDQWVhZ0F3SUJBZ0lVRmQzaDFCV3RxV0dBNlJwclltSGZtWTNCU1B3d0NnWUlLb1pJemowRUF3SXcKYURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJrd0Z3WURWUVFERXhCbVlXSnlhV010ClkyRXRjMlZ5ZG1WeU1CNFhEVEUzTVRFeE1ERXpNalV3TUZvWERURTRNVEV4TURFek1qVXdNRm93WFRFTE1Ba0cKQTFVRUJoTUNWVk14RnpBVkJnTlZCQWdURGs1dmNuUm9JRU5oY205c2FXNWhNUlF3RWdZRFZRUUtFd3RJZVhCbApjbXhsWkdkbGNqRVBNQTBHQTFVRUN4TUdSbUZpY21sak1RNHdEQVlEVlFRREV3VmhaRzFwYmpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJGc2pjbVpISDZ6QVdob0wyMFhNaTdpVjhISEl1ckpRYWVnbVh0M24KMFhFV2ZseDB2MjRxL2FRVW53aVBPaFpEMWNxU2FGdys1YnJRRTRRSytnVWZjeVNqZVRCM01BNEdBMVVkRHdFQgovd1FFQXdJSGdEQU1CZ05WSFJNQkFmOEVBakFBTUIwR0ExVWREZ1FXQkJUS3JMWkJVYkR0VWdZWXYvd1VnRFV0Cmtrb1FEekFmQmdOVkhTTUVHREFXZ0JSTHZGMlpLTGpmcEd1amhWbDQvNHlvQTFlTHVEQVhCZ05WSFJFRUVEQU8KZ2d4VlluVnVkSFZUWlhKMlpYSXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdST3R0cGJvZUxVTnkyN3VRWWxnQQpFRzBYckFhVkI1Vzl5UkQzT1N2amdUTUNJQllQSUwxTmdkN05CTGhFN043VlVYbERtMTlkb1MrZ3ZJdUFmcGFvCk4zbnEKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=.MEQCIFAF+BfD23Qs33WcX9glmQxVVIG5ir7AuPbTIr9zP+/YAiAjIdFE/ggwkr3EsuHiHjVtR4rW935f9i5xt78xh78DAQ==
+{"id":"peer1.egyptianmuseum.org","type":"user","secret":"secret","max_enrollments":-1,"affiliation":"org1","attrs":[{"name":"","value":""}]}
+2017/11/10 17:29:36 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:36 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2017/11/10 17:29:36 [DEBUG] DB: Get certificate by serial (15dde1d415ada96180e91a6b6261df998dc148fc) and aki (4bbc5d9928b8dfa46ba3855978ff8ca803578bb8)
+2017/11/10 17:29:36 [DEBUG] Successful authentication of 'admin'
+2017/11/10 17:29:36 [DEBUG] Register request received
+2017/11/10 17:29:36 [DEBUG] Received registration request from admin: &{RegistrationRequest:{Name:peer1.egyptianmuseum.org Type:user Secret:<<user-specified>> MaxEnrollments:-1 Affiliation:org1 Attributes:[{Name: Value:}] CAName:}}
+2017/11/10 17:29:36 [DEBUG] canRegister - Check to see if user admin can register
+2017/11/10 17:29:36 [DEBUG] DB: Getting identity admin
+2017/11/10 17:29:36 [DEBUG] Validate ID
+2017/11/10 17:29:36 [DEBUG] An affiliation is required for identity type user
+2017/11/10 17:29:36 [DEBUG] Validating affiliation: org1
+2017/11/10 17:29:36 [DEBUG] DB: Get affiliation org1
+2017/11/10 17:29:36 [DEBUG] Registering user id: peer1.egyptianmuseum.org
+2017/11/10 17:29:36 [DEBUG] Max enrollment value verification - User specified max enrollment: -1, CA max enrollment: -1
+2017/11/10 17:29:36 [DEBUG] DB: Getting identity peer1.egyptianmuseum.org
+2017/11/10 17:29:36 [DEBUG] DB: Add identity peer1.egyptianmuseum.org
+2017/11/10 17:29:37 [DEBUG] Successfully added identity peer1.egyptianmuseum.org to the database
+2017/11/10 17:29:37 [DEBUG] Registration completed - sending response 0xc42000e268
+2017/11/10 17:29:37 [INFO] [::1]:54620 - "POST /register" 200
+2017/11/10 17:29:37 [DEBUG] Received request
+POST /enroll
+Authorization: Basic cGVlcjEuZWd5cHRpYW5tdXNldW0ub3JnOnNlY3JldA==
+{"hosts":["UbuntuServer"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBVTCB/AIBADBwMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxITAfBgNV\nBAMTGHBlZXIxLmVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49\nAwEHA0IABFS5omV4u5nL24JFa+OmneZMHMV/pWhYRoiiuOOX25IWrXGunxHIvhT4\nfx+6hvuaryXCUa/dyGMGK0ZxbT+Xi8egKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud\nEQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEApAyAW1qO9oqA\no6AhMmOIZD3vTE17F/KVBsLvwSCTngICIFFfPqJ5Ij8opxyAeO8WBbpYzu/9UqE6\nwa/D+1yzQXeS\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+2017/11/10 17:29:37 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:37 [DEBUG] DB: Getting identity peer1.egyptianmuseum.org
+2017/11/10 17:29:37 [DEBUG] DB: Login user peer1.egyptianmuseum.org with max enrollments of -1 and state of 0
+2017/11/10 17:29:37 [DEBUG] Successfully incremented state for identity peer1.egyptianmuseum.org to 1
+2017/11/10 17:29:37 [DEBUG] DB: identity peer1.egyptianmuseum.org successfully logged in
+2017/11/10 17:29:37 [DEBUG] Identity/Pass was correct
+2017/11/10 17:29:37 [DEBUG] Received request for endpoint enroll
+2017/11/10 17:29:37 [DEBUG] Enrollment request: {SignRequest:{Hosts:[UbuntuServer] Request:-----BEGIN CERTIFICATE REQUEST-----
+MIIBVTCB/AIBADBwMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp
+bmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxITAfBgNV
+BAMTGHBlZXIxLmVneXB0aWFubXVzZXVtLm9yZzBZMBMGByqGSM49AgEGCCqGSM49
+AwEHA0IABFS5omV4u5nL24JFa+OmneZMHMV/pWhYRoiiuOOX25IWrXGunxHIvhT4
+fx+6hvuaryXCUa/dyGMGK0ZxbT+Xi8egKjAoBgkqhkiG9w0BCQ4xGzAZMBcGA1Ud
+EQQQMA6CDFVidW50dVNlcnZlcjAKBggqhkjOPQQDAgNIADBFAiEApAyAW1qO9oqA
+o6AhMmOIZD3vTE17F/KVBsLvwSCTngICIFFfPqJ5Ij8opxyAeO8WBbpYzu/9UqE6
+wa/D+1yzQXeS
+-----END CERTIFICATE REQUEST-----
+ Subject:<nil> Profile: CRLOverride: Label: Serial:<nil> Extensions:[]} CAName:}
+2017/11/10 17:29:37 [DEBUG] csrAuthCheck: enrollment ID=peer1.egyptianmuseum.org, CommonName=peer1.egyptianmuseum.org, Subject=<nil>
+2017/11/10 17:29:37 [DEBUG] CSR authorization check passed
+2017/11/10 17:29:37 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2017/11/10 17:29:37 [INFO] signed certificate with serial number 497685177238054314691384231629204771000257637299
+2017/11/10 17:29:37 [DEBUG] DB: Insert Certificate
+2017/11/10 17:29:37 [DEBUG] Saved serial number as hex 572cf9a5d40bc1aacb51e940d0c524c02dbc6bb3
+2017/11/10 17:29:37 [DEBUG] saved certificate with serial number 497685177238054314691384231629204771000257637299
+2017/11/10 17:29:37 [INFO] [::1]:54622 - "POST /enroll" 200
+2017/11/10 17:29:37 [DEBUG] Received request
 POST /cainfo
 Authorization: Basic YWRtaW46YWRtaW5wdw==
 {}
-2017/11/10 14:42:32 [DEBUG] Directing traffic to default CA
-2017/11/10 14:42:32 [DEBUG] Received request for server info
-2017/11/10 14:42:32 [INFO] [::1]:54386 - "POST /cainfo" 200
+2017/11/10 17:29:37 [DEBUG] Directing traffic to default CA
+2017/11/10 17:29:37 [DEBUG] Received request for server info
+2017/11/10 17:29:37 [INFO] [::1]:54624 - "POST /cainfo" 200

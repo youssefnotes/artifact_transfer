@@ -5,6 +5,35 @@ networks:
   provenance:
 # Top level service keys
 services:
+
+  ca.egyptianmuseum:
+    container_name: ca.egyptianmuseum
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
+      - FABRIC_CA_SERVER_CA_NAME=ca.egyptianmuseum
+    ports:
+      - "8054:7054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw'
+    volumes:
+      - ./crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/etc/hyperledger/fabric-ca-server-config
+    networks:
+      - provenance
+
+  ca.louvre:
+    container_name: ca.louvre
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
+      - FABRIC_CA_SERVER_CA_NAME=ca.louvre
+    ports:
+      - "9054:7054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw'
+    volumes:
+      - ./crypto-config/peerOrganizations/louvre.fr/ca/root/:/etc/hyperledger/fabric-ca-server-config
+    networks:
+      - provenance
+
   orderer.art.ifar.org:
     # Container name
     container_name: orderer.art.ifar.org
@@ -38,6 +67,9 @@ services:
     # HOST_PORT:CONTAINER_PORT
     ports:
       - 7050:7050
+    depends_on:
+      - ca.egyptianmuseum
+      - ca.louvre
     # Networks accessible to this container (orderer.art.ifar.org)  
     networks:
       - provenance
@@ -65,6 +97,7 @@ services:
          - 7053:7053
     depends_on:
       - orderer.art.ifar.org
+      - ca.egyptianmuseum
       - provenanceDB
     networks:
       - provenance
@@ -88,6 +121,7 @@ services:
          - 8053:7053
     depends_on:
       - orderer.art.ifar.org
+      - ca.egyptianmuseum
       - peer0.egyptianmuseum.org
     networks:
       - provenance 
@@ -112,6 +146,7 @@ services:
          - 9053:7053
     depends_on:
       - orderer.art.ifar.org
+      - ca.louvre
     networks:
       - provenance
 
@@ -134,6 +169,7 @@ services:
          - 10053:7053
     depends_on:
       - orderer.art.ifar.org
+      - ca.louvre
     networks:
       - provenance
 
@@ -227,67 +263,6 @@ services:
     networks:
       - provenance
 
-  # cli0.bauhaus.de:
-  #   extends:
-  #     file: ./config/cli.yaml
-  #     service: cli
-  #   container_name: cli0.bauhaus.de
-  #   environment:
-  #     - CORE_PEER_ID=cli0.bauhaus.de
-  #     - CORE_PEER_ADDRESS=peer0.bauhaus.de:7051
-  #     - CORE_PEER_LOCALMSPID=DEArtMSP
-  #     - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@bauhaus.de/msp
-  #   volumes:
-  #     - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
-  #     - ./config/crypto-config/peerOrganizations/bauhaus.de/:/var/hyperledger/crypto/peer
-  #     - ./config/crypto-config/peerOrganizations/bauhaus.de/peers/peer0.bauhaus.de/tls/:/var/hyperledger/crypto/peer/tls
-  #   depends_on:
-  #     - orderer.art.ifar.org
-  #     - peer0.bauhaus.de
-  #   networks:
-  #     - provenance
-
-  # ca.louvre:
-  #   image: hyperledger/fabric-ca
-  #   environment:
-  #     - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
-  #     - FABRIC_CA_SERVER_CA_NAME=ca.louvre
-  #   ports:
-  #     - "9054:7054"
-  #   command: sh -c 'fabric-ca-server start -b admin:adminpw'
-  #   volumes:
-  #     - ./crypto-config/peerOrganizations/louvre.fr/ca/root/:/etc/hyperledger/fabric-ca-server-config
-  #   container_name: ca.louvre
-  #   networks:
-  #     - provenance
-
-  # ca.egyptianmuseum:
-  #   image: hyperledger/fabric-ca
-  #   environment:
-  #     - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
-  #     - FABRIC_CA_SERVER_CA_NAME=ca.egyptianmuseum
-  #   ports:
-  #     - "8054:7054"
-  #   command: sh -c 'fabric-ca-server start -b admin:adminpw'
-  #   volumes:
-  #     - ./crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/etc/hyperledger/fabric-ca-server-config
-  #   container_name: ca.egyptianmuseum
-  #   networks:
-  #     - provenance
-
-  # ca.bauhaus:
-  #   image: hyperledger/fabric-ca
-  #   environment:
-  #     - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
-  #     - FABRIC_CA_SERVER_CA_NAME=ca.bauhaus
-  #   ports:
-  #     - "10054:7054"
-  #   command: sh -c 'fabric-ca-server start -b admin:adminpw'
-  #   volumes:
-  #     - ./crypto-config/peerOrganizations/bauhaus.de/ca/root/:/etc/hyperledger/fabric-ca-server-config
-  #   container_name: ca.bauhaus
-  #   networks:
-  #     - provenance
 
   # client.egyptianmuseum:
   #   tty: true
@@ -305,6 +280,9 @@ services:
   #    - provenance
 
 
+
+#to be used For network extension demonestration
+################################################
   # peer0.bauhaus.de:
   #   container_name: peer0.bauhaus.de
   #   extends:
@@ -325,5 +303,39 @@ services:
   #        - 11053:7053
   #   depends_on:
   #     - orderer.art.ifar.org
+  #   networks:
+  #     - provenance
+
+  # cli0.bauhaus.de:
+  #   extends:
+  #     file: ./config/cli.yaml
+  #     service: cli
+  #   container_name: cli0.bauhaus.de
+  #   environment:
+  #     - CORE_PEER_ID=cli0.bauhaus.de
+  #     - CORE_PEER_ADDRESS=peer0.bauhaus.de:7051
+  #     - CORE_PEER_LOCALMSPID=DEArtMSP
+  #     - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@bauhaus.de/msp
+  #   volumes:
+  #     - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+  #     - ./config/crypto-config/peerOrganizations/bauhaus.de/:/var/hyperledger/crypto/peer
+  #     - ./config/crypto-config/peerOrganizations/bauhaus.de/peers/peer0.bauhaus.de/tls/:/var/hyperledger/crypto/peer/tls
+  #   depends_on:
+  #     - orderer.art.ifar.org
+  #     - peer0.bauhaus.de
+  #   networks:
+  #     - provenance
+
+  # ca.bauhaus:
+  #   image: hyperledger/fabric-ca
+  #   environment:
+  #     - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
+  #     - FABRIC_CA_SERVER_CA_NAME=ca.bauhaus
+  #   ports:
+  #     - "10054:7054"
+  #   command: sh -c 'fabric-ca-server start -b admin:adminpw'
+  #   volumes:
+  #     - ./crypto-config/peerOrganizations/bauhaus.de/ca/root/:/etc/hyperledger/fabric-ca-server-config
+  #   container_name: ca.bauhaus
   #   networks:
   #     - provenance

@@ -9,7 +9,9 @@ function withTLS {
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
 		docker exec cli1.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode instantiate -o orderer.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{"Args":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
+		docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{"Args":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA"
+		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode instantiate -o orderer.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{"Args":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile /var/hyperledger/crypto/orderer/msp/tlscacerts/tlsca.art.ifar.org-cert.pem'
+		
 		echo "########louvre peer"
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
@@ -19,31 +21,11 @@ function withTLS {
 		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
 }
 
-function withoutTLS {
-	#Setup without tls
-		echo "########egyptianmuseum peer"
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -o orderer.art.ifar.org:7050 -c mainchannel -f MainChannel.tx'
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx'
-		docker exec cli1.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli1.egyptianmuseum.org bash -c 'peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
-		docker exec cli1.egyptianmuseum.org bash -c 'peer chaincode instantiate -n artmanager -v 0 -c '{"Args":[""]}' -C mainchannel'
+function testChainCode {
+	# peer chaincode invoke -n artmanager -v 0 -c '{"Args":["addNewArtifact", "EGYMUSEUM", "ARTID1234", "Sphinx"]}' -C mainchannel -o orderer.art.ifar.org:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+# peer chaincode query -n artmanager -v 0 -c '{"Args":["queryArtifactDetails", "EGYMUSEUM", "ARTID1234"]}' -C mainchannel -o orderer.art.ifar.org:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
-		echo "########louvre peer"
-		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx'
-		docker exec cli1.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli1.louvre.fr bash -c 'peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
-
-		# echo "########bauhaus peer"
-		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
-		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx'
-		# docker exec cli0.bauhaus.de bash -c 'peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
-
-
-
-}		
-
+}
 
 function main {
 
@@ -99,12 +81,10 @@ function main {
 		# configtxgen -profile MainChannel -outputAnchorPeersUpdate ../artifacts/channels/DEArtMSPanchors.tx -channelID mainchannel -asOrg DEArtMSP
 		cd ..
 		# Todo: save output of compose as log
-		docker-compose --project-name art -f docker-compose-provenance.yaml up -d
+		docker-compose --project-name art -f docker-compose-provenance.yaml up
 		# execute setup steps with TLS
 		# CONTAINER_IDS=$(docker ps -aq)
-
-		withTLS
-		# withoutTLS
+		# withTLS
 		# docker attach $CONTAINER_IDS
 
 
