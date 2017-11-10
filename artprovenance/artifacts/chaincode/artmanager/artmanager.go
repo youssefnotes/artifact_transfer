@@ -31,6 +31,7 @@ func (t *artifactManager) Init(stub shim.ChaincodeStubInterface) pb.Response {
 func (t *artifactManager) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	logger.Info("##########Artifact Manager###########")
 	function, args := stub.GetFunctionAndParameters()
+	logger.Info(function)
 	switch function {
 	case "addNewArtifact":
 		logger.Info("Executing addNewArtifact")
@@ -44,12 +45,17 @@ func (t *artifactManager) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	case "transferArtifact":
 		logger.Info("Executing transferArtifact")
 		return t.transferArtifact(stub, args)
+	case "testClientCall":
+		return t.testClientCall()
 	default:
 		logger.Info(UNKNOWNFUNCTION)
 		return shim.Error(UNKNOWNFUNCTION)
 	}
-	logger.Info(UNKNOWNFUNCTION)
+	//logger.Info(UNKNOWNFUNCTION)
 	return shim.Error(UNKNOWNFUNCTION)
+}
+func (t *artifactManager) testClientCall() pb.Response {
+	return shim.Success([]byte("OK! Client Call success"))
 }
 
 //transferArtifact handles the change of ownership to an already owned artifact
