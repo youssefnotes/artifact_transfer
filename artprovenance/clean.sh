@@ -2,9 +2,9 @@
 function main {
 	echo "############################################################"
 	echo "#################Shutting down containers###################"
-	echo "############################################################"
 	docker-compose --project-name art -f docker-compose-provenance.yaml down
 	echo "############################################################"
+	# todo remove docker images for chaincode
 	echo "##Deleting directories:      ###############################"
 	echo "==>artifacts/channels        ###############################"
 	echo "==>artifacts/orderer         ###############################"

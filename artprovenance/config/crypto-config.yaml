@@ -80,11 +80,11 @@ PeerOrgs:
     Users:
       Count: 1
 
-  - Name: DEArt
-    Domain: bauhaus.de
-    Template:
-      Count: 2
-      SANS:
-        - "localhost"
-    Users:
-      Count: 1
+  # - Name: DEArt
+  #   Domain: bauhaus.de
+  #   Template:
+  #     Count: 2
+      # SANS:
+      #   - "localhost"
+    # Users:
+    #   Count: 1

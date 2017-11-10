@@ -1,3 +1,3 @@
-2017/11/04 12:30:36 [INFO] User provided config file: config/crypto-config/ordererOrganizations/art.ifar.org/fabric-ca-client-config.yaml
-2017/11/04 12:30:36 [INFO] Configuration file location: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/fabric-ca-client-config.yaml
-2017/11/04 12:30:36 [INFO] Stored CA root certificate at /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/msp/cacerts/localhost-7100.pem
+2017/11/10 14:42:27 [INFO] User provided config file: config/crypto-config/ordererOrganizations/art.ifar.org/fabric-ca-client-config.yaml
+2017/11/10 14:42:27 [INFO] Configuration file location: /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/fabric-ca-client-config.yaml
+2017/11/10 14:42:27 [INFO] Stored CA root certificate at /home/agiledeveloper/HLF/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/msp/cacerts/localhost-7100.pem

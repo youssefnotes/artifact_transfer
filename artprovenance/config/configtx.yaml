@@ -10,7 +10,7 @@ Profiles:
                 Organizations:
                     - *EGArt
                     - *FRArt
-                    - *DEArt
+                    # - *DEArt
 
     MainChannel:
         Consortium: ArtProvenance
@@ -19,7 +19,7 @@ Profiles:
             Organizations:
                 - *EGArt
                 - *FRArt
-                - *DEArt
+                # - *DEArt
 
 Organizations:
     - &Orderer
@@ -41,13 +41,13 @@ Organizations:
         AnchorPeers: 
             - Host: peer0.louvre.fr
               Port: 7051
-    - &DEArt
-        Name: DEArtMSP
-        ID: DEArtMSP
-        MSPDir: crypto-config/peerOrganizations/bauhaus.de/msp
-        AnchorPeers: 
-            - Host: peer0.bauhaus.de
-              Port: 7051
+    # - &DEArt
+    #     Name: DEArtMSP
+    #     ID: DEArtMSP
+    #     MSPDir: crypto-config/peerOrganizations/bauhaus.de/msp
+    #     AnchorPeers: 
+    #         - Host: peer0.bauhaus.de
+    #           Port: 7051
 
 Orderer: &OrdererDefaults
     # available types : "solo" | "kafka"

@@ -13,9 +13,9 @@
 ORGS="\
    orderer:art.ifar.org:7100:7101:1 \
    peer:egyptianmuseum.org:7102:7103:2 \
-   peer:louvre.fr:7104:7105:2 \
-   peer:bauhaus.de:7106:7107:2 
+   peer:louvre.fr:7104:7105:2
 "
+#   peer:bauhaus.de:7106:7107:2 
 
 # If true, uses both a root and intermediate CA
 INTERMEDIATE_CA=false

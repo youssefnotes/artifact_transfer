@@ -14,9 +14,9 @@ function withTLS {
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
 		docker exec cli1.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
-		echo "########bauhaus peer"
-		docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
+		# echo "########bauhaus peer"
+		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
+		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
 }
 
 function withoutTLS {
@@ -35,10 +35,10 @@ function withoutTLS {
 		docker exec cli1.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli1.louvre.fr bash -c 'peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
 
-		echo "########bauhaus peer"
-		docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx'
-		docker exec cli0.bauhaus.de bash -c 'peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
+		# echo "########bauhaus peer"
+		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
+		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx'
+		# docker exec cli0.bauhaus.de bash -c 'peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
 
 
 
@@ -66,7 +66,7 @@ function main {
 		echo "Creating folders:"
 		echo "../artifacts ../artifacts/orderer/ ../artifacts/channels/"
 		echo "########################################################"
-		mkdir -p -v ./artifacts
+		# mkdir -p -v ./artifacts
 		mkdir -p -v ./artifacts/orderer
 		mkdir -p -v ./artifacts/channels
 		mkdir -p -v ./logs
@@ -91,18 +91,21 @@ function main {
 		echo "########################################################"
 		echo "generating channel 'mainchannel'"
 		configtxgen -profile MainChannel -outputCreateChannelTx ../artifacts/channels/MainChannel.tx -channelID mainchannel
-		echo "updating anchrpeer for EGArt"
+		echo "updating anchorpeer for EGArt"
 		configtxgen -profile MainChannel -outputAnchorPeersUpdate ../artifacts/channels/EGArtMSPanchors.tx -channelID mainchannel -asOrg EGArtMSP
-		echo "updating anchrpeer for FRArt"
+		echo "updating anchorpeer for FRArt"
 		configtxgen -profile MainChannel -outputAnchorPeersUpdate ../artifacts/channels/FRArtMSPanchors.tx -channelID mainchannel -asOrg FRArtMSP
-		echo "updating anchrpeer for DEArt"
-		configtxgen -profile MainChannel -outputAnchorPeersUpdate ../artifacts/channels/DEArtMSPanchors.tx -channelID mainchannel -asOrg DEArtMSP
+		# echo "updating anchrpeer for DEArt"
+		# configtxgen -profile MainChannel -outputAnchorPeersUpdate ../artifacts/channels/DEArtMSPanchors.tx -channelID mainchannel -asOrg DEArtMSP
 		cd ..
 		# Todo: save output of compose as log
-		docker-compose --project-name art -f docker-compose-provenance.yaml up
+		docker-compose --project-name art -f docker-compose-provenance.yaml up -d
 		# execute setup steps with TLS
-		# withTLS
+		# CONTAINER_IDS=$(docker ps -aq)
+
+		withTLS
 		# withoutTLS
+		# docker attach $CONTAINER_IDS
 
 
 		
