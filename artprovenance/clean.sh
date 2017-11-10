@@ -5,9 +5,13 @@ function main {
 	echo "############################################################"
 	docker-compose --project-name art -f docker-compose-provenance.yaml down
 	echo "############################################################"
-	echo "##Deleting directories : artifacts, config/crypto-config###"
+	echo "##Deleting directories:      ###############################"
+	echo "==>artifacts/channels        ###############################"
+	echo "==>artifacts/orderer         ###############################"
+	echo "==>config/crypto-config      ###############################"
 	echo "############################################################"
-	rm -fdr artifacts
+	rm -fdr artifacts/channels
+	rm -fdr artifacts/orderer
 	rm -fdr config/crypto-config
 	rm -fdr logs
 }
