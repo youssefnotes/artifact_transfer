@@ -47,6 +47,7 @@ services:
       - provenance
 
   # ca.bauhaus:
+  #   container_name: ca.bauhaus
   #   image: hyperledger/fabric-ca
   #   environment:
   #     - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
@@ -55,70 +56,6 @@ services:
   #     - "10054:7054"
   #   command: sh -c 'fabric-ca-server start -b admin:adminpw'
   #   volumes:
-  #     - ./crypto-config/peerOrganizations/bauhaus.de/ca/root/:/etc/hyperledger/fabric-ca-server-config
-  #   container_name: ca.bauhaus
-  #   networks:
-  #     - provenance
-
-  # ca.egyptianmuseum:
-  #   container_name: ca.egyptianmuseum
-  #   image: hyperledger/fabric-ca
-  #   environment:
-  #     - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
-  #     - FABRIC_CA_SERVER_CA_NAME=ca.egyptianmuseum
-  #   ports:
-  #     - "8054:7054"
-  #   command: sh -c 'fabric-ca-server start -b admin:adminpw'
-  #   volumes:
-  #     - ./crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/etc/hyperledger/fabric-ca-server-config
-  #   networks:
-  #     - provenance
-
-  # peer0.egyptianmuseum.org:
-  #   container_name: peer0.egyptianmuseum.org
-  #   extends:
-  #     file: ./config/peer.yaml
-  #     service: peer
-  #   environment:
-  #     - CORE_PEER_ID=peer0.egyptianmuseum.org
-  #     - CORE_PEER_LOCALMSPID=EGArtMSP
-  #     - CORE_PEER_ADDRESS=peer0.egyptianmuseum.org:7051
-  #     - CORE_PEER_CHAINCODELISTENADDRESS=peer0.egyptianmuseum.org:7052
-  #     # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.egyptianmuseum.org:7051
-  #     # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.egyptianmuseum.org:7051
-  #     # setting COUCHDB as state DB
-  #     - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=provenanceDB:5984
-  #   volumes:
-  #     #needed mapping for peer crypto material - check peer.yaml for msp
-  #     - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/:/var/hyperledger/crypto/peer
-  #   ports:
-  #        - 7051:7051
-  #        - 7053:7053
-  #   depends_on:
-  #     - orderer.art.ifar.org
-  #     - ca.egyptianmuseum
-  #     - provenanceDB
-  #   networks:
-  #     - provenance
-
-
-  # cli0.egyptianmuseum.org:
-  #   extends:
-  #     file: ./config/cli.yaml
-  #     service: cli
-  #   container_name: cli0.egyptianmuseum.org
-  #   environment:
-  #     - CORE_PEER_ID=cli0.egyptianmuseum.org
-  #     - CORE_PEER_LOCALMSPID=EGArtMSP
-  #     - CORE_PEER_ADDRESS=peer0.egyptianmuseum.org:7051
-  #     - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@egyptianmuseum.org/msp
-  #   volumes:
-  #     - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
-  #     - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/users:/var/hyperledger/crypto/peer/users
-  #     - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/tls/:/var/hyperledger/crypto/peer/tls
-  #   depends_on:
-  #     - orderer.art.ifar.org
-  #     - peer0.egyptianmuseum.org
+  #     - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/etc/hyperledger/fabric-ca-server-config
   #   networks:
   #     - provenance
