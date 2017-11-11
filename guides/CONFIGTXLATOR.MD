@@ -1,5 +1,15 @@
 # Reconfiguring with configtxlator
 
+## Get the needed binaries
+
+`export VERSION=1.1.0-preview`
+
+`export ARCH=$(echo "$(uname -s|tr '[:upper:]' '[:lower:]'|sed 's/mingw64_nt.*/windows/')-$(uname -m | sed 's/x86_64/amd64/g')" | awk '{print tolower($0)}')`
+
+`curl https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric/${ARCH}-${VERSION}/hyperledger-fabric-${ARCH}-${VERSION}.tar.gz | tar xz`
+
+`mv configtxlator to /usr/local/bin`
+
 ## Needed Housekeeping
 1. create a folder for new organization
 2. create configtx.yaml
@@ -43,14 +53,23 @@ PeerOrgs:
     Users:
       Count: 1
 ```
-4. use the the configtxgen utility to print out the Org3-specific configuration material in JSON representation.
+4. first generate the crypto material for Org3
+
+`./crypto.sh`
+
+5. use the the configtxgen utility to print out the Org3-specific configuration material in JSON representation.
+
+`../bin/configtxgen -printOrg DEArtMSP > ../artifacts/channels/bauhaus.json`
+
 `configtxgen -printOrg Org3MSP > ./channel-artifacts/org3.json`
 
 > This file contains the modification policy definitions for Org3, as well as three important certificates presented in base 64 format: 
 > admin user cert,CA root cert and TLS root cert.In an upcoming step we will append this JSON object to the channel configuration.
 
-5. Copy the Orderer Org's MSP material into the Org3 ``crypto-config`` directory. In particular, we are concerned with
+6. Copy the Orderer Org's MSP material into the Org3 ``crypto-config`` directory. In particular, we are concerned with
 the Orderer's TLS root cert, which will allow for secure communication between Org3 entities and the network's ordering node.
+`cd newOrg/bauhaus.de/crypto-config`
+`cp -r ~/HLF/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations ./`
 `cp -r crypto-config/ordererOrganizations org3-artifacts/crypto-config/`
 
 ## Start the ``configtxlator`` server
@@ -78,7 +97,7 @@ Additionally, the tool can compute configuration updates based on the difference
 
 - `export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`
 
- `export CHANNEL_NAME=mychannel`
+ `export CHANNEL_NAME=mainchannel`
 
 6. Check to make sure the variables have been properly set
 `echo $ORDERER_CA && echo $CHANNEL_NAME`
@@ -88,8 +107,8 @@ Now we have a running REST server within the CLI container and we have exported 
 
 ## Form the channel update objects
 
-1. Let's go fetch the most recent config block for the channel - ``mychannel``.
-`peer channel fetch config config_block.pb -o orderer.example.com:7050 -c $CHANNEL_NAME --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA`
+1. Let's go fetch the most recent config block for the channel - ``mainchannel``.
+`peer channel fetch config config_block.pb -o orderer.art.ifar.org:7050 -c $CHANNEL_NAME --tls --cafile $ORDERER_CA`
 
 _The above command applies an arbitrary name - ``config_block.pb`` - to this binary protobuf channel configuration block.  You do have the ability to alter the naming conventions for the returned protobuf and JSON objects, however you should follow an approach that will allow for easy and intuitive identification._
 
@@ -97,7 +116,7 @@ _The above command applies an arbitrary name - ``config_block.pb`` - to this bin
 > The last line in the logs is of interest:
 > ```2017-11-07 17:17:57.383 UTC [channelCmd] readBlock -> DEBU 011 Received block: 2```
 
-> This is telling us that the most recent configuration block for ``mychannel`` is actually block 2,
+> This is telling us that the most recent configuration block for ``mainchannel`` is actually block 2,
 > **NOT** the genesis block.  By default, the ``peer channel fetch config`` command
 > returns the most **recent** configuration block for the targeted channel, which is block 2 in our case.
 > When our scenario executed, the embedded script made two additional configuration updates to the channel.  Namely, anchor peers for
@@ -120,7 +139,10 @@ _The above command applies an arbitrary name - ``config_block.pb`` - to this bin
 4. This leaves us with a stripped down JSON object - ``config.json`` - which will serve as the baseline for our config update.  
 We'll use the ``jq`` tool once more to append the org3 configuration definition - ``org3.json`` - 
 and name this new file - ``updated_config.json``.
-`jq -s '.[0] * {"channel_group":{"groups":{"Application":{"groups": {"Org3MSP":.[1]}}}}}' config.json ./channel-artifacts/org3.json >& updated_config.json`
+
+> copy the bauhaus.json to the channels directory ``generated at Needed House Keeping/step 5``
+
+`jq -s '.[0] * {"channel_group":{"groups":{"Application":{"groups": {"DEArtMSP":.[1]}}}}}' config.json ./channels/bauhaus.json >& updated_config.json`
 
 _Now, within the CLI container we have two JSON files of interest - ``config.json`` & ``updated_config.json``.  The initial file contains only Org1 and Org2 material, whereas the aptly named "updated config" file contains all three orgs.  At this point it's simply a matter of re-encoding these two JSON files and calculating the delta._
 
@@ -141,7 +163,7 @@ _This new proto contains the Org3 definitions and high level pointers to the Org
 `curl -X POST --data-binary @config_update.pb "$CONFIGTXLATOR_URL/protolator/decode/common.ConfigUpdate" | jq . > config_update.json`
 
 2. Wrap the decoded update file - ``config_update.json`` in an envelope message.
-`echo '{"payload":{"header":{"channel_header":{"channel_id":"mychannel", "type":2}},"data":{"config_update":'$(cat config_update.json)'}}}' | jq . > config_update_in_envelope.json`
+`echo '{"payload":{"header":{"channel_header":{"channel_id":"mainchannel", "type":2}},"data":{"config_update":'$(cat config_update.json)'}}}' | jq . > config_update_in_envelope.json`
 
 3. Using our properly formed JSON - ``config_update_in_envelope.json`` - we will leverage the ``configtxlator`` tool one last time and convert this object into the fully fledged proto format that Fabric requires:
 `curl -X POST --data-binary @config_update_in_envelope.json "$CONFIGTXLATOR_URL/protolator/encode/common.Envelope" > config_update_in_envelope.pb`
@@ -153,19 +175,19 @@ this update transaction.  If we fail to obtain these two signatures, then the or
 
 2. The final step is to switch the CLI container's identity to reflect the Org2 Admin user.  We do this by exporting the following environment variables:
 
-`export CORE_PEER_LOCALMSPID="Org2MSP"`
+`export CORE_PEER_LOCALMSPID="FRArtMSP"`
 `export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt`
 `export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp`
-`export CORE_PEER_ADDRESS=peer0.org2.example.com:7051`
+`export CORE_PEER_ADDRESS=peer0.louvre.fr:7051:7051`
 
 3. And lastly we will issue the ``peer channel update`` command.  The Org2 Admin signature will be attached
 to this call, so there is no need to manually sign the proto a second time:
 
 > note:: The upcoming update call to the ordering service will undergo a series
 > of systematic signature and policy checks.  As such you may find it useful to stream and inspect the ordering node's logs.  From another 
-> shell, issue a ``docker logs -f orderer.example.com`` command to display them.
+> shell, issue a ``docker logs -f orderer.art.ifar.org`` command to display them.
 
-`peer channel update -f config_update_in_envelope.pb -c $CHANNEL_NAME -o orderer.example.com:7050 --tls true --cafile $ORDERER_CA`
+`peer channel update -f config_update_in_envelope.pb -c $CHANNEL_NAME -o orderer.art.ifar.org:7050 --tls true --cafile $ORDERER_CA`
 
 >You should see a message digest indication similar to the following if your update is successful:
 > ```2017-11-07 21:50:17.435 UTC [msp/identity] Sign -> DEBU 00f Sign: digest: 3207B24E40DE2FAB87A2E42BC004FEAA1E6FDCA42977CB78C64F05A88E556ABA```
@@ -184,7 +206,7 @@ This new compose file has been configured to bridge across our initial network, 
 `docker exec -it Org3cli bash`
 
 3. export the two key environment variables - ``ORDERER_CA`` & ``CHANNEL_NAME``
-`export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem && export CHANNEL_NAME=mychannel`
+`export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem && export CHANNEL_NAME=mainchannel`
 
 4. Check to make sure the variables have been properly set
 `echo $ORDERER_CA && echo $CHANNEL_NAME`

@@ -16,7 +16,7 @@ services:
       - "8054:7054"
     command: sh -c 'fabric-ca-server start -b admin:adminpw'
     volumes:
-      - ./crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/etc/hyperledger/fabric-ca-server-config
+      - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/etc/hyperledger/fabric-ca-server-config
     networks:
       - provenance
 
@@ -30,7 +30,7 @@ services:
       - "9054:7054"
     command: sh -c 'fabric-ca-server start -b admin:adminpw'
     volumes:
-      - ./crypto-config/peerOrganizations/louvre.fr/ca/root/:/etc/hyperledger/fabric-ca-server-config
+      - ./config/crypto-config/peerOrganizations/louvre.fr/ca/root/:/etc/hyperledger/fabric-ca-server-config
     networks:
       - provenance
 

@@ -9,8 +9,8 @@ function withTLS {
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
 		docker exec cli1.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
-		docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{^"Args^":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA"
-		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode instantiate -o orderer.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{^"Args^":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile /var/hyperledger/crypto/orderer/msp/tlscacerts/tlsca.art.ifar.org-cert.pem'
+		export ORDERER_CA=/var/hyperledger/crypto/orderer/msp/tlscacerts/tlsca.art.ifar.org-cert.pem
+		docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{\"Args\":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA"
 		
 		echo "########louvre peer"
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
