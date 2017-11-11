@@ -214,7 +214,7 @@ This new compose file has been configured to bridge across our initial network, 
 5. let's send a call to the ordering service asking for the genesis block of ``mychannel``.  The ordering service is able to verify the signature attached to this call as a result of our successful channel update.  If Org3 had not been successfully appended to the channel config, then the ordering service would reject this request.
 **Use the ``peer channel fetch`` command to retrieve this block**
 
-`peer channel fetch 0 mychannel.block -o orderer.example.com:7050 -c $CHANNEL_NAME --tls --cafile $ORDERER_CA`
+`peer channel fetch 0 mainchannel.block -o orderer.art.ifar.org:7050 -c $CHANNEL_NAME --tls --cafile $ORDERER_CA`
 
 >note:: Again, you may find it useful to stream the ordering node's logs to reveal the sign/verify logic and policy checks.
 
@@ -222,7 +222,7 @@ This new compose file has been configured to bridge across our initial network, 
 
 6. Issue the ``peer channel join`` command and pass in the genesis block - ``mychannel.block``
 
-`peer channel join -b mychannel.block`
+`peer channel join -b mainchannel.block`
 
 7. If you want to join the second peer for Org3, export the TLS and ADDRESS variables and reissue the `` peer channel join command``
 
@@ -235,14 +235,16 @@ This new compose file has been configured to bridge across our initial network, 
 
 The final piece of the puzzle is to increment the chaincode version and update the endorsement policy to include Org3.  Stay in the Org3 cli container and install the chaincode.  We can cheat a little bit here and jump directly to version 2, because we know that an upgrade is coming
 
-1. `peer chaincode install -n mycc -v 2.0 -p github.com/chaincode/chaincode_example02/go/`
+1. `peer chaincode install -n m -v 2.0 -p chaincode/artmanager`
 
 2. Modify the environment variables accordingly and reissue the command if you want to install the
 chaincode on the second peer.
 
 3. Now jump back to the original CLI container and install the new version on the Org1 and Org2 peers.  We submitted the channel update call with the Org2 admin identity, so the container is still acting on behalf of ``peer0.org2``
 
-`peer chaincode install -n mycc -v 2.0 -p github.com/chaincode/chaincode_example02/go/`
+`cd /opt/gopath/src`
+
+`peer chaincode install -n artmanager -v 2.0 -p chaincode/artmanager`
 
 4. Flip to the ``peer0.org1`` identity
 
@@ -253,16 +255,20 @@ chaincode on the second peer.
 
 5. install again
 
-`peer chaincode install -n mycc -v 2.0 -p github.com/chaincode/chaincode_example02/go/`
+`cd /opt/gopath/src`
 
-6. Now we're ready to upgrade the chaincode.  There have been no modifications to the underlying source code, we are simply adding Org3 to the endorsement policy for a chaincode - ``mycc`` - on a channel -``mychannel``.
+`peer chaincode install -n artmanager -v 2.0 -p chaincode/artmanager`
+
+6. Now we're ready to upgrade the chaincode.  There have been no modifications to the underlying source code, we are simply adding DEArt (Org3) to the endorsement policy for a chaincode - ``artmanager`` - on a channel -``mainchannel``.
 
 > note:: Any identity satisfying the chaincode's instantiation policy can issue
           the upgrade call.  By default, these identities are the channel Admins.
 
 You can see in the above command that we are specifying our new version by means of the ``v`` flag.  You also see that the endorsement policy has been modified to ``-P "OR ('Org1MSP.member','Org2MSP.member','Org3MSP.member')"``, accurately reflecting the addition of Org3 to the policy.
 
-`peer chaincode upgrade -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -v 2.0 -c '{"Args":["init","a","90","b","210"]}' -P "OR ('Org1MSP.member','Org2MSP.member','Org3MSP.member')"`
+~`peer chaincode upgrade -o orderer.art.ifar.org:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mainchannel -v 2.0 -c '{"Args":["init","a","90","b","210"]}' -P "OR ('Org1MSP.member','Org2MSP.member','Org3MSP.member')"`~
+
+`peer chaincode upgrade -o orderer.art.ifar.org:7050 -C mainchannel -n artmanager -v 2.0 -c '{"Args":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -P "OR ('EGArtMSP.member','FRArtMSP.member','DEArtMSP.member')"`
 
 The final area of interest is our constructor request specified with the ``c`` flag.  As with an instantiate call, a chaincode upgrade requires usage of the ``init`` method.  **If** your chaincode requires arguments be passed to the ``init`` method, then you will
 need to provide the appropriate key/vals and reinitialize the state.  This is not the recommended practice, because the upgrade submitter could arbitrarily rewrite the world state.  Instead, consider editing the source code to remove the argument dependency, or start with a chaincode that does not require args upon instantiation.
