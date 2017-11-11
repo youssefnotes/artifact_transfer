@@ -133,4 +133,133 @@ _Now, within the CLI container we have two JSON files of interest - ``config.jso
 3. use the ``configtxlator`` server to calculate the delta between these two config protos.  This command will output a new protobuf binary named - ``config_update.pb``
 `curl -X POST -F channel=$CHANNEL_NAME -F "original=@config.pb" -F "updated=@updated_config.pb" "${CONFIGTXLATOR_URL}/configtxlator/compute/update-from-configs" > config_update.pb`
 
-4. 
+_This new proto contains the Org3 definitions and high level pointers to the Org1 and Org2 material.  We are able to forgo the extensive MSP material and modification policy information for Orgs 1 and 2, because this data is already present within the channel's genesis block.  As such, we only need the delta between the two configurations._
+
+## Before submitting the channel update, we need to perform a few final steps.
+
+1. Decode this object into editable JSON format,
+`curl -X POST --data-binary @config_update.pb "$CONFIGTXLATOR_URL/protolator/decode/common.ConfigUpdate" | jq . > config_update.json`
+
+2. Wrap the decoded update file - ``config_update.json`` in an envelope message.
+`echo '{"payload":{"header":{"channel_header":{"channel_id":"mychannel", "type":2}},"data":{"config_update":'$(cat config_update.json)'}}}' | jq . > config_update_in_envelope.json`
+
+3. Using our properly formed JSON - ``config_update_in_envelope.json`` - we will leverage the ``configtxlator`` tool one last time and convert this object into the fully fledged proto format that Fabric requires:
+`curl -X POST --data-binary @config_update_in_envelope.json "$CONFIGTXLATOR_URL/protolator/encode/common.Envelope" > config_update_in_envelope.pb`
+
+Almost done!  We now have a protobuf binary - ``config_update_in_envelope.pb`` - within our CLI container, however we need signatures from the requisite Admin users before we can successfully submit the update.  The modification policy (mod_policy) for our channel is set to the default of "MAJORITY", which means that we need an admin from both of the initial organizations - ``Org1`` & ``Org2`` - to sign off on
+this update transaction.  If we fail to obtain these two signatures, then the ordering service will reject the transaction.  First, let's sign this update proto as the Org1 admin.  Remember that the CLI container is bootstrapped with the Org1 MSP material, so we simply need to issue the ``peer channel signconfigtx``
+
+1. `peer channel signconfigtx -f config_update_in_envelope.pb`
+
+2. The final step is to switch the CLI container's identity to reflect the Org2 Admin user.  We do this by exporting the following environment variables:
+
+`export CORE_PEER_LOCALMSPID="Org2MSP"`
+`export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt`
+`export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp`
+`export CORE_PEER_ADDRESS=peer0.org2.example.com:7051`
+
+3. And lastly we will issue the ``peer channel update`` command.  The Org2 Admin signature will be attached
+to this call, so there is no need to manually sign the proto a second time:
+
+> note:: The upcoming update call to the ordering service will undergo a series
+> of systematic signature and policy checks.  As such you may find it useful to stream and inspect the ordering node's logs.  From another 
+> shell, issue a ``docker logs -f orderer.example.com`` command to display them.
+
+`peer channel update -f config_update_in_envelope.pb -c $CHANNEL_NAME -o orderer.example.com:7050 --tls true --cafile $ORDERER_CA`
+
+>You should see a message digest indication similar to the following if your update is successful:
+> ```2017-11-07 21:50:17.435 UTC [msp/identity] Sign -> DEBU 00f Sign: digest: 3207B24E40DE2FAB87A2E42BC004FEAA1E6FDCA42977CB78C64F05A88E556ABA```
+
+At this point, the channel configuration has been updated to include our new organization - ``Org3`` - meaning that peers attached to this member can now successfully join the channel.
+
+## Join Org3 to the channel
+
+1. launch the containers for the Org3 peers and an Org3-specific CLI.
+`docker-compose -f docker-compose-org3.yaml up -d`
+
+This new compose file has been configured to bridge across our initial network, so the two peers and the CLI container will be able to resolve with the existing peers and ordering node.  
+
+2. With the three new containers now running, exec into the Org3-specific CLI container:
+
+`docker exec -it Org3cli bash`
+
+3. export the two key environment variables - ``ORDERER_CA`` & ``CHANNEL_NAME``
+`export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem && export CHANNEL_NAME=mychannel`
+
+4. Check to make sure the variables have been properly set
+`echo $ORDERER_CA && echo $CHANNEL_NAME`
+
+5. let's send a call to the ordering service asking for the genesis block of ``mychannel``.  The ordering service is able to verify the signature attached to this call as a result of our successful channel update.  If Org3 had not been successfully appended to the channel config, then the ordering service would reject this request.
+**Use the ``peer channel fetch`` command to retrieve this block**
+
+`peer channel fetch 0 mychannel.block -o orderer.example.com:7050 -c $CHANNEL_NAME --tls --cafile $ORDERER_CA`
+
+>note:: Again, you may find it useful to stream the ordering node's logs to reveal the sign/verify logic and policy checks.
+
+>Notice, that we are passing a ``0`` to indicate that we want the first block on the channel's ledger (i.e. the genesis block).  If we simply passed the ``peer channel fetch config`` command, then we would have received block 5 - the updated config with Org3 defined.  However, we can't begin our ledger with a downstream block; rather we need to join with block 0.
+
+6. Issue the ``peer channel join`` command and pass in the genesis block - ``mychannel.block``
+
+`peer channel join -b mychannel.block`
+
+7. If you want to join the second peer for Org3, export the TLS and ADDRESS variables and reissue the `` peer channel join command``
+
+  `export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls/ca.crt && export CORE_PEER_ADDRESS=peer1.org3.example.com:7051
+  peer channel join -b mychannel.block`
+
+  `peer channel join -b mychannel.block`
+
+## Upgrade & invoke
+
+The final piece of the puzzle is to increment the chaincode version and update the endorsement policy to include Org3.  Stay in the Org3 cli container and install the chaincode.  We can cheat a little bit here and jump directly to version 2, because we know that an upgrade is coming
+
+1. `peer chaincode install -n mycc -v 2.0 -p github.com/chaincode/chaincode_example02/go/`
+
+2. Modify the environment variables accordingly and reissue the command if you want to install the
+chaincode on the second peer.
+
+3. Now jump back to the original CLI container and install the new version on the Org1 and Org2 peers.  We submitted the channel update call with the Org2 admin identity, so the container is still acting on behalf of ``peer0.org2``
+
+`peer chaincode install -n mycc -v 2.0 -p github.com/chaincode/chaincode_example02/go/`
+
+4. Flip to the ``peer0.org1`` identity
+
+`export CORE_PEER_LOCALMSPID="Org1MSP"`
+`export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt`
+`export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp`
+`export CORE_PEER_ADDRESS=peer0.org1.example.com:7051`
+
+5. install again
+
+`peer chaincode install -n mycc -v 2.0 -p github.com/chaincode/chaincode_example02/go/`
+
+6. Now we're ready to upgrade the chaincode.  There have been no modifications to the underlying source code, we are simply adding Org3 to the endorsement policy for a chaincode - ``mycc`` - on a channel -``mychannel``.
+
+> note:: Any identity satisfying the chaincode's instantiation policy can issue
+          the upgrade call.  By default, these identities are the channel Admins.
+
+You can see in the above command that we are specifying our new version by means of the ``v`` flag.  You also see that the endorsement policy has been modified to ``-P "OR ('Org1MSP.member','Org2MSP.member','Org3MSP.member')"``, accurately reflecting the addition of Org3 to the policy.
+
+`peer chaincode upgrade -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -v 2.0 -c '{"Args":["init","a","90","b","210"]}' -P "OR ('Org1MSP.member','Org2MSP.member','Org3MSP.member')"`
+
+The final area of interest is our constructor request specified with the ``c`` flag.  As with an instantiate call, a chaincode upgrade requires usage of the ``init`` method.  **If** your chaincode requires arguments be passed to the ``init`` method, then you will
+need to provide the appropriate key/vals and reinitialize the state.  This is not the recommended practice, because the upgrade submitter could arbitrarily rewrite the world state.  Instead, consider editing the source code to remove the argument dependency, or start with a chaincode that does not require args upon instantiation.
+
+The upgrade call adds a new block - block 6 - to the channel's ledger and allows for the Org3 peers to execute transactions during the endorsement phase.  
+
+7. Hop back to the Org3 CLI container and issue a query for the value of ``a``.  This will take a bit of time because a chaincode image needs to built for the targeted peer, and the container needs to start:
+
+`peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}'`
+
+We should see a response of ``Query Result: 90``.  Now issue an invocation to move ``10`` from ``a`` to ``b``
+
+8. Now issue an invocation
+
+`peer chaincode invoke -o orderer.example.com:7050  --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -c '{"Args":["invoke","a","b","10"]}'`
+
+
+## Conclusion
+
+The reconfiguration process is indeed quite involved, but there is a logical method to the various steps.  The endgame is to form a delta transaction object represented in protobuf binary format and then accrue the requisite number of admin signatures such that the reconfiguration transaction fulfills the channel's modification policy.
+
+The ``configtxlator`` and ``jq`` tools, along with the ever-growing ``peer channel`` commands, provide us with the functionality to accomplish this task.
