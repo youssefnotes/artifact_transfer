@@ -14,8 +14,9 @@
 
 6. `docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{^"Args^":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA"`
 
->the following command has to be revisited
-7. `docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode instantiate -o orderer.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{^"Args^":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile /var/hyperledger/crypto/orderer/msp/tlscacerts/tlsca.art.ifar.org-cert.pem'` 
+7. `export ORDERER_CA=/var/hyperledger/crypto/orderer/msp/tlscacerts/tlsca.art.ifar.org-cert.pem`
+
+8. `docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{\"Args\":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA"` 
 		
 ### Louvre.fr (2nd Org)
 
