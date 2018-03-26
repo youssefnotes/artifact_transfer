@@ -11,7 +11,7 @@
 # Organization info where each line is of the form:
 #    <type>:<orgName>:<rootCAPort>:<intermediateCAPort>:<numOrderersOrPeers>
 ORGS="\
-   orderer:art.ifar.org:7100:7101:1 \
+   orderer:art.ifar.org:7100:7101:3 \
    peer:egyptianmuseum.org:7102:7103:2 \
    peer:louvre.fr:7104:7105:2
 "

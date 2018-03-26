@@ -36,7 +36,7 @@ services:
 
   zookeeper0:
     container_name: zookeeper0
-    image: hyperledger/fabric-zookeeper
+    image: hyperledger/fabric-zookeeper:x86_64-1.0.0
     restart: always
     ports:
       - '2181'
@@ -53,7 +53,7 @@ services:
 
   zookeeper1:
     container_name: zookeeper1
-    image: hyperledger/fabric-zookeeper
+    image: hyperledger/fabric-zookeeper:x86_64-1.0.0
     restart: always
     ports:
       - '2181'
@@ -70,7 +70,7 @@ services:
 
   zookeeper2:
     container_name: zookeeper2
-    image: hyperledger/fabric-zookeeper
+    image: hyperledger/fabric-zookeeper:x86_64-1.0.0
     restart: always
     ports:
       - '2181'
@@ -87,22 +87,29 @@ services:
 
   kafka0:
     container_name: kafka0
-    image: hyperledger/fabric-kafka
+    image: hyperledger/fabric-kafka:x86_64-1.0.0
     restart: always
     environment:
+      - KAFKA_BROKER_ID=0
+      - KAFKA_HOST_NAME=kafka0
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
+      # - KAFKA_LISTENERS=PLAINTEXT://kafka0:9092,REPLICATION://kafka0:9093
+      # - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://0.0.0.0:9092,REPLICATION://kafka0:9093
+      - KAFKA_LISTENERS=PLAINTEXT://kafka0:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka0:9092
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=EXTERNAL:PLAINTEXT
+      # - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=EXTERNAL:PLAINTEXT,REPLICATION:PLAINTEXT
+      # - KAFKA_INTER_BROKER_LISTENER_NAME=REPLICATION
       - KAFKA_MESSAGE_MAX_BYTES=103809024 # 99 * 1024 * 1024 B
       - KAFKA_REPLICA_FETCH_MAX_BYTES=103809024 # 99 * 1024 * 1024 B
       - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
+      - KAFKA_MIN_INSYNC_REPLICAS=2
     ports:
-      - '9092'
+      - "9092:9092"
     # extends:
     #   file: base/docker-compose-base.yaml
     #   service: kafka
-    environment:
-      - KAFKA_BROKER_ID=0
-      - KAFKA_MIN_INSYNC_REPLICAS=2
-      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
-      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
     depends_on:
       - zookeeper0
       - zookeeper1
@@ -112,22 +119,26 @@ services:
 
   kafka1:
     container_name: kafka1
-    image: hyperledger/fabric-kafka
+    image: hyperledger/fabric-kafka:x86_64-1.0.0
     restart: always
     environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_HOST_NAME=kafka1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
+      # - KAFKA_LISTENERS=EXTERNAL://localhost:9092,REPLICATION://localhost:9093
+      # - KAFKA_ADVERTISED_LISTENERS=EXTERNAL://localhost:9092,REPLICATION://kafka0:9093
+      # - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=EXTERNAL:PLAINTEXT,REPLICATION:PLAINTEXT
+      # - KAFKA_INTER_BROKER_LISTENER_NAME=REPLICATION
       - KAFKA_MESSAGE_MAX_BYTES=103809024 # 99 * 1024 * 1024 B
       - KAFKA_REPLICA_FETCH_MAX_BYTES=103809024 # 99 * 1024 * 1024 B
       - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
+      - KAFKA_MIN_INSYNC_REPLICAS=2
     ports:
-      - '9092'
+      - "10092:9092"
     # extends:
     #   file: base/docker-compose-base.yaml
     #   service: kafka
-    environment:
-      - KAFKA_BROKER_ID=1
-      - KAFKA_MIN_INSYNC_REPLICAS=2
-      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
-      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
     depends_on:
       - zookeeper0
       - zookeeper1
@@ -137,22 +148,26 @@ services:
 
   kafka2:
     container_name: kafka2
-    image: hyperledger/fabric-kafka
+    image: hyperledger/fabric-kafka:x86_64-1.0.0
     restart: always
     environment:
+      - KAFKA_BROKER_ID=2
+      - KAFKA_HOST_NAME=kafka2
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
+      # - KAFKA_LISTENERS=EXTERNAL://localhost:9092,REPLICATION://localhost:9093
+      # - KAFKA_ADVERTISED_LISTENERS=EXTERNAL://localhost:9092,REPLICATION://kafka0:9093
+      # - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=EXTERNAL:PLAINTEXT,REPLICATION:PLAINTEXT
+      # - KAFKA_INTER_BROKER_LISTENER_NAME=REPLICATION
       - KAFKA_MESSAGE_MAX_BYTES=103809024 # 99 * 1024 * 1024 B
       - KAFKA_REPLICA_FETCH_MAX_BYTES=103809024 # 99 * 1024 * 1024 B
       - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
+      - KAFKA_MIN_INSYNC_REPLICAS=2
     ports:
-      - '9092'
+      - "11092:9092"
     # extends:
     #   file: base/docker-compose-base.yaml
     #   service: kafka
-    environment:
-      - KAFKA_BROKER_ID=2
-      - KAFKA_MIN_INSYNC_REPLICAS=2
-      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
-      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
     depends_on:
       - zookeeper0
       - zookeeper1
@@ -162,22 +177,26 @@ services:
 
   kafka3:
     container_name: kafka3
-    image: hyperledger/fabric-kafka
+    image: hyperledger/fabric-kafka:x86_64-1.0.0
     restart: always
     environment:
+      - KAFKA_BROKER_ID=3
+      - KAFKA_HOST_NAME=kafka3
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
+      # - KAFKA_LISTENERS=EXTERNAL://localhost:9092,REPLICATION://localhost:9093
+      # - KAFKA_ADVERTISED_LISTENERS=EXTERNAL://localhost:9092,REPLICATION://kafka0:9093
+      # - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=EXTERNAL:PLAINTEXT,REPLICATION:PLAINTEXT
+      # - KAFKA_INTER_BROKER_LISTENER_NAME=REPLICATION
       - KAFKA_MESSAGE_MAX_BYTES=103809024 # 99 * 1024 * 1024 B
       - KAFKA_REPLICA_FETCH_MAX_BYTES=103809024 # 99 * 1024 * 1024 B
       - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
+      - KAFKA_MIN_INSYNC_REPLICAS=2
     ports:
-      - '9092'
+      - "12092:9092"
     # extends:
     #   file: base/docker-compose-base.yaml
     #   service: kafka
-    environment:
-      - KAFKA_BROKER_ID=3
-      - KAFKA_MIN_INSYNC_REPLICAS=2
-      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
-      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
     depends_on:
       - zookeeper0
       - zookeeper1
@@ -185,9 +204,9 @@ services:
     networks:
       - provenance
       
-  orderer.art.ifar.org:
+  orderer0.art.ifar.org:
     # Container name
-    container_name: orderer.art.ifar.org
+    container_name: orderer0.art.ifar.org
     # Public Heyperledger Fabric ARCH x86_64 version V1.0.0
     image: hyperledger/fabric-orderer:x86_64-1.0.0
     #Envirnoment varaibles for service container
@@ -200,7 +219,7 @@ services:
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/crypto/orderer/msp
       # enabling TLS
-      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_ENABLED=false
       - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer/tls/server.key
       - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer/tls/server.crt
       - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer/tls/ca.crt, /var/hyperledger/crypto/ca.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/ca.louvre/tls/ca.crt]
@@ -215,16 +234,120 @@ services:
     #mapping for genesis block
     - ./artifacts/orderer/:/var/hyperledger/orderer
     #mapping for orderer crypto material
-    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer0.art.ifar.org/:/var/hyperledger/crypto/orderer
     - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/var/hyperledger/crypto/ca.egyptianmuseum
     - ./config/crypto-config/peerOrganizations/louvre.fr/ca/root/:/var/hyperledger/crypto/ca.louvre
     # - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/ca.bauhaus
     # HOST_PORT:CONTAINER_PORT
     ports:
-      - 7050:7050
+      - '7050'
     depends_on:
       - ca.egyptianmuseum
       - ca.louvre
+      - zookeeper0
+      - zookeeper1
+      - zookeeper2
+      - kafka0
+      - kafka1
+      - kafka2
+      - kafka3
+    # Networks accessible to this container (orderer.art.ifar.org)  
+    networks:
+      - provenance
+
+  orderer1.art.ifar.org:
+    # Container name
+    container_name: orderer1.art.ifar.org
+    # Public Heyperledger Fabric ARCH x86_64 version V1.0.0
+    image: hyperledger/fabric-orderer:x86_64-1.0.0
+    #Envirnoment varaibles for service container
+    # - VAR:VAL
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/crypto/orderer/msp
+      # enabling TLS
+      - ORDERER_GENERAL_TLS_ENABLED=false
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer/tls/ca.crt, /var/hyperledger/crypto/ca.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/ca.louvre/tls/ca.crt]
+      ## - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/ca.bauhaus/tls/ca.crt]
+      #Kafka
+      - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
+      - ORDERER_KAFKA_RETRY_SHORTTOTAL=30s
+      - ORDERER_KAFKA_VERBOSE=true
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
+    command: orderer
+    volumes:
+    #mapping for genesis block
+    - ./artifacts/orderer/:/var/hyperledger/orderer
+    #mapping for orderer crypto material
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer1.art.ifar.org/:/var/hyperledger/crypto/orderer
+    - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/var/hyperledger/crypto/ca.egyptianmuseum
+    - ./config/crypto-config/peerOrganizations/louvre.fr/ca/root/:/var/hyperledger/crypto/ca.louvre
+    # - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/ca.bauhaus
+    # HOST_PORT:CONTAINER_PORT
+    ports:
+      - '7050'
+    depends_on:
+      - ca.egyptianmuseum
+      - ca.louvre
+      - zookeeper0
+      - zookeeper1
+      - zookeeper2
+      - kafka0
+      - kafka1
+      - kafka2
+      - kafka3
+    # Networks accessible to this container (orderer.art.ifar.org)  
+    networks:
+      - provenance
+  orderer2.art.ifar.org:
+    # Container name
+    container_name: orderer2.art.ifar.org
+    # Public Heyperledger Fabric ARCH x86_64 version V1.0.0
+    image: hyperledger/fabric-orderer:x86_64-1.0.0
+    #Envirnoment varaibles for service container
+    # - VAR:VAL
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/crypto/orderer/msp
+      # enabling TLS
+      - ORDERER_GENERAL_TLS_ENABLED=false
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer/tls/ca.crt, /var/hyperledger/crypto/ca.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/ca.louvre/tls/ca.crt]
+      ## - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/ca.bauhaus/tls/ca.crt]
+      #Kafka
+      - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
+      - ORDERER_KAFKA_RETRY_SHORTTOTAL=30s
+      - ORDERER_KAFKA_VERBOSE=true
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
+    command: orderer
+    volumes:
+    #mapping for genesis block
+    - ./artifacts/orderer/:/var/hyperledger/orderer
+    #mapping for orderer crypto material
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer2.art.ifar.org/:/var/hyperledger/crypto/orderer
+    - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/var/hyperledger/crypto/ca.egyptianmuseum
+    - ./config/crypto-config/peerOrganizations/louvre.fr/ca/root/:/var/hyperledger/crypto/ca.louvre
+    # - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/ca.bauhaus
+    # HOST_PORT:CONTAINER_PORT
+    ports:
+      - '7050'
+    depends_on:
+      - ca.egyptianmuseum
+      - ca.louvre
+      - zookeeper0
+      - zookeeper1
+      - zookeeper2
       - kafka0
       - kafka1
       - kafka2
@@ -255,7 +378,9 @@ services:
          - 7051:7051
          - 7053:7053
     depends_on:
-      - orderer.art.ifar.org
+      - orderer0.art.ifar.org
+      - orderer1.art.ifar.org
+      - orderer2.art.ifar.org
       - ca.egyptianmuseum
       - provenanceDB
     networks:
@@ -279,7 +404,9 @@ services:
          - 8051:7051
          - 8053:7053
     depends_on:
-      - orderer.art.ifar.org
+      - orderer0.art.ifar.org
+      - orderer1.art.ifar.org
+      - orderer2.art.ifar.org
       - ca.egyptianmuseum
       - peer0.egyptianmuseum.org
     networks:
@@ -304,7 +431,9 @@ services:
          - 9051:7051
          - 9053:7053
     depends_on:
-      - orderer.art.ifar.org
+      - orderer0.art.ifar.org
+      - orderer1.art.ifar.org
+      - orderer2.art.ifar.org
       - ca.louvre
     networks:
       - provenance
@@ -327,7 +456,9 @@ services:
          - 10051:7051
          - 10053:7053
     depends_on:
-      - orderer.art.ifar.org
+      - orderer0.art.ifar.org
+      - orderer1.art.ifar.org
+      - orderer2.art.ifar.org
       - ca.louvre
     networks:
       - provenance
@@ -347,7 +478,9 @@ services:
       - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/users:/var/hyperledger/crypto/peer/users
       - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
-      - orderer.art.ifar.org
+      - orderer0.art.ifar.org
+      - orderer1.art.ifar.org
+      - orderer2.art.ifar.org
       - peer0.egyptianmuseum.org
     networks:
       - provenance
@@ -367,7 +500,9 @@ services:
       - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/users/:/var/hyperledger/crypto/peer/users
       - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer1.egyptianmuseum.org/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
-      - orderer.art.ifar.org
+      - orderer0.art.ifar.org
+      - orderer1.art.ifar.org
+      - orderer2.art.ifar.org
       - peer1.egyptianmuseum.org
     networks:
       - provenance
@@ -387,7 +522,9 @@ services:
       - ./config/crypto-config/peerOrganizations/louvre.fr/users/:/var/hyperledger/crypto/peer/users
       - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer0.louvre.fr/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
-      - orderer.art.ifar.org
+      - orderer0.art.ifar.org
+      - orderer1.art.ifar.org
+      - orderer2.art.ifar.org
       - peer0.louvre.fr
     networks:
       - provenance
@@ -407,7 +544,9 @@ services:
       - ./config/crypto-config/peerOrganizations/louvre.fr/users/:/var/hyperledger/crypto/peer/users
       - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer1.louvre.fr/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
-      - orderer.art.ifar.org
+      - orderer0.art.ifar.org
+      - orderer1.art.ifar.org
+      - orderer2.art.ifar.org
       - peer1.louvre.fr
     networks:
       - provenance

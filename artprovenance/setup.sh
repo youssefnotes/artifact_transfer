@@ -64,7 +64,7 @@ function main {
 		echo "#################################"
 		echo "####Generating Genesis Block#####"
 		echo "#################################"
-		configtxgen -profile ArtProvenanceOrdererGenesis -outputBlock ../artifacts/orderer/genesis.block
+		./bin/configtxgen -profile ArtProvenanceOrdererGenesis -outputBlock ../artifacts/orderer/genesis.block
 		sleep 1
 		echo "########################################################"
 		echo "========================DONE============================"

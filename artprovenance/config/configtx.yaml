@@ -3,7 +3,6 @@ Profiles:
     ArtProvenanceOrdererGenesis:
         Orderer:
             <<: *OrdererDefaults
-            OrdererType: kafka
             Organizations:
                 - *Orderer
         Consortiums:
@@ -59,7 +58,9 @@ Orderer: &OrdererDefaults
     OrdererType: kafka
 
     Addresses:
-        - orderer.art.ifar.org:7050
+        - orderer0.art.ifar.org:7050
+        - orderer1.art.ifar.org:7050
+        - orderer2.art.ifar.org:7050
 
     # Batch Timeout: The amount of time to wait before creating a batch.
     BatchTimeout: 2s
