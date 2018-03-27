@@ -215,26 +215,29 @@ services:
       - ORDERER_GENERAL_LOGLEVEL=debug
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
-      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/genesis.block
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer0/genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
-      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/crypto/orderer/msp
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/crypto/orderer0/msp
       # enabling TLS
       - ORDERER_GENERAL_TLS_ENABLED=false
-      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer/tls/server.key
-      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer/tls/server.crt
-      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer/tls/ca.crt, /var/hyperledger/crypto/ca.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/ca.louvre/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer0/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer0/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer0/tls/ca.cert, /var/hyperledger/crypto/orderer1/tls/ca.crt, /var/hyperledger/crypto/orderer2/tls/ca.cert, /var/hyperledger/crypto/ca.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/ca.louvre/tls/ca.crt]
       ## - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/ca.bauhaus/tls/ca.crt]
       #Kafka
       - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
       - ORDERER_KAFKA_RETRY_SHORTTOTAL=30s
       - ORDERER_KAFKA_VERBOSE=true
+      - ORDERER_KAFKA_TLS_ENABLED=false
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     volumes:
     #mapping for genesis block
-    - ./artifacts/orderer/:/var/hyperledger/orderer
+    - ./artifacts/orderer/:/var/hyperledger/orderer0
     #mapping for orderer crypto material
-    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer0.art.ifar.org/:/var/hyperledger/crypto/orderer
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer0.art.ifar.org/:/var/hyperledger/crypto/orderer0
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer1.art.ifar.org/:/var/hyperledger/crypto/orderer1
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer2.art.ifar.org/:/var/hyperledger/crypto/orderer2
     - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/var/hyperledger/crypto/ca.egyptianmuseum
     - ./config/crypto-config/peerOrganizations/louvre.fr/ca/root/:/var/hyperledger/crypto/ca.louvre
     # - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/ca.bauhaus
@@ -266,26 +269,29 @@ services:
       - ORDERER_GENERAL_LOGLEVEL=debug
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
-      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/genesis.block
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer1/genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
-      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/crypto/orderer/msp
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/crypto/orderer1/msp
       # enabling TLS
       - ORDERER_GENERAL_TLS_ENABLED=false
-      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer/tls/server.key
-      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer/tls/server.crt
-      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer/tls/ca.crt, /var/hyperledger/crypto/ca.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/ca.louvre/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer1/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer1/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer0/tls/ca.cert, /var/hyperledger/crypto/orderer1/tls/ca.crt, /var/hyperledger/crypto/orderer2/tls/ca.cert, /var/hyperledger/crypto/ca.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/ca.louvre/tls/ca.crt]
       ## - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/ca.bauhaus/tls/ca.crt]
       #Kafka
       - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
       - ORDERER_KAFKA_RETRY_SHORTTOTAL=30s
       - ORDERER_KAFKA_VERBOSE=true
+      - ORDERER_KAFKA_TLS_ENABLED=false
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     volumes:
     #mapping for genesis block
-    - ./artifacts/orderer/:/var/hyperledger/orderer
+    - ./artifacts/orderer/:/var/hyperledger/orderer1
     #mapping for orderer crypto material
-    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer1.art.ifar.org/:/var/hyperledger/crypto/orderer
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer0.art.ifar.org/:/var/hyperledger/crypto/orderer0
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer1.art.ifar.org/:/var/hyperledger/crypto/orderer1
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer2.art.ifar.org/:/var/hyperledger/crypto/orderer2
     - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/var/hyperledger/crypto/ca.egyptianmuseum
     - ./config/crypto-config/peerOrganizations/louvre.fr/ca/root/:/var/hyperledger/crypto/ca.louvre
     # - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/ca.bauhaus
@@ -316,26 +322,29 @@ services:
       - ORDERER_GENERAL_LOGLEVEL=debug
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
-      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/genesis.block
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer2/genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
-      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/crypto/orderer/msp
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/crypto/orderer2/msp
       # enabling TLS
       - ORDERER_GENERAL_TLS_ENABLED=false
-      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer/tls/server.key
-      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer/tls/server.crt
-      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer/tls/ca.crt, /var/hyperledger/crypto/ca.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/ca.louvre/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/crypto/orderer2/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/crypto/orderer2/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/orderer0/tls/ca.cert, /var/hyperledger/crypto/orderer1/tls/ca.crt, /var/hyperledger/crypto/orderer2/tls/ca.cert, /var/hyperledger/crypto/ca.egyptianmuseum/tls/ca.crt, /var/hyperledger/crypto/ca.louvre/tls/ca.crt]
       ## - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/crypto/ca.bauhaus/tls/ca.crt]
       #Kafka
       - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
       - ORDERER_KAFKA_RETRY_SHORTTOTAL=30s
       - ORDERER_KAFKA_VERBOSE=true
+      - ORDERER_KAFKA_TLS_ENABLED=false
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     volumes:
     #mapping for genesis block
-    - ./artifacts/orderer/:/var/hyperledger/orderer
+    - ./artifacts/orderer/:/var/hyperledger/orderer2
     #mapping for orderer crypto material
-    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer2.art.ifar.org/:/var/hyperledger/crypto/orderer
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer0.art.ifar.org/:/var/hyperledger/crypto/orderer0
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer1.art.ifar.org/:/var/hyperledger/crypto/orderer1
+    - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer2.art.ifar.org/:/var/hyperledger/crypto/orderer2
     - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/ca/root/:/var/hyperledger/crypto/ca.egyptianmuseum
     - ./config/crypto-config/peerOrganizations/louvre.fr/ca/root/:/var/hyperledger/crypto/ca.louvre
     # - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/ca.bauhaus
@@ -474,7 +483,9 @@ services:
       - CORE_PEER_ADDRESS=peer0.egyptianmuseum.org:7051
       - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@egyptianmuseum.org/msp
     volumes:
-      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer0.art.ifar.org/:/var/hyperledger/crypto/orderer0
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer1.art.ifar.org/:/var/hyperledger/crypto/orderer1
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer2.art.ifar.org/:/var/hyperledger/crypto/orderer2
       - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/users:/var/hyperledger/crypto/peer/users
       - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer0.egyptianmuseum.org/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
@@ -496,7 +507,9 @@ services:
       - CORE_PEER_ADDRESS=peer1.egyptianmuseum.org:7051
       - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@egyptianmuseum.org/msp
     volumes:
-      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer0.art.ifar.org/:/var/hyperledger/crypto/orderer0
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer1.art.ifar.org/:/var/hyperledger/crypto/orderer1
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer2.art.ifar.org/:/var/hyperledger/crypto/orderer2
       - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/users/:/var/hyperledger/crypto/peer/users
       - ./config/crypto-config/peerOrganizations/egyptianmuseum.org/peers/peer1.egyptianmuseum.org/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
@@ -518,7 +531,9 @@ services:
       - CORE_PEER_ADDRESS=peer0.louvre.fr:7051
       - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@louvre.fr/msp
     volumes:
-      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer0.art.ifar.org/:/var/hyperledger/crypto/orderer0
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer1.art.ifar.org/:/var/hyperledger/crypto/orderer1
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer2.art.ifar.org/:/var/hyperledger/crypto/orderer2
       - ./config/crypto-config/peerOrganizations/louvre.fr/users/:/var/hyperledger/crypto/peer/users
       - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer0.louvre.fr/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:
@@ -540,7 +555,9 @@ services:
       - CORE_PEER_ADDRESS=peer1.louvre.fr:7051
       - CORE_PEER_MSPCONFIGPATH=/var/hyperledger/crypto/peer/users/Admin@louvre.fr/msp
     volumes:
-      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer.art.ifar.org/:/var/hyperledger/crypto/orderer
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer0.art.ifar.org/:/var/hyperledger/crypto/orderer0
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer1.art.ifar.org/:/var/hyperledger/crypto/orderer1
+      - ./config/crypto-config/ordererOrganizations/art.ifar.org/orderers/orderer2.art.ifar.org/:/var/hyperledger/crypto/orderer2
       - ./config/crypto-config/peerOrganizations/louvre.fr/users/:/var/hyperledger/crypto/peer/users
       - ./config/crypto-config/peerOrganizations/louvre.fr/peers/peer1.louvre.fr/tls/:/var/hyperledger/crypto/peer/tls
     depends_on:

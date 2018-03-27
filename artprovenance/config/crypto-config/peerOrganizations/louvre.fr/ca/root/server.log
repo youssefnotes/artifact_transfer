@@ -1,306 +1,306 @@
-2018/03/24 00:41:56 [INFO] Created default configuration file at /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server-config.yaml
-2018/03/24 00:41:56 [INFO] Starting server in home directory: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
-2018/03/24 00:41:56 [INFO] Server Version: 1.1.1-snapshot-d536f5a
-2018/03/24 00:41:56 [INFO] Server Levels: &{Identity:1 Affiliation:1 Certificate:1}
-2018/03/24 00:41:56 [DEBUG] Making server filenames absolute
-2018/03/24 00:41:56 [DEBUG] Initializing default CA in directory /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
-2018/03/24 00:41:56 [DEBUG] Init CA with home /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root and config {Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile: Certfile:ca-cert.pem Chainfile:ca-chain.pem} Signing:0xc4202d2580 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:<nil> CA:0xc4202d5060 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de090 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
-2018/03/24 00:41:56 [DEBUG] CA Home Directory: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
-2018/03/24 00:41:56 [DEBUG] Checking configuration file version '1.1.1-snapshot-d536f5a' against server version: '1.1.1-snapshot-d536f5a'
-2018/03/24 00:41:56 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc4202de0f0 PluginOpts:<nil> Pkcs11Opts:<nil>}
-2018/03/24 00:41:56 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4202dd040 DummyKeystore:<nil>}
-2018/03/24 00:41:56 [DEBUG] Initialize key material
-2018/03/24 00:41:56 [DEBUG] Making CA filenames absolute
-2018/03/24 00:41:56 [DEBUG] Root CA certificate request: {CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f40 CA:0xc4202d5060 SerialNumber:}
-2018/03/24 00:41:56 [INFO] generating key: &{A:ecdsa S:256}
-2018/03/24 00:41:56 [DEBUG] generate key from request: algo=ecdsa, size=256
-2018/03/24 00:41:56 [INFO] encoded CSR
-2018/03/24 00:41:56 [DEBUG] validating configuration
-2018/03/24 00:41:56 [DEBUG] validate local profile
-2018/03/24 00:41:56 [DEBUG] profile is valid
-2018/03/24 00:41:56 [INFO] signed certificate with serial number 281904773571912033967041908212794373610261314405
-2018/03/24 00:41:56 [INFO] The CA key and certificate were generated for CA 
-2018/03/24 00:41:56 [INFO] The key was stored by BCCSP provider 'SW'
-2018/03/24 00:41:56 [INFO] The certificate is at: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem
-2018/03/24 00:41:56 [DEBUG] Initializing DB
-2018/03/24 00:41:56 [DEBUG] Initializing 'sqlite3' database at '/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db'
-2018/03/24 00:41:56 [DEBUG] Using sqlite database, connect to database in home (/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db) directory
-2018/03/24 00:41:56 [DEBUG] Creating SQLite database (/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db) if it does not exist...
-2018/03/24 00:41:56 [DEBUG] Creating users table if it does not exist
-2018/03/24 00:41:56 [DEBUG] Creating affiliations table if it does not exist
-2018/03/24 00:41:56 [DEBUG] Creating certificates table if it does not exist
-2018/03/24 00:41:56 [DEBUG] Creating properties table if it does not exist
-2018/03/24 00:41:56 [DEBUG] Successfully opened sqlite3 DB
-2018/03/24 00:41:56 [DEBUG] Checking database schema...
-2018/03/24 00:41:56 [DEBUG] Update SQLite schema, if using outdated schema
-2018/03/24 00:41:56 [DEBUG] Upgrade identities table
-2018/03/24 00:41:56 [DEBUG] Creating users table if it does not exist
-2018/03/24 00:41:56 [DEBUG] Upgrade affiliation table
-2018/03/24 00:41:56 [DEBUG] Creating affiliations table if it does not exist
-2018/03/24 00:41:56 [DEBUG] Upgrade certificates table
-2018/03/24 00:41:56 [DEBUG] Creating certificates table if it does not exist
-2018/03/24 00:41:56 [DEBUG] Initializing identity registry
-2018/03/24 00:41:56 [DEBUG] Initialized DB identity registry
-2018/03/24 00:41:56 [DEBUG] DB: Get properties [identity.level affiliation.level certificate.level]
-2018/03/24 00:41:56 [DEBUG] Checking database levels 'map[identity.level:0 affiliation.level:0 certificate.level:0]' against server levels '&{Identity:1 Affiliation:1 Certificate:1}'
-2018/03/24 00:41:56 [DEBUG] Loading identity table
-2018/03/24 00:41:56 [DEBUG] Loading identity 'admin'
-2018/03/24 00:41:56 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:56 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
-2018/03/24 00:41:56 [DEBUG] DB: Add identity admin
-2018/03/24 00:41:56 [DEBUG] Successfully added identity admin to the database
-2018/03/24 00:41:56 [DEBUG] Registered identity: { Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user]  }
-2018/03/24 00:41:56 [DEBUG] Successfully loaded identity table
-2018/03/24 00:41:56 [DEBUG] Loading affiliations table
-2018/03/24 00:41:56 [DEBUG] DB: Add affiliation org2
-2018/03/24 00:41:56 [DEBUG] Affiliation 'org2' added
-2018/03/24 00:41:56 [DEBUG] DB: Add affiliation org2.department1
-2018/03/24 00:41:56 [DEBUG] Affiliation 'org2.department1' added
-2018/03/24 00:41:56 [DEBUG] DB: Add affiliation org1
-2018/03/24 00:41:56 [DEBUG] Affiliation 'org1' added
-2018/03/24 00:41:56 [DEBUG] DB: Add affiliation org1.department1
-2018/03/24 00:41:56 [DEBUG] Affiliation 'org1.department1' added
-2018/03/24 00:41:56 [DEBUG] DB: Add affiliation org1.department2
-2018/03/24 00:41:56 [DEBUG] Affiliation 'org1.department2' added
-2018/03/24 00:41:56 [DEBUG] Successfully loaded affiliations table
-2018/03/24 00:41:56 [DEBUG] Checking and performing migration, if needed
-2018/03/24 00:41:56 [DEBUG] Updating database level to &{Identity:1 Affiliation:1 Certificate:1}
-2018/03/24 00:41:56 [INFO] Initialized sqlite3 database at /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db
-2018/03/24 00:41:56 [DEBUG] Initializing enrollment signer
-2018/03/24 00:41:56 [DEBUG] validating configuration
-2018/03/24 00:41:56 [DEBUG] validate local profile
-2018/03/24 00:41:56 [DEBUG] profile is valid
-2018/03/24 00:41:56 [DEBUG] validate local profile
-2018/03/24 00:41:56 [DEBUG] profile is valid
-2018/03/24 00:41:56 [DEBUG] validate local profile
-2018/03/24 00:41:56 [DEBUG] profile is valid
-2018/03/24 00:41:56 [DEBUG] CA initialization successful
-2018/03/24 00:41:56 [INFO] Home directory for default CA: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
-2018/03/24 00:41:56 [DEBUG] 1 CA instance(s) running on server
-2018/03/24 00:41:56 [INFO] Listening on http://0.0.0.0:7104
-2018/03/24 00:41:57 [DEBUG] Received request for /enroll
-2018/03/24 00:41:57 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2580 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d5060 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de090 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 0
-2018/03/24 00:41:57 [DEBUG] DB: identity admin successfully logged in
-2018/03/24 00:41:57 [DEBUG] Processing sign request: id=admin, CommonName=admin, Subject=<nil>
-2018/03/24 00:41:57 [DEBUG] Request is not for a CA signing certificate
-2018/03/24 00:41:57 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [DEBUG] Finished processing sign request
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [INFO] signed certificate with serial number 648337787854239285452327410205135954830341980656
-2018/03/24 00:41:57 [DEBUG] DB: Insert Certificate
-2018/03/24 00:41:57 [DEBUG] Saved serial number as hex 719078cd9e41dbbd19c17886a6185907c65c41f0
-2018/03/24 00:41:57 [DEBUG] saved certificate with serial number 648337787854239285452327410205135954830341980656
-2018/03/24 00:41:57 [DEBUG] Successfully incremented state for identity admin to 1
-2018/03/24 00:41:57 [INFO] 127.0.0.1:40556 POST /enroll 201 0 "OK"
-2018/03/24 00:41:57 [DEBUG] Received request for /enroll
-2018/03/24 00:41:57 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2580 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d5060 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de090 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 1
-2018/03/24 00:41:57 [DEBUG] DB: identity admin successfully logged in
-2018/03/24 00:41:57 [DEBUG] Processing sign request: id=admin, CommonName=admin, Subject=<nil>
-2018/03/24 00:41:57 [DEBUG] Request is not for a CA signing certificate
-2018/03/24 00:41:57 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [DEBUG] Finished processing sign request
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [INFO] signed certificate with serial number 343070346181905182764591086827385127552746688983
-2018/03/24 00:41:57 [DEBUG] DB: Insert Certificate
-2018/03/24 00:41:57 [DEBUG] Saved serial number as hex 3c17ce6eadbea3db158697c837c3b6dd177a91d7
-2018/03/24 00:41:57 [DEBUG] saved certificate with serial number 343070346181905182764591086827385127552746688983
-2018/03/24 00:41:57 [DEBUG] Successfully incremented state for identity admin to 2
-2018/03/24 00:41:57 [INFO] 127.0.0.1:40558 POST /enroll 201 0 "OK"
-2018/03/24 00:41:57 [DEBUG] Received request for /register
-2018/03/24 00:41:57 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2018/03/24 00:41:57 [DEBUG] DB: Get certificate by serial (3c17ce6eadbea3db158697c837c3b6dd177a91d7) and aki (2352a7bd445b6f70ea0585b009d83c716b8b895e)
-2018/03/24 00:41:57 [DEBUG] Successful token authentication of 'admin'
-2018/03/24 00:41:57 [DEBUG] Received registration request from admin: { Name:nodeAdmin Type:user Secret:**** MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:  }
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [DEBUG] canRegister - Check to see if user 'admin' can register
-2018/03/24 00:41:57 [DEBUG] Checking to see if caller 'admin' is a registrar
-2018/03/24 00:41:57 [DEBUG] Validate Affiliation
-2018/03/24 00:41:57 [DEBUG] Checking to see if affiliation 'org1' contains caller's affiliation ''
-2018/03/24 00:41:57 [DEBUG] Caller has root affiliation
-2018/03/24 00:41:57 [DEBUG] Validate ID
-2018/03/24 00:41:57 [DEBUG] Validating affiliation: org1
-2018/03/24 00:41:57 [DEBUG] DB: Get affiliation org1
-2018/03/24 00:41:57 [DEBUG] Registering user id: nodeAdmin
-2018/03/24 00:41:57 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity nodeAdmin
-2018/03/24 00:41:57 [DEBUG] DB: Add identity nodeAdmin
-2018/03/24 00:41:57 [DEBUG] Successfully added identity nodeAdmin to the database
-2018/03/24 00:41:57 [INFO] 127.0.0.1:40560 POST /register 201 0 "OK"
-2018/03/24 00:41:57 [DEBUG] Received request for /enroll
-2018/03/24 00:41:57 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2580 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d5060 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de090 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity nodeAdmin
-2018/03/24 00:41:57 [DEBUG] DB: Login user nodeAdmin with max enrollments of -1 and state of 0
-2018/03/24 00:41:57 [DEBUG] DB: identity nodeAdmin successfully logged in
-2018/03/24 00:41:57 [DEBUG] Processing sign request: id=nodeAdmin, CommonName=nodeAdmin, Subject=<nil>
-2018/03/24 00:41:57 [DEBUG] Request is not for a CA signing certificate
-2018/03/24 00:41:57 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity nodeAdmin
-2018/03/24 00:41:57 [DEBUG] Finished processing sign request
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity nodeAdmin
-2018/03/24 00:41:57 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a226e6f646541646d696e222c2268662e54797065223a2275736572227d7d}
-2018/03/24 00:41:57 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a226e6f646541646d696e222c2268662e54797065223a2275736572227d7d}
-2018/03/24 00:41:57 [INFO] signed certificate with serial number 569612559001692430177811037658568987925667579895
-2018/03/24 00:41:57 [DEBUG] DB: Insert Certificate
-2018/03/24 00:41:57 [DEBUG] Saved serial number as hex 63c64f7f28e80f70d47c10904a6cf0d7560f07f7
-2018/03/24 00:41:57 [DEBUG] saved certificate with serial number 569612559001692430177811037658568987925667579895
-2018/03/24 00:41:57 [DEBUG] Successfully incremented state for identity nodeAdmin to 1
-2018/03/24 00:41:57 [INFO] 127.0.0.1:40562 POST /enroll 201 0 "OK"
-2018/03/24 00:41:57 [DEBUG] Received request for /register
-2018/03/24 00:41:57 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2018/03/24 00:41:57 [DEBUG] DB: Get certificate by serial (3c17ce6eadbea3db158697c837c3b6dd177a91d7) and aki (2352a7bd445b6f70ea0585b009d83c716b8b895e)
-2018/03/24 00:41:57 [DEBUG] Successful token authentication of 'admin'
-2018/03/24 00:41:57 [DEBUG] Received registration request from admin: { Name:User1@louvre.fr Type:user Secret:**** MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:  }
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [DEBUG] canRegister - Check to see if user 'admin' can register
-2018/03/24 00:41:57 [DEBUG] Checking to see if caller 'admin' is a registrar
-2018/03/24 00:41:57 [DEBUG] Validate Affiliation
-2018/03/24 00:41:57 [DEBUG] Checking to see if affiliation 'org1' contains caller's affiliation ''
-2018/03/24 00:41:57 [DEBUG] Caller has root affiliation
-2018/03/24 00:41:57 [DEBUG] Validate ID
-2018/03/24 00:41:57 [DEBUG] Validating affiliation: org1
-2018/03/24 00:41:57 [DEBUG] DB: Get affiliation org1
-2018/03/24 00:41:57 [DEBUG] Registering user id: User1@louvre.fr
-2018/03/24 00:41:57 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity User1@louvre.fr
-2018/03/24 00:41:57 [DEBUG] DB: Add identity User1@louvre.fr
-2018/03/24 00:41:57 [DEBUG] Successfully added identity User1@louvre.fr to the database
-2018/03/24 00:41:57 [INFO] 127.0.0.1:40564 POST /register 201 0 "OK"
-2018/03/24 00:41:57 [DEBUG] Received request for /enroll
-2018/03/24 00:41:57 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2580 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d5060 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de090 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity User1@louvre.fr
-2018/03/24 00:41:57 [DEBUG] DB: Login user User1@louvre.fr with max enrollments of -1 and state of 0
-2018/03/24 00:41:57 [DEBUG] DB: identity User1@louvre.fr successfully logged in
-2018/03/24 00:41:57 [DEBUG] Processing sign request: id=User1@louvre.fr, CommonName=User1@louvre.fr, Subject=<nil>
-2018/03/24 00:41:57 [DEBUG] Request is not for a CA signing certificate
-2018/03/24 00:41:57 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity User1@louvre.fr
-2018/03/24 00:41:57 [DEBUG] Finished processing sign request
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity User1@louvre.fr
-2018/03/24 00:41:57 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a225573657231406c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
-2018/03/24 00:41:57 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a225573657231406c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
-2018/03/24 00:41:57 [INFO] signed certificate with serial number 38065621469328743219045745714185677299543787818
-2018/03/24 00:41:57 [DEBUG] DB: Insert Certificate
-2018/03/24 00:41:57 [DEBUG] Saved serial number as hex 6aaebe77e8cfcdd7e57291e32e2b0ca6bb1492a
-2018/03/24 00:41:57 [DEBUG] saved certificate with serial number 38065621469328743219045745714185677299543787818
-2018/03/24 00:41:57 [DEBUG] Successfully incremented state for identity User1@louvre.fr to 1
-2018/03/24 00:41:57 [INFO] 127.0.0.1:40566 POST /enroll 201 0 "OK"
-2018/03/24 00:41:57 [DEBUG] Received request for /enroll
-2018/03/24 00:41:57 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2580 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d5060 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de090 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 2
-2018/03/24 00:41:57 [DEBUG] DB: identity admin successfully logged in
-2018/03/24 00:41:57 [DEBUG] Processing sign request: id=admin, CommonName=admin, Subject=<nil>
-2018/03/24 00:41:57 [DEBUG] Request is not for a CA signing certificate
-2018/03/24 00:41:57 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [DEBUG] Finished processing sign request
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [INFO] signed certificate with serial number 149829983186827477988767940417487283658129794752
-2018/03/24 00:41:57 [DEBUG] DB: Insert Certificate
-2018/03/24 00:41:57 [DEBUG] Saved serial number as hex 1a3e9bdb0cbeb67743a70d2582ed5404e011e6c0
-2018/03/24 00:41:57 [DEBUG] saved certificate with serial number 149829983186827477988767940417487283658129794752
-2018/03/24 00:41:57 [DEBUG] Successfully incremented state for identity admin to 3
-2018/03/24 00:41:57 [INFO] 127.0.0.1:40568 POST /enroll 201 0 "OK"
-2018/03/24 00:41:57 [DEBUG] Received request for /register
-2018/03/24 00:41:57 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2018/03/24 00:41:57 [DEBUG] DB: Get certificate by serial (3c17ce6eadbea3db158697c837c3b6dd177a91d7) and aki (2352a7bd445b6f70ea0585b009d83c716b8b895e)
-2018/03/24 00:41:57 [DEBUG] Successful token authentication of 'admin'
-2018/03/24 00:41:57 [DEBUG] Received registration request from admin: { Name:peer0.louvre.fr Type:user Secret:**** MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:  }
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [DEBUG] canRegister - Check to see if user 'admin' can register
-2018/03/24 00:41:57 [DEBUG] Checking to see if caller 'admin' is a registrar
-2018/03/24 00:41:57 [DEBUG] Validate Affiliation
-2018/03/24 00:41:57 [DEBUG] Checking to see if affiliation 'org1' contains caller's affiliation ''
-2018/03/24 00:41:57 [DEBUG] Caller has root affiliation
-2018/03/24 00:41:57 [DEBUG] Validate ID
-2018/03/24 00:41:57 [DEBUG] Validating affiliation: org1
-2018/03/24 00:41:57 [DEBUG] DB: Get affiliation org1
-2018/03/24 00:41:57 [DEBUG] Registering user id: peer0.louvre.fr
-2018/03/24 00:41:57 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity peer0.louvre.fr
-2018/03/24 00:41:57 [DEBUG] DB: Add identity peer0.louvre.fr
-2018/03/24 00:41:57 [DEBUG] Successfully added identity peer0.louvre.fr to the database
-2018/03/24 00:41:57 [INFO] 127.0.0.1:40570 POST /register 201 0 "OK"
-2018/03/24 00:41:57 [DEBUG] Received request for /enroll
-2018/03/24 00:41:57 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2580 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d5060 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:*]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de090 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity peer0.louvre.fr
-2018/03/24 00:41:57 [DEBUG] DB: Login user peer0.louvre.fr with max enrollments of -1 and state of 0
-2018/03/24 00:41:57 [DEBUG] DB: identity peer0.louvre.fr successfully logged in
-2018/03/24 00:41:57 [DEBUG] Processing sign request: id=peer0.louvre.fr, CommonName=peer0.louvre.fr, Subject=<nil>
-2018/03/24 00:41:57 [DEBUG] Request is not for a CA signing certificate
-2018/03/24 00:41:57 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity peer0.louvre.fr
-2018/03/24 00:41:57 [DEBUG] Finished processing sign request
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity peer0.louvre.fr
-2018/03/24 00:41:57 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a2270656572302e6c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
-2018/03/24 00:41:57 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a2270656572302e6c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
-2018/03/24 00:41:57 [INFO] signed certificate with serial number 705081217813908539468890539970236310479587062871
-2018/03/24 00:41:57 [DEBUG] DB: Insert Certificate
-2018/03/24 00:41:57 [DEBUG] Saved serial number as hex 7b80ef6f07228a4f190623581ad5a0eba6453457
-2018/03/24 00:41:57 [DEBUG] saved certificate with serial number 705081217813908539468890539970236310479587062871
-2018/03/24 00:41:57 [DEBUG] Successfully incremented state for identity peer0.louvre.fr to 1
-2018/03/24 00:41:57 [INFO] 127.0.0.1:40572 POST /enroll 201 0 "OK"
-2018/03/24 00:41:57 [DEBUG] Received request for /enroll
-2018/03/24 00:41:57 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2580 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d5060 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de090 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
-2018/03/24 00:41:57 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:57 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 3
-2018/03/24 00:41:58 [DEBUG] DB: identity admin successfully logged in
-2018/03/24 00:41:58 [DEBUG] Processing sign request: id=admin, CommonName=admin, Subject=<nil>
-2018/03/24 00:41:58 [DEBUG] Request is not for a CA signing certificate
-2018/03/24 00:41:58 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2018/03/24 00:41:58 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:58 [DEBUG] Finished processing sign request
-2018/03/24 00:41:58 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:58 [INFO] signed certificate with serial number 522487154104409506047611531298619665264046513889
-2018/03/24 00:41:58 [DEBUG] DB: Insert Certificate
-2018/03/24 00:41:58 [DEBUG] Saved serial number as hex 5b852261113f0d8aa145ff59092e9aa6426c1ee1
-2018/03/24 00:41:58 [DEBUG] saved certificate with serial number 522487154104409506047611531298619665264046513889
-2018/03/24 00:41:58 [DEBUG] Successfully incremented state for identity admin to 4
-2018/03/24 00:41:58 [INFO] 127.0.0.1:40574 POST /enroll 201 0 "OK"
-2018/03/24 00:41:58 [DEBUG] Received request for /register
-2018/03/24 00:41:58 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
-2018/03/24 00:41:58 [DEBUG] DB: Get certificate by serial (3c17ce6eadbea3db158697c837c3b6dd177a91d7) and aki (2352a7bd445b6f70ea0585b009d83c716b8b895e)
-2018/03/24 00:41:58 [DEBUG] Successful token authentication of 'admin'
-2018/03/24 00:41:58 [DEBUG] Received registration request from admin: { Name:peer1.louvre.fr Type:user Secret:**** MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:  }
-2018/03/24 00:41:58 [DEBUG] DB: Getting identity admin
-2018/03/24 00:41:58 [DEBUG] canRegister - Check to see if user 'admin' can register
-2018/03/24 00:41:58 [DEBUG] Checking to see if caller 'admin' is a registrar
-2018/03/24 00:41:58 [DEBUG] Validate Affiliation
-2018/03/24 00:41:58 [DEBUG] Checking to see if affiliation 'org1' contains caller's affiliation ''
-2018/03/24 00:41:58 [DEBUG] Caller has root affiliation
-2018/03/24 00:41:58 [DEBUG] Validate ID
-2018/03/24 00:41:58 [DEBUG] Validating affiliation: org1
-2018/03/24 00:41:58 [DEBUG] DB: Get affiliation org1
-2018/03/24 00:41:58 [DEBUG] Registering user id: peer1.louvre.fr
-2018/03/24 00:41:58 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
-2018/03/24 00:41:58 [DEBUG] DB: Getting identity peer1.louvre.fr
-2018/03/24 00:41:58 [DEBUG] DB: Add identity peer1.louvre.fr
-2018/03/24 00:41:58 [DEBUG] Successfully added identity peer1.louvre.fr to the database
-2018/03/24 00:41:58 [INFO] 127.0.0.1:40576 POST /register 201 0 "OK"
-2018/03/24 00:41:58 [DEBUG] Received request for /enroll
-2018/03/24 00:41:58 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2580 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d5060 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:*]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de090 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
-2018/03/24 00:41:58 [DEBUG] DB: Getting identity peer1.louvre.fr
-2018/03/24 00:41:58 [DEBUG] DB: Login user peer1.louvre.fr with max enrollments of -1 and state of 0
-2018/03/24 00:41:58 [DEBUG] DB: identity peer1.louvre.fr successfully logged in
-2018/03/24 00:41:58 [DEBUG] Processing sign request: id=peer1.louvre.fr, CommonName=peer1.louvre.fr, Subject=<nil>
-2018/03/24 00:41:58 [DEBUG] Request is not for a CA signing certificate
-2018/03/24 00:41:58 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
-2018/03/24 00:41:58 [DEBUG] DB: Getting identity peer1.louvre.fr
-2018/03/24 00:41:58 [DEBUG] Finished processing sign request
-2018/03/24 00:41:58 [DEBUG] DB: Getting identity peer1.louvre.fr
-2018/03/24 00:41:58 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a2270656572312e6c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
-2018/03/24 00:41:58 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a2270656572312e6c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
-2018/03/24 00:41:58 [INFO] signed certificate with serial number 594617661594784152018059296405180392627139289540
-2018/03/24 00:41:58 [DEBUG] DB: Insert Certificate
-2018/03/24 00:41:58 [DEBUG] Saved serial number as hex 682793ff42731645c00ceec887b6598721f0a1c4
-2018/03/24 00:41:58 [DEBUG] saved certificate with serial number 594617661594784152018059296405180392627139289540
-2018/03/24 00:41:58 [DEBUG] Successfully incremented state for identity peer1.louvre.fr to 1
-2018/03/24 00:41:58 [INFO] 127.0.0.1:40578 POST /enroll 201 0 "OK"
-2018/03/24 00:41:58 [DEBUG] Received request for /cainfo
-2018/03/24 00:41:58 [INFO] 127.0.0.1:40580 POST /cainfo 200 0 "OK"
+2018/03/27 09:33:34 [INFO] Created default configuration file at /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server-config.yaml
+2018/03/27 09:33:34 [INFO] Starting server in home directory: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
+2018/03/27 09:33:34 [INFO] Server Version: 1.1.1-snapshot-d536f5a
+2018/03/27 09:33:34 [INFO] Server Levels: &{Identity:1 Affiliation:1 Certificate:1}
+2018/03/27 09:33:34 [DEBUG] Making server filenames absolute
+2018/03/27 09:33:34 [DEBUG] Initializing default CA in directory /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
+2018/03/27 09:33:34 [DEBUG] Init CA with home /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root and config {Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile: Certfile:ca-cert.pem Chainfile:ca-chain.pem} Signing:0xc4202d2770 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:<nil> CA:0xc4202d4f60 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:*]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de060 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/03/27 09:33:34 [DEBUG] CA Home Directory: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
+2018/03/27 09:33:34 [DEBUG] Checking configuration file version '1.1.1-snapshot-d536f5a' against server version: '1.1.1-snapshot-d536f5a'
+2018/03/27 09:33:34 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc4202de0c0 PluginOpts:<nil> Pkcs11Opts:<nil>}
+2018/03/27 09:33:34 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4202dccc0 DummyKeystore:<nil>}
+2018/03/27 09:33:34 [DEBUG] Initialize key material
+2018/03/27 09:33:34 [DEBUG] Making CA filenames absolute
+2018/03/27 09:33:34 [DEBUG] Root CA certificate request: {CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f40 CA:0xc4202d4f60 SerialNumber:}
+2018/03/27 09:33:34 [INFO] generating key: &{A:ecdsa S:256}
+2018/03/27 09:33:34 [DEBUG] generate key from request: algo=ecdsa, size=256
+2018/03/27 09:33:34 [INFO] encoded CSR
+2018/03/27 09:33:34 [DEBUG] validating configuration
+2018/03/27 09:33:34 [DEBUG] validate local profile
+2018/03/27 09:33:34 [DEBUG] profile is valid
+2018/03/27 09:33:34 [INFO] signed certificate with serial number 431005997610753205261125238853444294213480558022
+2018/03/27 09:33:34 [INFO] The CA key and certificate were generated for CA 
+2018/03/27 09:33:34 [INFO] The key was stored by BCCSP provider 'SW'
+2018/03/27 09:33:34 [INFO] The certificate is at: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem
+2018/03/27 09:33:34 [DEBUG] Initializing DB
+2018/03/27 09:33:34 [DEBUG] Initializing 'sqlite3' database at '/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db'
+2018/03/27 09:33:34 [DEBUG] Using sqlite database, connect to database in home (/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db) directory
+2018/03/27 09:33:34 [DEBUG] Creating SQLite database (/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db) if it does not exist...
+2018/03/27 09:33:34 [DEBUG] Creating users table if it does not exist
+2018/03/27 09:33:34 [DEBUG] Creating affiliations table if it does not exist
+2018/03/27 09:33:34 [DEBUG] Creating certificates table if it does not exist
+2018/03/27 09:33:34 [DEBUG] Creating properties table if it does not exist
+2018/03/27 09:33:34 [DEBUG] Successfully opened sqlite3 DB
+2018/03/27 09:33:34 [DEBUG] Checking database schema...
+2018/03/27 09:33:34 [DEBUG] Update SQLite schema, if using outdated schema
+2018/03/27 09:33:34 [DEBUG] Upgrade identities table
+2018/03/27 09:33:34 [DEBUG] Creating users table if it does not exist
+2018/03/27 09:33:34 [DEBUG] Upgrade affiliation table
+2018/03/27 09:33:34 [DEBUG] Creating affiliations table if it does not exist
+2018/03/27 09:33:34 [DEBUG] Upgrade certificates table
+2018/03/27 09:33:34 [DEBUG] Creating certificates table if it does not exist
+2018/03/27 09:33:34 [DEBUG] Initializing identity registry
+2018/03/27 09:33:34 [DEBUG] Initialized DB identity registry
+2018/03/27 09:33:34 [DEBUG] DB: Get properties [identity.level affiliation.level certificate.level]
+2018/03/27 09:33:34 [DEBUG] Checking database levels 'map[identity.level:0 affiliation.level:0 certificate.level:0]' against server levels '&{Identity:1 Affiliation:1 Certificate:1}'
+2018/03/27 09:33:34 [DEBUG] Loading identity table
+2018/03/27 09:33:34 [DEBUG] Loading identity 'admin'
+2018/03/27 09:33:34 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:34 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
+2018/03/27 09:33:34 [DEBUG] DB: Add identity admin
+2018/03/27 09:33:34 [DEBUG] Successfully added identity admin to the database
+2018/03/27 09:33:34 [DEBUG] Registered identity: { Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user]  }
+2018/03/27 09:33:34 [DEBUG] Successfully loaded identity table
+2018/03/27 09:33:34 [DEBUG] Loading affiliations table
+2018/03/27 09:33:34 [DEBUG] DB: Add affiliation org2
+2018/03/27 09:33:34 [DEBUG] Affiliation 'org2' added
+2018/03/27 09:33:34 [DEBUG] DB: Add affiliation org2.department1
+2018/03/27 09:33:34 [DEBUG] Affiliation 'org2.department1' added
+2018/03/27 09:33:34 [DEBUG] DB: Add affiliation org1
+2018/03/27 09:33:34 [DEBUG] Affiliation 'org1' added
+2018/03/27 09:33:34 [DEBUG] DB: Add affiliation org1.department1
+2018/03/27 09:33:34 [DEBUG] Affiliation 'org1.department1' added
+2018/03/27 09:33:34 [DEBUG] DB: Add affiliation org1.department2
+2018/03/27 09:33:34 [DEBUG] Affiliation 'org1.department2' added
+2018/03/27 09:33:34 [DEBUG] Successfully loaded affiliations table
+2018/03/27 09:33:34 [DEBUG] Checking and performing migration, if needed
+2018/03/27 09:33:34 [DEBUG] Updating database level to &{Identity:1 Affiliation:1 Certificate:1}
+2018/03/27 09:33:34 [INFO] Initialized sqlite3 database at /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db
+2018/03/27 09:33:34 [DEBUG] Initializing enrollment signer
+2018/03/27 09:33:34 [DEBUG] validating configuration
+2018/03/27 09:33:34 [DEBUG] validate local profile
+2018/03/27 09:33:34 [DEBUG] profile is valid
+2018/03/27 09:33:34 [DEBUG] validate local profile
+2018/03/27 09:33:34 [DEBUG] profile is valid
+2018/03/27 09:33:34 [DEBUG] validate local profile
+2018/03/27 09:33:34 [DEBUG] profile is valid
+2018/03/27 09:33:34 [DEBUG] CA initialization successful
+2018/03/27 09:33:34 [INFO] Home directory for default CA: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root
+2018/03/27 09:33:34 [DEBUG] 1 CA instance(s) running on server
+2018/03/27 09:33:34 [INFO] Listening on http://0.0.0.0:7104
+2018/03/27 09:33:35 [DEBUG] Received request for /enroll
+2018/03/27 09:33:35 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2770 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d4f60 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de060 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 0
+2018/03/27 09:33:35 [DEBUG] DB: identity admin successfully logged in
+2018/03/27 09:33:35 [DEBUG] Processing sign request: id=admin, CommonName=admin, Subject=<nil>
+2018/03/27 09:33:35 [DEBUG] Request is not for a CA signing certificate
+2018/03/27 09:33:35 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [DEBUG] Finished processing sign request
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [INFO] signed certificate with serial number 565086170612955295284085954353156063053760803236
+2018/03/27 09:33:35 [DEBUG] DB: Insert Certificate
+2018/03/27 09:33:35 [DEBUG] Saved serial number as hex 62fb571b3554819be229c171a04e7494481db1a4
+2018/03/27 09:33:35 [DEBUG] saved certificate with serial number 565086170612955295284085954353156063053760803236
+2018/03/27 09:33:35 [DEBUG] Successfully incremented state for identity admin to 1
+2018/03/27 09:33:35 [INFO] 127.0.0.1:43426 POST /enroll 201 0 "OK"
+2018/03/27 09:33:35 [DEBUG] Received request for /enroll
+2018/03/27 09:33:35 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2770 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d4f60 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de060 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 1
+2018/03/27 09:33:35 [DEBUG] DB: identity admin successfully logged in
+2018/03/27 09:33:35 [DEBUG] Processing sign request: id=admin, CommonName=admin, Subject=<nil>
+2018/03/27 09:33:35 [DEBUG] Request is not for a CA signing certificate
+2018/03/27 09:33:35 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [DEBUG] Finished processing sign request
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [INFO] signed certificate with serial number 679202099326709724651600958460256539119693874289
+2018/03/27 09:33:35 [DEBUG] DB: Insert Certificate
+2018/03/27 09:33:35 [DEBUG] Saved serial number as hex 76f879b9101e63e45c8ca02f4b69ad228ec84471
+2018/03/27 09:33:35 [DEBUG] saved certificate with serial number 679202099326709724651600958460256539119693874289
+2018/03/27 09:33:35 [DEBUG] Successfully incremented state for identity admin to 2
+2018/03/27 09:33:35 [INFO] 127.0.0.1:43428 POST /enroll 201 0 "OK"
+2018/03/27 09:33:35 [DEBUG] Received request for /register
+2018/03/27 09:33:35 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2018/03/27 09:33:35 [DEBUG] DB: Get certificate by serial (76f879b9101e63e45c8ca02f4b69ad228ec84471) and aki (85a21313f458e54286689ed67ead5fee554bf1a8)
+2018/03/27 09:33:35 [DEBUG] Successful token authentication of 'admin'
+2018/03/27 09:33:35 [DEBUG] Received registration request from admin: { Name:nodeAdmin Type:user Secret:**** MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:  }
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [DEBUG] canRegister - Check to see if user 'admin' can register
+2018/03/27 09:33:35 [DEBUG] Checking to see if caller 'admin' is a registrar
+2018/03/27 09:33:35 [DEBUG] Validate Affiliation
+2018/03/27 09:33:35 [DEBUG] Checking to see if affiliation 'org1' contains caller's affiliation ''
+2018/03/27 09:33:35 [DEBUG] Caller has root affiliation
+2018/03/27 09:33:35 [DEBUG] Validate ID
+2018/03/27 09:33:35 [DEBUG] Validating affiliation: org1
+2018/03/27 09:33:35 [DEBUG] DB: Get affiliation org1
+2018/03/27 09:33:35 [DEBUG] Registering user id: nodeAdmin
+2018/03/27 09:33:35 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity nodeAdmin
+2018/03/27 09:33:35 [DEBUG] DB: Add identity nodeAdmin
+2018/03/27 09:33:35 [DEBUG] Successfully added identity nodeAdmin to the database
+2018/03/27 09:33:35 [INFO] 127.0.0.1:43430 POST /register 201 0 "OK"
+2018/03/27 09:33:35 [DEBUG] Received request for /enroll
+2018/03/27 09:33:35 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2770 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d4f60 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de060 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity nodeAdmin
+2018/03/27 09:33:35 [DEBUG] DB: Login user nodeAdmin with max enrollments of -1 and state of 0
+2018/03/27 09:33:35 [DEBUG] DB: identity nodeAdmin successfully logged in
+2018/03/27 09:33:35 [DEBUG] Processing sign request: id=nodeAdmin, CommonName=nodeAdmin, Subject=<nil>
+2018/03/27 09:33:35 [DEBUG] Request is not for a CA signing certificate
+2018/03/27 09:33:35 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity nodeAdmin
+2018/03/27 09:33:35 [DEBUG] Finished processing sign request
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity nodeAdmin
+2018/03/27 09:33:35 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a226e6f646541646d696e222c2268662e54797065223a2275736572227d7d}
+2018/03/27 09:33:35 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a226e6f646541646d696e222c2268662e54797065223a2275736572227d7d}
+2018/03/27 09:33:35 [INFO] signed certificate with serial number 635304224344441004146179434176102494040598700632
+2018/03/27 09:33:35 [DEBUG] DB: Insert Certificate
+2018/03/27 09:33:35 [DEBUG] Saved serial number as hex 6f4806d4ed1286fdba113f95c9295d06d47ae258
+2018/03/27 09:33:35 [DEBUG] saved certificate with serial number 635304224344441004146179434176102494040598700632
+2018/03/27 09:33:35 [DEBUG] Successfully incremented state for identity nodeAdmin to 1
+2018/03/27 09:33:35 [INFO] 127.0.0.1:43432 POST /enroll 201 0 "OK"
+2018/03/27 09:33:35 [DEBUG] Received request for /register
+2018/03/27 09:33:35 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2018/03/27 09:33:35 [DEBUG] DB: Get certificate by serial (76f879b9101e63e45c8ca02f4b69ad228ec84471) and aki (85a21313f458e54286689ed67ead5fee554bf1a8)
+2018/03/27 09:33:35 [DEBUG] Successful token authentication of 'admin'
+2018/03/27 09:33:35 [DEBUG] Received registration request from admin: { Name:User1@louvre.fr Type:user Secret:**** MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:  }
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [DEBUG] canRegister - Check to see if user 'admin' can register
+2018/03/27 09:33:35 [DEBUG] Checking to see if caller 'admin' is a registrar
+2018/03/27 09:33:35 [DEBUG] Validate Affiliation
+2018/03/27 09:33:35 [DEBUG] Checking to see if affiliation 'org1' contains caller's affiliation ''
+2018/03/27 09:33:35 [DEBUG] Caller has root affiliation
+2018/03/27 09:33:35 [DEBUG] Validate ID
+2018/03/27 09:33:35 [DEBUG] Validating affiliation: org1
+2018/03/27 09:33:35 [DEBUG] DB: Get affiliation org1
+2018/03/27 09:33:35 [DEBUG] Registering user id: User1@louvre.fr
+2018/03/27 09:33:35 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity User1@louvre.fr
+2018/03/27 09:33:35 [DEBUG] DB: Add identity User1@louvre.fr
+2018/03/27 09:33:35 [DEBUG] Successfully added identity User1@louvre.fr to the database
+2018/03/27 09:33:35 [INFO] 127.0.0.1:43434 POST /register 201 0 "OK"
+2018/03/27 09:33:35 [DEBUG] Received request for /enroll
+2018/03/27 09:33:35 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2770 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d4f60 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de060 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity User1@louvre.fr
+2018/03/27 09:33:35 [DEBUG] DB: Login user User1@louvre.fr with max enrollments of -1 and state of 0
+2018/03/27 09:33:35 [DEBUG] DB: identity User1@louvre.fr successfully logged in
+2018/03/27 09:33:35 [DEBUG] Processing sign request: id=User1@louvre.fr, CommonName=User1@louvre.fr, Subject=<nil>
+2018/03/27 09:33:35 [DEBUG] Request is not for a CA signing certificate
+2018/03/27 09:33:35 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity User1@louvre.fr
+2018/03/27 09:33:35 [DEBUG] Finished processing sign request
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity User1@louvre.fr
+2018/03/27 09:33:35 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a225573657231406c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
+2018/03/27 09:33:35 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a225573657231406c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
+2018/03/27 09:33:35 [INFO] signed certificate with serial number 285218451809156072387704559156974693523484178535
+2018/03/27 09:33:35 [DEBUG] DB: Insert Certificate
+2018/03/27 09:33:35 [DEBUG] Saved serial number as hex 31f5a341213e25785662456c040db9bb0875f867
+2018/03/27 09:33:35 [DEBUG] saved certificate with serial number 285218451809156072387704559156974693523484178535
+2018/03/27 09:33:35 [DEBUG] Successfully incremented state for identity User1@louvre.fr to 1
+2018/03/27 09:33:35 [INFO] 127.0.0.1:43436 POST /enroll 201 0 "OK"
+2018/03/27 09:33:35 [DEBUG] Received request for /enroll
+2018/03/27 09:33:35 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2770 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d4f60 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de060 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 2
+2018/03/27 09:33:35 [DEBUG] DB: identity admin successfully logged in
+2018/03/27 09:33:35 [DEBUG] Processing sign request: id=admin, CommonName=admin, Subject=<nil>
+2018/03/27 09:33:35 [DEBUG] Request is not for a CA signing certificate
+2018/03/27 09:33:35 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [DEBUG] Finished processing sign request
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [INFO] signed certificate with serial number 73568985012795332031084671802310918445261538284
+2018/03/27 09:33:35 [DEBUG] DB: Insert Certificate
+2018/03/27 09:33:35 [DEBUG] Saved serial number as hex ce2f287b217d4867e2b899dc0e74394949643ec
+2018/03/27 09:33:35 [DEBUG] saved certificate with serial number 73568985012795332031084671802310918445261538284
+2018/03/27 09:33:35 [DEBUG] Successfully incremented state for identity admin to 3
+2018/03/27 09:33:35 [INFO] 127.0.0.1:43438 POST /enroll 201 0 "OK"
+2018/03/27 09:33:35 [DEBUG] Received request for /register
+2018/03/27 09:33:35 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2018/03/27 09:33:35 [DEBUG] DB: Get certificate by serial (76f879b9101e63e45c8ca02f4b69ad228ec84471) and aki (85a21313f458e54286689ed67ead5fee554bf1a8)
+2018/03/27 09:33:35 [DEBUG] Successful token authentication of 'admin'
+2018/03/27 09:33:35 [DEBUG] Received registration request from admin: { Name:peer0.louvre.fr Type:user Secret:**** MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:  }
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:35 [DEBUG] canRegister - Check to see if user 'admin' can register
+2018/03/27 09:33:35 [DEBUG] Checking to see if caller 'admin' is a registrar
+2018/03/27 09:33:35 [DEBUG] Validate Affiliation
+2018/03/27 09:33:35 [DEBUG] Checking to see if affiliation 'org1' contains caller's affiliation ''
+2018/03/27 09:33:35 [DEBUG] Caller has root affiliation
+2018/03/27 09:33:35 [DEBUG] Validate ID
+2018/03/27 09:33:35 [DEBUG] Validating affiliation: org1
+2018/03/27 09:33:35 [DEBUG] DB: Get affiliation org1
+2018/03/27 09:33:35 [DEBUG] Registering user id: peer0.louvre.fr
+2018/03/27 09:33:35 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity peer0.louvre.fr
+2018/03/27 09:33:35 [DEBUG] DB: Add identity peer0.louvre.fr
+2018/03/27 09:33:35 [DEBUG] Successfully added identity peer0.louvre.fr to the database
+2018/03/27 09:33:35 [INFO] 127.0.0.1:43440 POST /register 201 0 "OK"
+2018/03/27 09:33:35 [DEBUG] Received request for /enroll
+2018/03/27 09:33:35 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2770 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d4f60 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de060 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity peer0.louvre.fr
+2018/03/27 09:33:35 [DEBUG] DB: Login user peer0.louvre.fr with max enrollments of -1 and state of 0
+2018/03/27 09:33:35 [DEBUG] DB: identity peer0.louvre.fr successfully logged in
+2018/03/27 09:33:35 [DEBUG] Processing sign request: id=peer0.louvre.fr, CommonName=peer0.louvre.fr, Subject=<nil>
+2018/03/27 09:33:35 [DEBUG] Request is not for a CA signing certificate
+2018/03/27 09:33:35 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity peer0.louvre.fr
+2018/03/27 09:33:35 [DEBUG] Finished processing sign request
+2018/03/27 09:33:35 [DEBUG] DB: Getting identity peer0.louvre.fr
+2018/03/27 09:33:35 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a2270656572302e6c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
+2018/03/27 09:33:35 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a2270656572302e6c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
+2018/03/27 09:33:35 [INFO] signed certificate with serial number 91760375946289801586268409155883202491279142994
+2018/03/27 09:33:35 [DEBUG] DB: Insert Certificate
+2018/03/27 09:33:35 [DEBUG] Saved serial number as hex 1012ad74e2aefa29ff070f81877e86ef689af052
+2018/03/27 09:33:35 [DEBUG] saved certificate with serial number 91760375946289801586268409155883202491279142994
+2018/03/27 09:33:36 [DEBUG] Successfully incremented state for identity peer0.louvre.fr to 1
+2018/03/27 09:33:36 [INFO] 127.0.0.1:43442 POST /enroll 201 0 "OK"
+2018/03/27 09:33:36 [DEBUG] Received request for /enroll
+2018/03/27 09:33:36 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2770 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d4f60 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de060 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/03/27 09:33:36 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:36 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 3
+2018/03/27 09:33:36 [DEBUG] DB: identity admin successfully logged in
+2018/03/27 09:33:36 [DEBUG] Processing sign request: id=admin, CommonName=admin, Subject=<nil>
+2018/03/27 09:33:36 [DEBUG] Request is not for a CA signing certificate
+2018/03/27 09:33:36 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/03/27 09:33:36 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:36 [DEBUG] Finished processing sign request
+2018/03/27 09:33:36 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:36 [INFO] signed certificate with serial number 203823938183653951365791192625642976964458656828
+2018/03/27 09:33:36 [DEBUG] DB: Insert Certificate
+2018/03/27 09:33:36 [DEBUG] Saved serial number as hex 23b3c80fbe3b348d86854687d5f245601f75343c
+2018/03/27 09:33:36 [DEBUG] saved certificate with serial number 203823938183653951365791192625642976964458656828
+2018/03/27 09:33:36 [DEBUG] Successfully incremented state for identity admin to 4
+2018/03/27 09:33:36 [INFO] 127.0.0.1:43444 POST /enroll 201 0 "OK"
+2018/03/27 09:33:36 [DEBUG] Received request for /register
+2018/03/27 09:33:36 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2018/03/27 09:33:36 [DEBUG] DB: Get certificate by serial (76f879b9101e63e45c8ca02f4b69ad228ec84471) and aki (85a21313f458e54286689ed67ead5fee554bf1a8)
+2018/03/27 09:33:36 [DEBUG] Successful token authentication of 'admin'
+2018/03/27 09:33:36 [DEBUG] Received registration request from admin: { Name:peer1.louvre.fr Type:user Secret:**** MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:  }
+2018/03/27 09:33:36 [DEBUG] DB: Getting identity admin
+2018/03/27 09:33:36 [DEBUG] canRegister - Check to see if user 'admin' can register
+2018/03/27 09:33:36 [DEBUG] Checking to see if caller 'admin' is a registrar
+2018/03/27 09:33:36 [DEBUG] Validate Affiliation
+2018/03/27 09:33:36 [DEBUG] Checking to see if affiliation 'org1' contains caller's affiliation ''
+2018/03/27 09:33:36 [DEBUG] Caller has root affiliation
+2018/03/27 09:33:36 [DEBUG] Validate ID
+2018/03/27 09:33:36 [DEBUG] Validating affiliation: org1
+2018/03/27 09:33:36 [DEBUG] DB: Get affiliation org1
+2018/03/27 09:33:36 [DEBUG] Registering user id: peer1.louvre.fr
+2018/03/27 09:33:36 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
+2018/03/27 09:33:36 [DEBUG] DB: Getting identity peer1.louvre.fr
+2018/03/27 09:33:36 [DEBUG] DB: Add identity peer1.louvre.fr
+2018/03/27 09:33:36 [DEBUG] Successfully added identity peer1.louvre.fr to the database
+2018/03/27 09:33:36 [INFO] 127.0.0.1:43446 POST /register 201 0 "OK"
+2018/03/27 09:33:36 [DEBUG] Received request for /enroll
+2018/03/27 09:33:36 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-d536f5a Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-key.pem Certfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-cert.pem Chainfile:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/ca-chain.pem} Signing:0xc4202d2770 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu localhost] KeyRequest:0xc4202e2f20 CA:0xc4202d4f60 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/peerOrganizations/louvre.fr/ca/root/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc4202de060 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/03/27 09:33:36 [DEBUG] DB: Getting identity peer1.louvre.fr
+2018/03/27 09:33:36 [DEBUG] DB: Login user peer1.louvre.fr with max enrollments of -1 and state of 0
+2018/03/27 09:33:36 [DEBUG] DB: identity peer1.louvre.fr successfully logged in
+2018/03/27 09:33:36 [DEBUG] Processing sign request: id=peer1.louvre.fr, CommonName=peer1.louvre.fr, Subject=<nil>
+2018/03/27 09:33:36 [DEBUG] Request is not for a CA signing certificate
+2018/03/27 09:33:36 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/03/27 09:33:36 [DEBUG] DB: Getting identity peer1.louvre.fr
+2018/03/27 09:33:36 [DEBUG] Finished processing sign request
+2018/03/27 09:33:36 [DEBUG] DB: Getting identity peer1.louvre.fr
+2018/03/27 09:33:36 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a2270656572312e6c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
+2018/03/27 09:33:36 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a226f726731222c2268662e456e726f6c6c6d656e744944223a2270656572312e6c6f757672652e6672222c2268662e54797065223a2275736572227d7d}
+2018/03/27 09:33:36 [INFO] signed certificate with serial number 559288173077087371483279112977428174532604932252
+2018/03/27 09:33:36 [DEBUG] DB: Insert Certificate
+2018/03/27 09:33:36 [DEBUG] Saved serial number as hex 61f7595bd5a75cb8272dcaa4c9aaa9c02f6d309c
+2018/03/27 09:33:36 [DEBUG] saved certificate with serial number 559288173077087371483279112977428174532604932252
+2018/03/27 09:33:36 [DEBUG] Successfully incremented state for identity peer1.louvre.fr to 1
+2018/03/27 09:33:36 [INFO] 127.0.0.1:43448 POST /enroll 201 0 "OK"
+2018/03/27 09:33:36 [DEBUG] Received request for /cainfo
+2018/03/27 09:33:36 [INFO] 127.0.0.1:43450 POST /cainfo 200 0 "OK"
