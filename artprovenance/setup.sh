@@ -25,15 +25,11 @@ function withTLS {
 		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
 }
 
-# function testChainCode {
-# 	# peer chaincode invoke -n artmanager -v 0 -c '{"Args":["addNewArtifact", "EGYMUSEUM", "ARTID1234", "Sphinx"]}' -C mainchannel -o orderer0.art.ifar.org:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
-# 	# peer chaincode query -n artmanager -v 0 -c '{"Args":["queryArtifactDetails", "EGYMUSEUM", "ARTID1234"]}' -C mainchannel -o orderer0.art.ifar.org:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
-# }
 
 function withOutTLS {
 	# sleep 10
-		#Setup with tls
+		#Setup without tls
 		echo "########egyptianmuseum peer"
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -o orderer0.art.ifar.org:7050 -c mainchannel -f MainChannel.tx'
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
@@ -51,41 +47,30 @@ function withOutTLS {
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer0.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx'
 		docker exec cli1.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli1.louvre.fr bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
+
 		# echo "########bauhaus peer"
 		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
-		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
+		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx'
 }
 
+# The following is a test script for the artifact transfer chain code
+# TODO: automate the test script
 
-# function testChainCode {
-#   # To test chain code excute the following test script:
-#	# get the bash of container cli0.egyptianmuseum.org 
-	`docker exec -it cli0.egyptianmuseum.org bash`
+#1. get the bash of container cli0.egyptianmuseum.org 
+#`docker exec -it cli0.egyptianmuseum.org bash`
 
-# The following command will add a new artifact with ["oldest book","The Oldest Intact European Book","owned", "british library"]
-`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["create","oldest book","The Oldest Intact European Book","owned", "british library"]}'`
+#2. add a new artifact with ["oldest book","The Oldest Intact European Book","owned", "british library"]
+#`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["create","oldest book","The Oldest Intact European Book","owned", "british library"]}'`
 
-# The following command will change owner ["oldest book","german library"]
-`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["transferOwner","oldest book","german library"]}'`
+#3. change owner of the oldest book from the british library to the greman library ["oldest book","german library"]
+#`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["transferOwner","oldest book","german library"]}'`
 
-# The following command will change owner ["oldest book","german library"]
-`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["setStatus","oldest book","stolen"]}'`
+#4. change status of the oldest book from owned to stolen ["oldest book","stolen"]
+#`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["setStatus","oldest book","stolen"]}'`
 
-#	# The following command will query the chaincode for(OwnerOrg : EGYMUSEUM && Artifact ID : ARTID1234) 
-#	# to return (available quantity, creation time) 
-# 	# peer chaincode query -n artmanager -v 0 -c '{"Args":["queryArtifactDetails", "EGYMUSEUM", "ARTID1234"]}' -C mainchannel -o orderer0.art.ifar.org:7050
-#	# check the result
-#	# chaincodeInvokeOrQuery -> INFO 00b Chaincode invoke successful. result: status:200 payload:"artifact {EGYMUSEUM ARTID1234 Sphinx 2018-03-27 19:20:25.097034401 +0000 UTC} added" 
+#5. read artifact details ["oldest book"]
+#`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["read","oldest book"]}'`
 
-#	# The following command will query the chaincode for(OwnerOrg : FRMUSEUM && Artifact ID : ARTID1234) 
-#	# to return (available quantity, creation time) 
-# 	# peer chaincode query -n artmanager -v 0 -c '{"Args":["queryArtifactDetails", "FRMUSEUM", "ARTID1234"]}' -C mainchannel -o orderer0.art.ifar.org:7050
-#	# check the result
-#	# chaincodeInvokeOrQuery -> INFO 00b Chaincode invoke successful. result: status:200 payload:"artifact {EGYMUSEUM ARTID1234 Sphinx 2018-03-27 19:20:25.097034401 +0000 UTC} added" 
-
-#	# the following command will transfer artifact from one org to another
-transferArtifact
-# }
 
 function main {
 
@@ -102,7 +87,6 @@ function main {
 		./crypto.sh
 		# cd config
 		sleep 1
-		echo "########################################################"
 		echo "========================DONE============================"
 		echo "########################################################"
 		echo "Creating folders:"
@@ -112,7 +96,6 @@ function main {
 		mkdir -p -v ./artifacts/orderer
 		mkdir -p -v ./artifacts/channels
 		mkdir -p -v ./logs
-		echo "########################################################"
 		echo "========================DONE============================"
 		cd config
 		# echo "########################################################"
@@ -121,14 +104,11 @@ function main {
 		# cryptogen generate --config=crypto-config.yaml
 		echo "Defaulting FABRIC_CFG_PATH to ${PWD}"
 	    export FABRIC_CFG_PATH=./
-		echo "#################################"
 		echo "####Generating Genesis Block#####"
 		echo "#################################"
 		../bin/configtxgen -profile ArtProvenanceOrdererGenesis -outputBlock ../artifacts/orderer/genesis.block
 		sleep 1
-		echo "########################################################"
 		echo "========================DONE============================"
-		echo "########################################################"
 		echo "###################Generating Channels##################"
 		echo "########################################################"
 		echo "generating channel 'mainchannel'"
@@ -151,4 +131,4 @@ function main {
 		
 }
 
-main | tee logs/setup.log
+main
