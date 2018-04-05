@@ -1,0 +1,13 @@
+{
+   "name": "EGArtAdmin",
+   "mspid": "EGArtMSP",
+   "roles": null,
+   "affiliation": "",
+   "enrollmentSecret": "",
+   "enrollment": {
+      "signingIdentity": "",
+      "identity": {
+         "certificate": ""
+      }
+   }
+}
