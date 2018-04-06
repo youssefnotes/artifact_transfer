@@ -20,3 +20,24 @@ The repository contains sample POC for different Hyperledger Fabric Components
 
 To setup for firt time use `./setup.sh` or excute the commands manually according to your envirnoment.
 
+### The following is a test script for the artifact transfer chaincode
+### TODO: automate the test script
+
+1. get the bash of container cli0.egyptianmuseum.org 
+`docker exec -it cli0.egyptianmuseum.org bash`
+
+2. add a new artifact with ["oldest book","The Oldest Intact European Book","owned", "british library"]
+`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["create","oldest book","The Oldest Intact European Book","owned", "british library"]}'`
+
+3. change owner of the oldest book from the british library to the greman library ["oldest book","german library"]
+`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["transferOwner","oldest book","german library"]}'`
+
+4. change status of the oldest book from owned to stolen ["oldest book","stolen"]
+`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["setStatus","oldest book","stolen"]}'`
+
+5. read artifact details ["oldest book"]
+`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["read","oldest book"]}'`
+
+###Client app
+
+`curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","create","oldest book","The Oldest Intact European Book","owned", "british library"]}'`
