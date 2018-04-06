@@ -37,23 +37,23 @@ function withOutTLS {
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer0.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx'
 		docker exec cli1.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli1.egyptianmuseum.org bash -c 'peer channel list'
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
+		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artifact_transfer -n artifact_transfer -v 0'
-		docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer0.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{\"Args\":[\"\"]}'"
+		# docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer0.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{\"Args\":[\"\"]}'"
 		docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer0.art.ifar.org:7050 -C mainchannel -n artifact_transfer -v 0 -c '{\"Args\":[\"\"]}'"
 		
 		echo "########louvre peer"
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer0.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx'
 		docker exec cli1.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli1.louvre.fr bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
-
+		# docker exec cli1.louvre.fr bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
+		docker exec cli1.louvre.fr bash -c 'cd channels && peer chaincode install -p chaincode/artifact_transfer -n artifact_transfer -v 0'
 		# echo "########bauhaus peer"
 		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
 		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx'
 }
 
-# The following is a test script for the artifact transfer chain code
+# The following is a test script for the artifact transfer chaincode
 # TODO: automate the test script
 
 #1. get the bash of container cli0.egyptianmuseum.org 

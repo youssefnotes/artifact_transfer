@@ -12,28 +12,33 @@ const enrollUser = function (client, options) {
 };
 
 
-const initNetwork = function (client, options, target) {
+const initNetwork = function(client, options, target) {
     let channel;
     try {
         channel = client.newChannel(options.channel_id);
         const peer = client.newPeer(options.peer_url);
         target.push(peer);
         channel.addPeer(peer);
-        channel.addOrderer(client.newOrderer((options.orderer_url)));
-    } catch (e) {
+        channel.addOrderer(client.newOrderer(options.orderer_url));
+    } catch(e) { // channel already exists
         channel = client.getChannel(options.channel_id);
     }
-    return channel
+    return channel;
 };
 
-const transactionProposal = function (client, channel, request) {
-    request.tx_id = client.newTransactionID();
+const transactionProposal = function(client, channel, request) {
+    request.txId = client.newTransactionID();
     return channel.sendTransactionProposal(request);
 };
 
 const responseInspect = function (results) {
-    if (results[0] && results[0].length > 0 &&
-        results[0][0].response && results[0][0].response.status === 200) {
+    const proposalResponses = results[0];
+    const proposal = results[1];
+    const header = results[2];
+
+    if (proposalResponses && proposalResponses.length > 0 &&
+        proposalResponses[0].response &&
+        proposalResponses[0].response.status === 200) {
         return true;
     }
     return false;
@@ -83,7 +88,7 @@ function invoke(opt, param) {
 
 const options = {
     egyptianmuseum: {
-        wallet_path: './certs',
+        wallet_path: '/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/app/certs/',
         user_id: 'EGArtAdmin',
         channel_id: 'mainchannel',
         chaincode_id: 'artifact_transfer',
@@ -98,6 +103,7 @@ const app = express();
 const http = require("http");
 const bodyParser = require("body-parser");
 
+
 const server = http.createServer(app).listen(4000, function () {
 });
 
@@ -105,6 +111,8 @@ app.use(bodyParser.json());
 
 app.post('/invoke', function (req, res, next) {
     const args = req.body.args;
+    console.log("args[0]" + args[0]);
+    console.log("args.slice(1)" + args.slice(1));
     invoke(options[args[0]], args.slice(1))
         .then(() => {
             res.send("Chaincode invoked")
