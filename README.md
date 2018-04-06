@@ -38,6 +38,9 @@ To setup for firt time use `./setup.sh` or excute the commands manually accordin
 5. read artifact details ["oldest book"]
 `peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["read","oldest book"]}'`
 
+### storing the keys
+`cp -a .hfc-key-store/ ~/.hfc-key-store`
+
 ###Client app
 
 `curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","create","oldest book","The Oldest Intact European Book","owned", "british library"]}'`
