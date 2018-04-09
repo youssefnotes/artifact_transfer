@@ -1,53 +1,34 @@
 #!/bin/bash
 
-function withTLS {
-	# sleep 10
-		export ORDERER_CA=/var/hyperledger/crypto/orderer/msp/tlscacerts/tlsca.art.ifar.org-cert.pem
-		#Setup with tls
-		echo "########egyptianmuseum peer"
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -o orderer0.art.ifar.org:7050 -c mainchannel -f MainChannel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA --timeout 30'
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli0.egyptianmuseum.org bash -c 'peer channel list'
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer0.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
-		docker exec cli1.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli1.egyptianmuseum.org bash -c 'peer channel list'
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
-		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artifact_transfer -v 0'
-		docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer0.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{\"Args\":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA"
-		docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer0.art.ifar.org:7050 -C mainchannel -n artifact_transfer -v 0 -c '{\"Args\":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA"
-
-		echo "########louvre peer"
-		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
-		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer0.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
-		docker exec cli1.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
-		# echo "########bauhaus peer"
-		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
-		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
-}
-
-
-
 function withOutTLS {
 	# sleep 10
 		#Setup without tls
 		echo "########egyptianmuseum peer"
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -o orderer0.art.ifar.org:7050 -c mainchannel -f MainChannel.tx'
+		sleep 5s
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
+		sleep 5s
 		docker exec cli0.egyptianmuseum.org bash -c 'peer channel list'
+		sleep 5s
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer0.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx'
+		sleep 5s
 		docker exec cli1.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
+		sleep 5s
 		docker exec cli1.egyptianmuseum.org bash -c 'peer channel list'
-		# docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
+		sleep 5s
 		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artifact_transfer -n artifact_transfer -v 0'
-		# docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer0.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{\"Args\":[\"\"]}'"
+		sleep 5s
 		docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer0.art.ifar.org:7050 -C mainchannel -n artifact_transfer -v 0 -c '{\"Args\":[\"\"]}'"
-		
+		sleep 5s
 		echo "########louvre peer"
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
+		sleep 5s
 		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer0.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx'
+		sleep 5s
 		docker exec cli1.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
-		# docker exec cli1.louvre.fr bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
+		sleep 5s
 		docker exec cli1.louvre.fr bash -c 'cd channels && peer chaincode install -p chaincode/artifact_transfer -n artifact_transfer -v 0'
+		sleep 5s
 		# echo "########bauhaus peer"
 		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
 		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx'
@@ -71,9 +52,14 @@ function withOutTLS {
 #5. read artifact details ["oldest book"]
 #`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["read","oldest book"]}'`
 
+#6. get the bash of container cli1.louvre.fr 
+#`docker exec -it cli1.louvre.fr bash`
+
+#7. read artifact details ["oldest book"]; status should be stolen
+#`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["read","oldest book"]}'`
+
 
 function main {
-
 
 		#cleaning old directories
 		# ./clean.sh
@@ -120,8 +106,19 @@ function main {
 		# echo "updating anchrpeer for DEArt"
 		# configtxgen -profile MainChannel -outputAnchorPeersUpdate ../artifacts/channels/DEArtMSPanchors.tx -channelID mainchannel -asOrg DEArtMSP
 		cd ..
-		# Todo: save output of compose as log
-		docker-compose --project-name art -f docker-compose-provenance.yaml up
+		# TODO: save output of compose as log
+		
+		# start containers in detached mode
+		COMPOSE_HTTP_TIMEOUT=200 && docker-compose --project-name art -f docker-compose-provenance.yaml up -d
+
+		sleep 5s
+		# generate/join channels/deploy chanincode
+		withOutTLS
+
+		sleep 2s
+		# attach back to container logs
+		docker-compose --project-name art -f docker-compose-provenance.yaml logs -f
+
 		# execute setup steps with TLS
 		# CONTAINER_IDS=$(docker ps -aq)
 		# withTLS
@@ -132,3 +129,30 @@ function main {
 }
 
 main
+
+
+# TODO: USE TLS
+function withTLS {
+	# sleep 10
+		export ORDERER_CA=/var/hyperledger/crypto/orderer/msp/tlscacerts/tlsca.art.ifar.org-cert.pem
+		#Setup with tls
+		echo "########egyptianmuseum peer"
+		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel create -o orderer0.art.ifar.org:7050 -c mainchannel -f MainChannel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA --timeout 30'
+		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
+		docker exec cli0.egyptianmuseum.org bash -c 'peer channel list'
+		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer channel update -o orderer0.art.ifar.org:7050 -c mainchannel -f EGArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
+		docker exec cli1.egyptianmuseum.org bash -c 'cd channels && peer channel join -b mainchannel.block'
+		docker exec cli1.egyptianmuseum.org bash -c 'peer channel list'
+		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artmanager -v 0'
+		docker exec cli0.egyptianmuseum.org bash -c 'cd channels && peer chaincode install -p chaincode/artmanager -n artifact_transfer -v 0'
+		docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer0.art.ifar.org:7050 -C mainchannel -n artmanager -v 0 -c '{\"Args\":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA"
+		docker exec cli0.egyptianmuseum.org bash -c "cd channels && peer chaincode instantiate -o orderer0.art.ifar.org:7050 -C mainchannel -n artifact_transfer -v 0 -c '{\"Args\":[""]}' --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA"
+
+		echo "########louvre peer"
+		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
+		docker exec cli0.louvre.fr bash -c 'cd channels && peer channel update -o orderer0.art.ifar.org:7050 -c mainchannel -f FRArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
+		docker exec cli1.louvre.fr bash -c 'cd channels && peer channel join -b mainchannel.block'
+		# echo "########bauhaus peer"
+		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel join -b mainchannel.block'
+		# docker exec cli0.bauhaus.de bash -c 'cd channels && peer channel update -o orderer.art.ifar.org:7050 -c mainchannel -f DEArtMSPanchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA'
+}
