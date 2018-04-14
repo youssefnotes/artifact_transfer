@@ -1,0 +1,22 @@
+2018/04/14 13:27:39 [DEBUG] Home directory: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/users/rootAdmin
+2018/04/14 13:27:39 [INFO] Configuration file location: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/users/rootAdmin/fabric-ca-client-config.yaml
+2018/04/14 13:27:39 [DEBUG] Checking for enrollment
+2018/04/14 13:27:39 [DEBUG] Initializing client with config: &{URL:http://localhost:7100 MSPDir:msp TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  } CSR:{CN:admin Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name:orderer2.art.ifar.org Type:user Secret:secret MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc4201ec630}
+2018/04/14 13:27:39 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc4201ec690 PluginOpts:<nil> Pkcs11Opts:<nil>}
+2018/04/14 13:27:39 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4201f01f0 DummyKeystore:<nil>}
+2018/04/14 13:27:39 [DEBUG] Client configuration settings: &{URL:http://localhost:7100 MSPDir:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/users/rootAdmin/msp TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  } CSR:{CN:admin Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name:orderer2.art.ifar.org Type:user Secret:secret MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc4201ec630}
+2018/04/14 13:27:39 [DEBUG] Entered runRegister
+2018/04/14 13:27:39 [DEBUG] Initializing client with config: &{URL:http://localhost:7100 MSPDir:/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/users/rootAdmin/msp TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  } CSR:{CN:admin Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ubuntu] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name:orderer2.art.ifar.org Type:user Secret:secret MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc4201ec630}
+2018/04/14 13:27:39 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc4201ec690 PluginOpts:<nil> Pkcs11Opts:<nil>}
+2018/04/14 13:27:39 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4201f01f0 DummyKeystore:<nil>}
+2018/04/14 13:27:39 [DEBUG] Loading identity: keyFile=/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/users/rootAdmin/msp/keystore/key.pem, certFile=/home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/users/rootAdmin/msp/signcerts/cert.pem
+2018/04/14 13:27:39 [DEBUG] Register { Name:orderer2.art.ifar.org Type:user Secret:**** MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:  }
+2018/04/14 13:27:39 [DEBUG] Adding token-based authorization header
+2018/04/14 13:27:39 [DEBUG] Sending request
+POST http://localhost:7100/register
+{"id":"orderer2.art.ifar.org","type":"user","secret":"secret","affiliation":"org1"}
+2018/04/14 13:27:39 [DEBUG] Received response
+statusCode=201 (201 Created)
+2018/04/14 13:27:39 [DEBUG] Response body result: map[secret:secret]
+2018/04/14 13:27:39 [DEBUG] The register request completed successfully
+Password: secret

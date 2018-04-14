@@ -43,4 +43,7 @@ To setup for firt time use `./setup.sh` or excute the commands manually accordin
 
 ###Client app
 
-`curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","create","oldest book","The Oldest Intact European Book","owned", "british library"]}'`
+`curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","Crook","Symbol of pharaonic power. Symbol of the god Osiris","owned", "Egyptian Museum"]}'`
+`curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","Amulet","Predynastic, and onward","owned", "Egyptian Museum"]}'`
+`curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","Senet","A board game","owned", "Egyptian Museum"]}'`
+`curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","Benben stone","the top stone of the Egyptian pyramid",,"owned", "Egyptian Museum"]}'`

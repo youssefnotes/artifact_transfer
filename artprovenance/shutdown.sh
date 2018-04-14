@@ -17,9 +17,11 @@ function main {
 	echo "############################################################"
 	echo "##Deleting directories : artifacts, config/crypto-config###"
 	echo "############################################################"
-	rm -fdr /artifacts/channels
-	rm -fdr /artifacts/orderer
-	rm -fdr config/crypto-config
+	rm -fdr ./artifacts/channels
+	rm -fdr ./artifacts/orderer
+	rm -fdr ./config/crypto-config
+	rm -fdr ./app/certs
+	rm -fdr ~/.hfc-key-store
 	rm -fdr logs
 }
 main

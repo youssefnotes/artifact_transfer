@@ -243,7 +243,7 @@ services:
     # - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/ca.bauhaus
     # HOST_PORT:CONTAINER_PORT
     ports:
-      - '7050'
+      - "7050:7050"
     depends_on:
       - ca.egyptianmuseum
       - ca.louvre
@@ -297,7 +297,7 @@ services:
     # - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/ca.bauhaus
     # HOST_PORT:CONTAINER_PORT
     ports:
-      - '7050'
+      - "8050:7050"
     depends_on:
       - ca.egyptianmuseum
       - ca.louvre
@@ -350,7 +350,7 @@ services:
     # - ./config/crypto-config/peerOrganizations/bauhaus.de/ca/root/:/var/hyperledger/crypto/ca.bauhaus
     # HOST_PORT:CONTAINER_PORT
     ports:
-      - '7050'
+      - "9050:7050"
     depends_on:
       - ca.egyptianmuseum
       - ca.louvre

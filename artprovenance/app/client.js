@@ -88,7 +88,7 @@ function invoke(opt, param) {
 
 const options = {
     egyptianmuseum: {
-        wallet_path: './certs/',
+        wallet_path: './certs',
         user_id: 'EGArtAdmin',
         channel_id: 'mainchannel',
         chaincode_id: 'artifact_transfer',
