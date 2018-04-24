@@ -1,49 +1,42 @@
 # HyperledgerProjects
 
-The repository contains sample POC for different Hyperledger Fabric Components
+The repository contains a POC for using different Hyperledger Fabric Components
 
 ## Folder Strucutre
 
-- use case : sample use case for an Art Forgery Network
+- use case : sample use case for an Art Forgery/Artifact Transfer Network
 - artprovenance : contains the HLF related network configuration files
 - decentralization : contains answers to decentralization section
 - guides: containes steps to execute run the network & use of configtxlator to extend the network
 
+### The `master` & `client_app` branches has the complete working poc
 
-###Using Kafka.
+> Covering Kafka/Nodejs client SDK/Chain code
 
 **_Network topology_**
 - 3 Orderers
 - 3 Zookeepers
 - 4 Kafka brokers
 
+### The [guides][guides/] section covers:
+1. Artifact Transfer test Script
+2. How to generate client app ceertificates
+3. How to use CONFIGTXLATOR to ass a new org
+
+### A working chain code example is available [here][/artprovenance/artifact/chaincode/artifact_transfer]
 
 To setup for firt time use `./setup.sh` or excute the commands manually according to your envirnoment.
 
-### The following is a test script for the artifact transfer chaincode
-### TODO: automate the test script
+### The [runTestScript.sh][/artprovenance/runTestScript] is semi-automated test script for the artifact transfer chaincode
 
-1. get the bash of container cli0.egyptianmuseum.org 
-`docker exec -it cli0.egyptianmuseum.org bash`
-
-2. add a new artifact with ["oldest book","The Oldest Intact European Book","owned", "british library"]
-`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["create","oldest book","The Oldest Intact European Book","owned", "british library"]}'`
-
-3. change owner of the oldest book from the british library to the greman library ["oldest book","german library"]
-`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["transferOwner","oldest book","german library"]}'`
-
-4. change status of the oldest book from owned to stolen ["oldest book","stolen"]
-`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["setStatus","oldest book","stolen"]}'`
-
-5. read artifact details ["oldest book"]
-`peer chaincode invoke -C mainchannel -n artifact_transfer -v 0 -o orderer0.art.ifar.org:7050 -c '{"Args":["read","oldest book"]}'`
-
-### storing the keys
+### Storing the keys
 `cp -a .hfc-key-store/ ~/.hfc-key-store`
 
-###Client app
+### Client App Test script
+
+> the follwoing will trigger create function
 
 `curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","Crook","Symbol of pharaonic power. Symbol of the god Osiris","owned", "Egyptian Museum"]}'`
 `curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","Amulet","Predynastic, and onward","owned", "Egyptian Museum"]}'`
 `curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","Senet","A board game","owned", "Egyptian Museum"]}'`
-`curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","Benben stone","the top stone of the Egyptian pyramid",,"owned", "Egyptian Museum"]}'`
+`curl -s -X POST  http://localhost:4000/invoke -H "content-type: application/json" -d '{"args":["egyptianmuseum","Benben stone","the top stone of the Egyptian pyramid", "owned", "Egyptian Museum"]}'`

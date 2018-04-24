@@ -1,3 +1,0 @@
-2018/04/14 13:27:39 [INFO] Configuration file location: /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/fabric-ca-client-config.yaml
-2018/04/14 13:27:39 [INFO] Stored root CA certificate at /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/msp/cacerts/localhost-7100.pem
-2018/04/14 13:27:39 [INFO] Stored intermediate CA certificates at /home/agiledeveloper/hyperledger/v1/HyperledgerProjects/artprovenance/config/crypto-config/ordererOrganizations/art.ifar.org/msp/intermediatecerts/localhost-7100.pem
